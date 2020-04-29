@@ -1,0 +1,94 @@
+main.gridWrap {
+  display: grid;
+  grid-gap: 0.5rem;
+  grid-template-areas:
+    'user news news chat'
+    'user events tasks chat';
+  padding: 1rem;
+  transition: width 2s;
+}
+
+@media (max-width: 1200px) {
+  main.gridWrap {
+    display: grid;
+    grid-template-areas:
+      'user news chat'
+      'events chat'
+      'tasks chat';
+  }
+}
+
+@media (max-width: 900px) {
+  main.gridWrap {
+    display: grid;
+    grid-template-areas:
+      'user news chat'
+      'user events chat'
+      'user tasks chat';
+  }
+}
+
+@media (max-width: 700px) {
+  main.gridWrap {
+    display: grid;
+    grid-template-areas:
+      'user user'
+      'news chat'
+      'events chat'
+      'tasks chat';
+  }
+}
+
+@media (max-width: 500px) {
+  main.gridWrap {
+    display: grid;
+    grid-template-areas:
+      'user'
+      'news'
+      'events'
+      'tasks'
+      'chat';
+  }
+}
+
+section.user,
+section.news,
+section.events,
+section.tasks,
+section.chat {
+  min-width: 160px;
+  min-height: 160px;
+}
+
+section.user {
+  grid-area: user;
+}
+
+section.news {
+  grid-area: news;
+}
+
+section.events {
+  grid-area: events;
+}
+
+section.tasks {
+  grid-area: tasks;
+}
+
+section.chat {
+  grid-area: chat;
+}
+
+.user .headflexRow,
+.news .headflexRow,
+.events .headflexRow,
+.tasks .headflexRow,
+.chat .headflexRow {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: baseline;
+}

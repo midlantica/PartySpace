@@ -1,0 +1,18 @@
+header,
+footer {
+  background: slategray;
+  padding: 0.25rem 1rem;
+  text-align: center;
+}
+
+.headWrap {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+header h1 {
+  color: white;
+  font-size: 1.5rem;
+  margin: 0;
+  text-align: left;
+}

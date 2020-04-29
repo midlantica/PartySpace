@@ -1,0 +1,47 @@
+/* Container for events */
+.events {
+   text-align: center;
+}
+
+/* List of events */
+.eventList {
+    overflow-y: scroll;
+    min-height: 12rem;
+    max-height: 14rem;
+}
+
+/* Event cards */
+.singleEvent {
+    border: 1px solid #e0e0e0;
+    border-radius: 0.2rem;
+    box-shadow: 0px 2px 10px -10px black;
+    padding: 1rem;
+    background: white;
+    margin: .5rem 0rem;
+    margin: 1rem;
+}
+
+.singleEvent:first-of-type {
+    background-color: lightgoldenrodyellow;
+    padding: 1rem;
+    margin: .4rem;
+    font-size: 125%;
+}
+
+/* Container for the event form */
+.eventFormContainer{
+    margin: 1rem auto;
+    max-width: 300px;
+}
+
+/* The event form itself */
+.addEventForm {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.event--form--item {
+    margin: .3rem auto;
+    width: 80%;
+}
