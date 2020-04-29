@@ -4,128 +4,54 @@ h3,
 h4,
 h5,
 h6 {
-  font-weight: 600;
-  margin-bottom: 0.3rem;
-  letter-spacing: 0ch;
-  color: var(--headColor);
-  text-align: left;
-  align-self: flex-start;
+  margin: 0 0 0.25rem;
+  color: var(--primary-dk);
+  font-family: 'Patua One', serif;
+  letter-spacing: 0.05ch;
 }
 
 h1 {
-  font-size: 1.5rem;
-  letter-spacing: 0ch;
-  text-align: left;
+  font-size: 125%;
 }
 
 h2 {
-  font-size: 1.25rem;
-  letter-spacing: 0ch;
-  text-align: left;
+  font-size: 115%;
 }
 
 h3 {
-  font-size: 1rem;
-  letter-spacing: 0ch;
-  text-align: left;
+  font-size: 110%;
 }
 
 h4 {
-  font-size: 0.85rem;
-  letter-spacing: 0ch;
-  text-align: left;
+  font-size: 100%;
 }
 
 h5 {
-  font-size: 0.75rem;
-  letter-spacing: 0ch;
-  text-align: left;
+  font-size: 90%;
 }
 
 h6 {
-  font-size: 0.65rem;
-  letter-spacing: 0ch;
-  text-align: left;
+  font-size: 85%;
 }
 
 p,
 ol,
 ul,
 li {
-  margin-top: 0;
-  margin-bottom: 0.3rem;
-  font-size: 0.85rem;
-  font-weight: 300;
-  letter-spacing: 0.05ch;
-  line-height: 1.5;
-  -webkit-font-smoothing: auto;
-}
-
-p.small {
-  font-size: small;
-}
-
-p.smaller {
-  font-size: smaller;
-}
-
-p.x-small {
-  font-size: x-small;
-}
-
-p.xx-small {
-  font-size: xx-small;
-}
-
-p.large {
-  font-size: large;
-}
-
-p.largeer {
-  font-size: larger;
-}
-
-p.x-large {
-  font-size: x-large;
-}
-
-p.xx-large {
-  font-size: xx-large;
-}
-
-h1:first-of-type,
-h2:first-of-type,
-h3:first-of-type,
-h4:first-of-type,
-h5:first-of-type,
-h6:first-of-type {
-  margin-top: 0;
+  font-size: 80%;
+  margin: 0 0 0.5rem;
 }
 
 p:first-of-type,
 ol:first-of-type,
 ul:first-of-type,
 li:first-of-type {
-  margin-top: 0;
+  margin-top: 0rem;
 }
 
 p:last-of-type,
 ol:last-of-type,
 ul:last-of-type,
 li:last-of-type {
-  margin-bottom: 0;
-}
-
-.user h1,
-.user h2,
-.news h1,
-.news h2,
-.events h1,
-.events h2,
-.tasks h1,
-.tasks h2,
-.chat h1,
-.chat h2 {
-  line-height: 1;
-  margin-bottom: 0.6rem;
+  margin-bottom: 0rem;
 }

@@ -1,0 +1,46 @@
+.btn-save {
+  float: right;
+}
+
+.form-control {
+  border: 0.03rem solid hsla(0, 0%, 50%, 0.5);
+}
+
+.form-control input {
+  background: var(--yellow50);
+}
+
+button.form-control,
+input.form-control,
+optgroup.form-control,
+select.form-control,
+textarea.form-control {
+  font-size: 80% !important;
+}
+
+label {
+  font-size: 80% !important;
+}
+
+.btn-primary {
+  color: white;
+  background-color: hsla(145, 100%, 40%, 0.7) !important;
+  border-color: hsla(0, 0%, 50%, 0.85) !important;
+  border: none;
+  outline: none;
+}
+
+.btn-primary:hover {
+  background-color: hsla(145, 100%, 40%, 1) !important;
+  border: none;
+}
+
+.form-control .outline-none:focus {
+  outline: none !important;
+  box-shadow: none;
+  border-color: var(--amber500);
+}
+
+.form-control:focus {
+  border-color: var(--amber500);
+}

@@ -1,0 +1,27 @@
+.mainContainer {
+  display: flex;
+  flex-direction: row;
+  /* padding: 0.75rem; */
+}
+
+.searchContainer {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  position: relative;
+}
+
+.dataContainer {
+  flex: 4;
+}
+
+.searchResults {
+  background: white;
+  padding: 0.5rem;
+  border: 1px solid rgb(220, 220, 220);
+  box-shadow: 0px 3px 4px -5px hsla(0, 0%, 0%, 0.5);
+  position: absolute;
+  width: 100%;
+  top: 73px;
+  z-index: 10;
+}

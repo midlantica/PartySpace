@@ -8,8 +8,9 @@
   --warning: #ffc107 !important;
   --danger: #dc3545 !important;
   --secondary: #6c757d !important;
+  --tertiary: rgb(137, 143, 146) !important;
   --muted: #6c757d !important;
   --light: #f8f9fa !important;
   --dark: #212529 !important;
   --transparent: transparent !important;
-  }
+}

@@ -7,7 +7,6 @@ h6 {
   font-weight: 600;
   margin-bottom: 0.3rem;
   letter-spacing: 0.03ch;
-  align-self: flex-start;
   line-height: 1.5;
 }
 
@@ -81,4 +80,36 @@ ol:last-of-type,
 ul:last-of-type,
 li:last-of-type {
   margin-bottom: 0;
+}
+
+.fs-small {
+  font-size: small;
+}
+
+.fs-smaller {
+  font-size: smaller;
+}
+
+.fs-x-small {
+  font-size: x-small;
+}
+
+.fs-xx-small {
+  font-size: xx-small;
+}
+
+.fs-large {
+  font-size: large;
+}
+
+.fs-largeer {
+  font-size: larger;
+}
+
+.fs-x-large {
+  font-size: x-large;
+}
+
+.fs-xx-large {
+  font-size: xx-large;
 }

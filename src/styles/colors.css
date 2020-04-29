@@ -1,7 +1,17 @@
+/* :root {
+  --white: white;
+  --black: hsl(0, 100%, 6%);
+  --primary: hsl(0, 100%, 88%) !important;
+  --primary-dk: hsl(0, 71%, 48%);
+  --primary-dkr: hsl(0, 78%, 30%);
+  --primary-lt: hsl(0, 100%, 97%);
+} */
+
 :root {
-  /* MAIN COLORS */
-  --black: hsl(190, 100%, 5%);
-  --white: hsl(0, 0%, 96%);
-  /*  */
-  --headColor: var(--teal700);
+  --white: white;
+  --black: hsl(0, 100%, 6%);
+  --primary: var(--deep-orange200) !important;
+  --primary-dk: var(--deep-orange500);
+  --primary-dkr: var(--deep-orange800);
+  --primary-lt: var(--deep-orange50);
 }

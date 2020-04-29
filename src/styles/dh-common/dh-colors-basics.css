@@ -1,61 +1,65 @@
 /* basic colors from Bootstrap */
 .muted {
-  color: var(--muted);
+  color: var(--muted) !important;
 }
 
 .primary {
-  color: var(--primary);
+  color: var(--primary) !important;
 }
 
 .success {
-  color: var(--success);
+  color: var(--success) !important;
 }
 
 .info {
-  color: var(--info);
+  color: var(--info) !important;
 }
 
 .warning {
-  color: var(--warning);
+  color: var(--warning) !important;
 }
 
 .danger {
-  color: var(--danger);
+  color: var(--danger) !important;
 }
 
 .secondary {
-  color: var(--secondary);
+  color: var(--secondary) !important;
 }
 
 /* backgrounds */
 .bg-primary {
-  background-color: var(--primary);
+  background-color: var(--primary) !important;
 }
 
 .bg-success {
-  background-color: var(--success);
+  background-color: var(--success) !important;
 }
 
 .bg-info {
-  background-color: var(--info);
+  background-color: var(--info) !important;
 }
 
 .bg-warning {
-  background-color: var(--warning);
+  background-color: var(--warning) !important;
 }
 
 .bg-danger {
-  background-color: var(--danger);
+  background-color: var(--danger) !important;
 }
 
 .bg-secondary {
-  background-color: var(--secondary);
+  background-color: var(--secondary) !important;
+}
+
+.bg-tertiary {
+  background-color: var(--tertiary) !important;
 }
 
 .bg-dark {
-  background-color: var(--dark);
+  background-color: var(--dark) !important;
 }
 
 .bg-light {
-  background-color: var(--light);
+  background-color: var(--light) !important;
 }
