@@ -31,8 +31,18 @@ header {
   grid-gap: 0 0.75rem;
 }
 
+header a {
+  cursor: pointer;
+  color: white;
+}
+
+header a:hover {
+  text-decoration: none;
+  color: rgb(235, 235, 235);
+}
+
 header .logo {
-  width: 3rem;
+  width: 2.2rem;
   /* height: 100%; */
 }
 
@@ -55,7 +65,7 @@ header h1 {
 }
 
 header h2 {
-  font-size: 1.25rem;
+  font-size: 1rem;
   font-weight: 600;
 }
 
@@ -66,4 +76,5 @@ footer h6 {
   color: white;
   margin-bottom: 0.3rem;
   line-height: 1;
+  font-size: 60%;
 }

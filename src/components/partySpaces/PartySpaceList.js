@@ -1,20 +1,23 @@
 import React, { useContext, useState, useEffect } from 'react'
 import { PartySpaceContext } from './PartySpaceProvider'
-import { VenueContext } from '../venues/VenueProvider'
 import { UserContext } from '../users/UserProvider'
 import { Button, Modal, ModalBody, ModalHeader } from 'reactstrap'
 import PartySpaceForm from './PartySpaceForm'
 import { PartySpace } from './PartySpace'
 
 export default () => {
+  const userId = parseInt(localStorage.getItem('partySpace_user'))
   const { partyspaces } = useContext(PartySpaceContext)
-  const { venues } = useContext(VenueContext)
   const { users } = useContext(UserContext)
 
   const [modal, setModal] = useState(false)
   const toggle = () => setModal(!modal)
 
   // const [filteredPartySpaces, setFiltered] = useState([])
+
+  const matchingPartySpaces = partyspaces.filter(
+    (partyspace) => userId === partyspace.userId
+  )
 
   return (
     <>
@@ -23,32 +26,20 @@ export default () => {
         <Button
           onClick={() => {
             // check if the user is authenticated
-            const userId = localStorage.getItem('partyspace_user')
             if (userId) {
-              // If the user is authenticated, show the animal form
+              // If the user is authenticated, show the PartySpace form
               toggle()
             }
           }}
           className='ps-button'
         >
-          &#65291; Add PartySpace{' '}
-          {/* <<-- &#65291; That's the unicode plus symbol +++ */}
+          &#65291; Add PartySpace
         </Button>
       </div>
 
-      <div className='gridSection animals'>
-        {partyspaces.map((partyspace) => {
-          const matchingPartySpace = partyspaces.map(
-            (usah) => usah.id === partyspace.userId
-          )
-
-          return (
-            <PartySpace
-              key={partyspaces.id}
-              partyspace={partyspace}
-              venue={matchingPartySpace}
-            />
-          )
+      <div className='gridSection partyspaces'>
+        {matchingPartySpaces.map((partyspace) => {
+          return <PartySpace key={partyspace.id} partyspace={partyspace} />
         })}
       </div>
 

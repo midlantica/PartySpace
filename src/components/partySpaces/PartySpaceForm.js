@@ -1,23 +1,24 @@
 import React, { useContext, useRef } from 'react'
-import { VenueContext } from '../venues/VenueProvider'
 import { PartySpaceContext } from './PartySpaceProvider'
 
 export default (props) => {
-  const { venues } = useContext(VenueContext)
   const { addPartySpace } = useContext(PartySpaceContext)
 
-  const name = useRef()
-  const venue = useRef()
+  const title = useRef()
+  const dateStart = useRef()
+  const timeStart = useRef()
+  const description = useRef()
 
   const constructNewPartySpace = () => {
     const userId = parseInt(localStorage.getItem('partySpace_user'))
     // create a new partySpace object
     // Make sure that the partySpace object has the userId and venueId foreign keys on it.
     const newPartySpaceObj = {
-      name: name.current.value,
+      title: title.current.value,
       dateStart: dateStart.current.value,
       timeStart: timeStart.current.value,
       description: description.current.value,
+      userId: userId,
     }
     console.log(newPartySpaceObj)
     // and save it to the API.
@@ -28,15 +29,15 @@ export default (props) => {
     <form className='partySpaceForm'>
       <fieldset>
         <div className='form-group'>
-          <label htmlFor='partySpaceName'>PartySpace Name:</label>
+          <label htmlFor='partySpaceTitle'>PartySpace Title:</label>
           <input
             type='text'
-            id='partySpaceName'
-            ref={name}
+            id='partySpaceTitle'
+            ref={title}
             required
             autoFocus
             className='form-control'
-            placeholder='PartySpace name'
+            placeholder='PartySpace title'
           />
         </div>
       </fieldset>
@@ -73,7 +74,6 @@ export default (props) => {
         <div className='form-group'>
           <label htmlFor='description'>Event Description:</label>
           <textarea
-            rows="5"
             id='description'
             ref={description}
             required
