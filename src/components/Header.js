@@ -8,7 +8,7 @@ export default () => (
     <a className='masthead'>
       <a href='/'>
         <h2>PartySpace</h2>
-        <p className='fs-small'>A space for party people</p>
+        <p className='fs-x-small'>A space for party people</p>
       </a>
     </a>
   </header>

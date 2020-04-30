@@ -10,3 +10,9 @@
 .gridSection:last-of-type {
   margin-bottom: 0;
 }
+
+.ps-compose-grid {
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+  grid-gap: 0.5rem;
+}

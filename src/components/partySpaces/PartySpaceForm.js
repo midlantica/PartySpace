@@ -1,5 +1,6 @@
 import React, { useContext, useRef } from 'react'
 import { PartySpaceContext } from './PartySpaceProvider'
+import { Button, Modal, ModalBody, ModalHeader } from 'reactstrap'
 
 export default (props) => {
   const { addPartySpace } = useContext(PartySpaceContext)
@@ -23,6 +24,10 @@ export default (props) => {
     console.log(newPartySpaceObj)
     // and save it to the API.
     addPartySpace(newPartySpaceObj).then(props.toggler)
+  }
+
+  const destroyNewPartySpace = () => {
+    console.log('destroy!!!!!!')
   }
 
   return (
@@ -83,17 +88,30 @@ export default (props) => {
         </div>
       </fieldset>
 
-      <button
+      <Button
+        type='submit'
+        onClick={(e) => {
+          e.preventDefault() // Prevent browser from submitting the form
+          // create the partySpace function goes here
+          destroyNewPartySpace()
+        }}
+        className='btn ps-button bg-danger mar0 marR1'
+        disabled
+      >
+        Delete
+      </Button>
+
+      <Button
         type='submit'
         onClick={(e) => {
           e.preventDefault() // Prevent browser from submitting the form
           // create the partySpace function goes here
           constructNewPartySpace()
         }}
-        className='btn btn-primary btn-save'
+        className='btn ps-button float-right mar0'
       >
         Add PartySpace
-      </button>
+      </Button>
     </form>
   )
 }
