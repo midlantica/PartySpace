@@ -2,6 +2,6 @@ import React from 'react'
 
 export default () => (
   <footer>
-    <h6>Nashville Kennels &copy;</h6>
+    <h6>PartySpace &copy;</h6>
   </footer>
 )

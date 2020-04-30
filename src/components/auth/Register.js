@@ -2,9 +2,7 @@ import React, { useRef } from 'react'
 import './Login.css'
 
 const Register = (props) => {
-  const firstName = useRef()
-  const lastName = useRef()
-  const address = useRef()
+  const name = useRef()
   const email = useRef()
   const password = useRef()
   const verifyPassword = useRef()
@@ -31,16 +29,15 @@ const Register = (props) => {
             'Content-Type': 'application/json',
           },
           body: JSON.stringify({
+            name: name.current.value,
             email: email.current.value,
             password: password.current.value,
-            name: `${firstName.current.value} ${lastName.current.value}`,
-            address: address.current.value,
           }),
         })
           .then((_) => _.json())
           .then((createdUser) => {
             if (createdUser.hasOwnProperty('id')) {
-              localStorage.setItem('kennel_customer', createdUser.id)
+              localStorage.setItem('partySpace_customer', createdUser.id)
             }
           })
       })
@@ -56,24 +53,13 @@ const Register = (props) => {
           If you are not a customer yet, please register a new account
         </h4>
         <fieldset>
-          <label htmlFor='firstName'> First Name </label>
+          <label htmlFor='firstName'>Name</label>
           <input
-            ref={firstName}
+            ref={name}
             type='text'
-            name='firstName'
+            name='name'
             className='form-control'
-            placeholder='First name'
-            required
-          />
-        </fieldset>
-        <fieldset>
-          <label htmlFor='lastName'>Last Name</label>
-          <input
-            ref={lastName}
-            type='text'
-            name='lastName'
-            className='form-control'
-            placeholder='Last name'
+            placeholder='Name'
             required
           />
         </fieldset>
@@ -85,17 +71,6 @@ const Register = (props) => {
             name='email'
             className='form-control'
             placeholder='Email address'
-            required
-          />
-        </fieldset>
-        <fieldset>
-          <label htmlFor='inputAddress'>Street Address</label>
-          <input
-            ref={address}
-            type='text'
-            name='address'
-            className='form-control'
-            placeholder='Street address'
             required
           />
         </fieldset>

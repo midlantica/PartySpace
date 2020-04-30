@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react'
-import { AnimalContext } from './AnimalProvider'
-import { LocationContext } from '../location/LocationProvider'
+import { AnimalContext } from './PartySpaceProvider'
+import { LocationContext } from '../venues/VenueProvider'
 
 export const EditAnimalForm = ({ animal, customer, toggleEdit }) => {
   const { locations } = useContext(LocationContext)
@@ -35,7 +35,7 @@ export const EditAnimalForm = ({ animal, customer, toggleEdit }) => {
         name: updatedAnimal.name,
         breed: updatedAnimal.breed,
         locationId: locationId,
-        customerId: parseInt(localStorage.getItem('kennel_customer')),
+        customerId: parseInt(localStorage.getItem('partySpace_customer')),
       }).then(toggleEdit)
     }
   }

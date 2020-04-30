@@ -4,28 +4,28 @@ import React, { useEffect, useState } from 'react'
     The context is imported and used by individual components
     that need data
 */
-export const CustomerContext = React.createContext()
+export const UserContext = React.createContext()
 
 /*
  This component establishes what data can be used.
  */
-export const CustomerProvider = (props) => {
-  const [customers, setCustomers] = useState([])
+export const UserProvider = (props) => {
+  const [users, setUsers] = useState([])
 
-  const getCustomers = () => {
-    return fetch('http://localhost:8088/customers')
+  const getUsers = () => {
+    return fetch('http://localhost:8088/users')
       .then((res) => res.json())
-      .then(setCustomers)
+      .then(setUsers)
   }
 
-  const addCustomer = (customer) => {
-    return fetch('http://localhost:8088/customers', {
+  const addUser = (user) => {
+    return fetch('http://localhost:8088/users', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify(customer),
-    }).then(getCustomers)
+      body: JSON.stringify(user),
+    }).then(getUsers)
   }
 
   /*
@@ -33,21 +33,21 @@ export const CustomerProvider = (props) => {
         an empty array is the second argument to avoid infinite loop.
     */
   useEffect(() => {
-    getCustomers()
+    getUsers()
   }, [])
 
   useEffect(() => {
     console.log('****  CUSTOMER APPLICATION STATE CHANGED  ****')
-  }, [customers])
+  }, [users])
 
   return (
-    <CustomerContext.Provider
+    <UserContext.Provider
       value={{
-        customers,
-        addCustomer,
+        users,
+        addUser,
       }}
     >
       {props.children}
-    </CustomerContext.Provider>
+    </UserContext.Provider>
   )
 }
