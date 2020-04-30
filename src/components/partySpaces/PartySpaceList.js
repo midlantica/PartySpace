@@ -29,9 +29,10 @@ export default ({ searchTerms }) => {
               toggle()
             }
           }}
-          className='plusBtn'
+          className='plusBtn align-i-flex-end'
         >
-          &#65291; {/* <<-- That's the unicode plus symbol +++ */}
+          &#65291; Add a PartySpace{' '}
+          {/* <<-- That's the unicode plus symbol +++ */}
         </Button>
       </div>
 

@@ -6,7 +6,7 @@ import { PartySpaceProvider } from './partySpaces/PartySpaceProvider'
 // import UserList from './users/UserList'
 import { UserProvider } from './users/UserProvider'
 // EMPLOYEES
-import PeopleList from './people/PeopleList'
+// import PeopleList from './people/PeopleList'
 import { PeopleProvider } from './people/PeopleProvider'
 // LOCATIONS
 // import VenueList from './venues/VenueList'
@@ -21,7 +21,6 @@ export default () => {
             <VenueProvider>
               <div className='dataContainer'>
                 <PartySpaceList />
-                <PeopleList />
               </div>
             </VenueProvider>
           </PeopleProvider>
