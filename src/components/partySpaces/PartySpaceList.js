@@ -6,7 +6,7 @@ import { Button, Modal, ModalBody, ModalHeader } from 'reactstrap'
 import PartySpaceForm from './PartySpaceForm'
 import { PartySpace } from './PartySpace'
 
-export default ({ searchTerms }) => {
+export default () => {
   const { partyspaces } = useContext(PartySpaceContext)
   const { venues } = useContext(VenueContext)
   const { users } = useContext(UserContext)
@@ -14,11 +14,11 @@ export default ({ searchTerms }) => {
   const [modal, setModal] = useState(false)
   const toggle = () => setModal(!modal)
 
-  const [filteredPartySpaces, setFiltered] = useState([])
+  // const [filteredPartySpaces, setFiltered] = useState([])
 
   return (
     <>
-      <div className='flexRow'>
+      <div className='flexRowWrap just-space-between marBQ'>
         <h4 className='marRH'>PartySpaces</h4>
         <Button
           onClick={() => {
@@ -29,35 +29,31 @@ export default ({ searchTerms }) => {
               toggle()
             }
           }}
-          className='plusBtn align-i-flex-end'
+          className='ps-button'
         >
-          &#65291; Add a PartySpace{' '}
-          {/* <<-- That's the unicode plus symbol +++ */}
+          &#65291; Add PartySpace{' '}
+          {/* <<-- &#65291; That's the unicode plus symbol +++ */}
         </Button>
       </div>
 
       <div className='gridSection animals'>
         {partyspaces.map((partyspace) => {
-          const matchingVenue = venues.find(
-            (ven) => ven.id === partyspace.venueId
-          )
-          const matchingUser = users.find(
-            (user) => user.id === partyspace.userId
+          const matchingPartySpace = partyspaces.map(
+            (usah) => usah.id === partyspace.userId
           )
 
           return (
             <PartySpace
               key={partyspaces.id}
               partyspace={partyspace}
-              user={matchingUser}
-              venue={matchingVenue}
+              venue={matchingPartySpace}
             />
           )
         })}
       </div>
 
       <Modal isOpen={modal} toggle={toggle}>
-        <ModalHeader toggle={toggle}>Add a PartySpace</ModalHeader>
+        <ModalHeader toggle={toggle}>Add PartySpace</ModalHeader>
         <ModalBody>
           <PartySpaceForm toggler={toggle} />
         </ModalBody>

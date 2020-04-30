@@ -83,26 +83,26 @@ justify-content: >>
   space-evenly
 */
 
-.justify-c-flex-start {
+.just-flex-start {
   justify-content: flex-start;
 }
 
-.justify-c-center {
+.just-center {
   justify-content: center;
 }
 
-.justify-c-flex-end {
+.just-flex-end {
   justify-content: flex-end;
 }
 
-.justify-c-space-between {
+.just-space-between {
   justify-content: space-between;
 }
 
-.justify-c-space-around {
+.just-space-around {
   justify-content: space-around;
 }
 
-.justify-c-space-evenly {
+.just-space-evenly {
   justify-content: space-evenly;
 }
