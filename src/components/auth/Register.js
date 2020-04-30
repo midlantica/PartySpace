@@ -8,7 +8,7 @@ const Register = (props) => {
   const verifyPassword = useRef()
 
   const existingUserCheck = () => {
-    return fetch(`http://localhost:8088/customers?email=${email.current.value}`)
+    return fetch(`http://localhost:8088/users?email=${email.current.value}`)
       .then((_) => _.json())
       .then((user) => {
         if (user.length) {
@@ -23,7 +23,7 @@ const Register = (props) => {
 
     if (password.current.value === verifyPassword.current.value) {
       existingUserCheck().then(() => {
-        fetch('http://localhost:8088/customers', {
+        fetch('http://localhost:8088/users', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -37,7 +37,7 @@ const Register = (props) => {
           .then((_) => _.json())
           .then((createdUser) => {
             if (createdUser.hasOwnProperty('id')) {
-              localStorage.setItem('partySpace_customer', createdUser.id)
+              localStorage.setItem('partySpace_user', createdUser.id)
             }
           })
       })
@@ -50,10 +50,10 @@ const Register = (props) => {
     <main className='container--login'>
       <form className='form--register' onSubmit={handleRegister}>
         <h4 className='darkgray'>
-          If you are not a customer yet, please register a new account
+          If you are not a user yet, please register a new account
         </h4>
         <fieldset>
-          <label htmlFor='firstName'>Name</label>
+          <label htmlFor='name'>Name</label>
           <input
             ref={name}
             type='text'

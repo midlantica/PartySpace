@@ -1,11 +1,10 @@
 import React from 'react'
 
-export const PartySpace = ({ partySpace, venue, user }) => (
-  <section className='box partySpace flexColumn'>
+export const PartySpace = ({ partyspace, venue }) => (
+  <section className='box partyspace flexColumn'>
     <div className='topFlexBox'>
-      <h6 className='partySpace__name'>{partySpace.name}</h6>
-      <p className='fs-small'>{partySpace.breed}</p>
-      <p className='fs-x-small'>User: {user.name}</p>
+      <h6 className='partyspace__name'>{partyspace.name}</h6>
+      <p className='fs-small'>{venue.geourl}</p>
       <p className='fs-x-small'>Venue: {venue.name}</p>
     </div>
   </section>

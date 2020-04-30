@@ -1,14 +1,14 @@
 import React, { useRef } from 'react'
-import './Login.css'
+// import './Login.css'
 
 const Login = (props) => {
   const email = useRef()
   const password = useRef()
-  const customerName = useRef()
-  const address = useRef()
+  // const userName = useRef()
+  // const address = useRef()
 
   const existingUserCheck = () => {
-    return fetch(`http://localhost:8088/customers?email=${email.current.value}`)
+    return fetch(`http://localhost:8088/users?email=${email.current.value}`)
       .then((_) => _.json())
       .then((user) => {
         if (user.length) {
@@ -23,7 +23,7 @@ const Login = (props) => {
 
     existingUserCheck().then((exists) => {
       if (exists && exists.password === password.current.value) {
-        localStorage.setItem('partySpace_customer', exists.id)
+        localStorage.setItem('partySpace_user', exists.id)
         props.toggle()
       } else if (exists && exists.password !== password.current.value) {
         window.alert('Password does not match')

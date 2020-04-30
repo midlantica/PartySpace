@@ -29,7 +29,7 @@ export const PartySpaceProvider = (props) => {
   }
 
   const updatePartySpace = (PartySpace) => {
-    return fetch(`http://localhost:8088/partyspaces/${partyspace.id}`, {
+    return fetch(`http://localhost:8088/partyspaces/${partyspaces.id}`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',

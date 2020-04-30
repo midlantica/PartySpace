@@ -13,13 +13,13 @@ export const PeopleProvider = (props) => {
   const [people, setPeoples] = useState([])
 
   const getPeople = () => {
-    return fetch('http://localhost:8088/people')
+    return fetch('http://localhost:8088/peoples')
       .then((res) => res.json())
       .then(setPeoples)
   }
 
   const addPeople = (employee) => {
-    return fetch('http://localhost:8088/people', {
+    return fetch('http://localhost:8088/peoples', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -29,7 +29,7 @@ export const PeopleProvider = (props) => {
   }
 
   const removePeople = (peopleId) => {
-    return fetch(`http://localhost:8088/people/${peopleId}`, {
+    return fetch(`http://localhost:8088/peoples/${peopleId}`, {
       method: 'DELETE',
     }).then(getPeople)
   }

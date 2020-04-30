@@ -4,14 +4,14 @@ import { PartySpaceContext } from './PartySpaceProvider'
 
 export default (props) => {
   const { venues } = useContext(VenueContext)
-  const { addAnimal } = useContext(PartySpaceContext)
+  const { addPartySpace } = useContext(PartySpaceContext)
 
   const name = useRef()
   const venue = useRef()
 
-  const constructNewAnimal = () => {
+  const constructNewPartySpace = () => {
     const venueId = parseInt(venue.current.value)
-    const userId = parseInt(localStorage.getItem('partySpace_customer'))
+    const userId = parseInt(localStorage.getItem('partySpace_user'))
     // create a new partySpace object
     // Make sure that the partySpace object has the customerId and venueId foreign keys on it.
     const newPartySpaceObj = {
@@ -21,14 +21,14 @@ export default (props) => {
     }
     console.log(newPartySpaceObj)
     // and save it to the API.
-    addAnimal(newPartySpaceObj).then(props.toggler)
+    addPartySpace(newPartySpaceObj).then(props.toggler)
   }
 
   return (
     <form className='partySpaceForm'>
       <fieldset>
         <div className='form-group'>
-          <label htmlFor='partySpaceName'>Name of Animal: </label>
+          <label htmlFor='partySpaceName'>Name of PartySpace: </label>
           <input
             type='text'
             id='partySpaceName'
@@ -64,7 +64,7 @@ export default (props) => {
         onClick={(evt) => {
           evt.preventDefault() // Prevent browser from submitting the form
           // create the partySpace function goes here
-          constructNewAnimal()
+          constructNewPartySpace()
         }}
         className='btn btn-primary btn-save'
       >

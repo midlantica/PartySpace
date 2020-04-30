@@ -1,7 +1,7 @@
 import 'bootstrap/dist/css/bootstrap.min.css'
 import React from 'react'
 import ReactDOM from 'react-dom'
-import partySpace from './components/partySpace'
+import PartySpace from './components/PartySpace'
 import './styles/index.css'
 
-ReactDOM.render(<partySpace />, document.getElementById('root'))
+ReactDOM.render(<PartySpace />, document.getElementById('root'))

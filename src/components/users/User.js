@@ -1,8 +1,8 @@
 import React from 'react'
 
 export default (props) => (
-  <section className='box customer'>
-    <h6 className='customer__name'>{props.customer.name}</h6>
-    <p className='fs-x-small'>{props.customer.address}</p>
+  <section className='box user'>
+    <h6 className='user__name'>{props.user.name}</h6>
+    <p className='fs-x-small'>{props.user.address}</p>
   </section>
 )

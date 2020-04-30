@@ -24,14 +24,14 @@ export default (props) => {
   }
 
   return (
-    <form className='employeeForm'>
-      {/* <h2 className='employeeForm__title'>New People</h2> */}
+    <form className='peopleForm'>
+      {/* <h2 className='peopleForm__title'>New People</h2> */}
       <fieldset>
         <div className='form-group'>
-          <label htmlFor='employeeName'>People name:</label>
+          <label htmlFor='peopleName'>People name:</label>
           <input
             type='text'
-            id='employeeName'
+            id='peopleName'
             ref={name}
             required
             autoFocus
@@ -47,7 +47,7 @@ export default (props) => {
             defaultValue=''
             name='venue'
             ref={venue}
-            id='employeeVenue'
+            id='peopleVenue'
             className='form-control'
           >
             <option value='0'>Select a venue</option>

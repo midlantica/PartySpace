@@ -6,7 +6,7 @@ import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap'
 import PeopleForm from './PeopleForm'
 
 export default () => {
-  const { people } = useContext(PeopleContext)
+  const { peoples } = useContext(PeopleContext)
   const { venues } = useContext(VenueContext)
 
   const [modal, setModal] = useState(false)
@@ -21,13 +21,17 @@ export default () => {
         </div>
       </div>
 
-      <div className='gridSection people'>
-        {people.map((people) => {
-          const ven = venues.find((l) => l.id === people.venueId)
+      {/* <div className='gridSection people'>
+        {peoples.map((people) => {
+          const partyspace = partyspace.find(
+            (partyspace) => partyspace.id === peoples.partySpaceId
+          )
 
-          return <People key={people.id} venue={ven} people={people} />
+          return (
+            <People key={peoples.id} partyspace={partyspace} people={people} />
+          )
         })}
-      </div>
+      </div> */}
 
       <Modal isOpen={modal} toggle={toggle}>
         <ModalHeader toggle={toggle}>New People</ModalHeader>

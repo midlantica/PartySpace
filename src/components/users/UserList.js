@@ -12,8 +12,8 @@ export default () => {
       </div>
 
       <div className='gridSection users'>
-        {users.map((ven) => (
-          <User key={ven.id} user={ven} />
+        {users.map((user) => (
+          <User key={user.id} user={user} />
         ))}
       </div>
     </>

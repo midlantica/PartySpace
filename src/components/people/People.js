@@ -2,7 +2,7 @@ import React, { useState, useContext } from 'react'
 import { PeopleContext } from './PeopleProvider'
 import { Modal, ModalHeader, ModalBody, Button, ModalFooter } from 'reactstrap'
 
-export default ({ people, venue }) => {
+export default ({ people, venues }) => {
   const { removePeople } = useContext(PeopleContext)
 
   const [selectedPeople] = useState({
@@ -20,7 +20,7 @@ export default ({ people, venue }) => {
         ×
       </button>
       <h6 className='people__name'>{people.name}</h6>
-      <p className='fs-x-small'>{venue.name}</p>
+      <p className='fs-x-small'>{venues.name}</p>
     </section>
   )
 }

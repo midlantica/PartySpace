@@ -7,7 +7,7 @@ import PartySpaceForm from './PartySpaceForm'
 import { PartySpace } from './PartySpace'
 
 export default ({ searchTerms }) => {
-  const { partySpaces } = useContext(PartySpaceContext)
+  const { partyspaces } = useContext(PartySpaceContext)
   const { venues } = useContext(VenueContext)
   const { users } = useContext(UserContext)
 
@@ -23,7 +23,7 @@ export default ({ searchTerms }) => {
         <Button
           onClick={() => {
             // check if the user is authenticated
-            const userId = localStorage.getItem('partySpace_customer')
+            const userId = localStorage.getItem('partyspace_user')
             if (userId) {
               // If the user is authenticated, show the animal form
               toggle()
@@ -36,18 +36,18 @@ export default ({ searchTerms }) => {
       </div>
 
       <div className='gridSection animals'>
-        {partySpaces.map((partySpace) => {
+        {partyspaces.map((partyspace) => {
           const matchingVenue = venues.find(
-            (ven) => ven.id === partySpace.venueId
+            (ven) => ven.id === partyspace.venueId
           )
           const matchingUser = users.find(
-            (user) => user.id === partySpace.userId
+            (user) => user.id === partyspace.userId
           )
 
           return (
             <PartySpace
-              key={partySpaces.id}
-              partySpace={partySpaces}
+              key={partyspaces.id}
+              partyspace={partyspace}
               user={matchingUser}
               venue={matchingVenue}
             />

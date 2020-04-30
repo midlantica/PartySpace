@@ -8,7 +8,7 @@ export default () => {
   const [check, update] = useState(false)
   const toggle = () => update(!check)
 
-  return localStorage.getItem('partySpace_customer') ? (
+  return localStorage.getItem('partySpace_user') ? (
     <>
       <Header />
       <div className='dh-container'>
