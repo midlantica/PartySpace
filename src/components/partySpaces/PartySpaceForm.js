@@ -10,14 +10,14 @@ export default (props) => {
   const venue = useRef()
 
   const constructNewPartySpace = () => {
-    const venueId = parseInt(venue.current.value)
     const userId = parseInt(localStorage.getItem('partySpace_user'))
     // create a new partySpace object
-    // Make sure that the partySpace object has the customerId and venueId foreign keys on it.
+    // Make sure that the partySpace object has the userId and venueId foreign keys on it.
     const newPartySpaceObj = {
       name: name.current.value,
-      venueId: venueId,
-      customerId: userId,
+      dateStart: dateStart.current.value,
+      timeStart: timeStart.current.value,
+      description: description.current.value,
     }
     console.log(newPartySpaceObj)
     // and save it to the API.
@@ -28,7 +28,7 @@ export default (props) => {
     <form className='partySpaceForm'>
       <fieldset>
         <div className='form-group'>
-          <label htmlFor='partySpaceName'>Name of PartySpace: </label>
+          <label htmlFor='partySpaceName'>PartySpace Name:</label>
           <input
             type='text'
             id='partySpaceName'
@@ -40,29 +40,53 @@ export default (props) => {
           />
         </div>
       </fieldset>
+
       <fieldset>
         <div className='form-group'>
-          <label htmlFor='venue'>Assign to venue: </label>
-          <select
-            defaultValue=''
-            name='venue'
-            ref={venue}
-            id='venue'
+          <label htmlFor='dateStart'>Date:</label>
+          <input
+            type='date'
+            id='dateStart'
+            ref={dateStart}
+            required
+            autoFocus
             className='form-control'
-          >
-            <option value='0'>Select a venue</option>
-            {venues.map((e) => (
-              <option key={e.id} value={e.id}>
-                {e.name}
-              </option>
-            ))}
-          </select>
+          />
         </div>
       </fieldset>
+
+      <fieldset>
+        <div className='form-group'>
+          <label htmlFor='timeStart'>Start Time:</label>
+          <input
+            type='time'
+            id='timeStart'
+            ref={timeStart}
+            required
+            autoFocus
+            className='form-control'
+          />
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <div className='form-group'>
+          <label htmlFor='description'>Event Description:</label>
+          <textarea
+            rows="5"
+            id='description'
+            ref={description}
+            required
+            autoFocus
+            className='form-control'
+          />
+        </div>
+      </fieldset>
+
       <button
         type='submit'
-        onClick={(evt) => {
-          evt.preventDefault() // Prevent browser from submitting the form
+        onClick={(e) => {
+          e.preventDefault() // Prevent browser from submitting the form
           // create the partySpace function goes here
           constructNewPartySpace()
         }}
