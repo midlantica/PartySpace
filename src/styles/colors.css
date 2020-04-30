@@ -3,8 +3,8 @@
 :root {
   --white: white;
   --black: hsl(0, 100%, 6%);
-  --primary: hsl(206, 100%, 50%) !important;
-  --primary-dk: hsl(206, 100%, 30%);
-  --primary-dkr: hsl(206, 100%, 10%);
-  --primary-lt: hsl(206, 100%, 70%);
+  --primary: hsl(220, 100%, 50%) !important;
+  --primary-dk: hsl(220, 100%, 35%);
+  --primary-dkr: hsl(220, 100%, 20%);
+  --primary-lt: hsl(220, 100%, 85%);
 }
