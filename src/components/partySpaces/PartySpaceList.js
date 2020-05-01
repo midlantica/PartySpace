@@ -26,7 +26,7 @@ export default ({ setActiveList }) => {
 
   return (
     <>
-      <div className='flexRowWrap just-space-between marBQ'>
+      <div className='flexRowWrap just-space-between marBH'>
         <h4 className='marRH'>PartySpaces</h4>
         <Button
           onClick={() => {

@@ -4,7 +4,7 @@ export const PartySpace = ({ partyspace, venue, setActiveList }) => {
   return (
     <>
       <section
-        className='box partyspace flexColumn clicky'
+        className='box partyspace flexColumn'
         onClick={(partyspace) => setActiveList('PartySpaceCompose')}
       >
         <div className='topFlexBox'>

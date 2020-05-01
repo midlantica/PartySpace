@@ -1,13 +1,11 @@
 import React from 'react'
 
 export default ({ partyspace, venue, setActiveList }) => (
-  <header>
+  <header className='masthead'>
     <img className='logo' src='partyspace-logo-white.svg' alt='logo' />
-    <div className='masthead'>
-      <a href='/'>
-        <h2>PartySpace</h2>
-        <p className='fs-x-small'>A space for party people</p>
-      </a>
-    </div>
+    <a href='/'>
+      <h2>PartySpace</h2>
+      <p>A space for party people</p>
+    </a>
   </header>
 )

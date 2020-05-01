@@ -46,7 +46,7 @@ header .logo {
   /* height: 100%; */
 }
 
-header .masthead {
+header {
   /* flex-grow: auto; */
 }
 
@@ -65,11 +65,12 @@ header h1 {
 }
 
 header h2 {
-  font-size: 1rem;
+  font-size: 100%;
   font-weight: 600;
 }
 
 header .masthead p {
+  font-size: 70%;
 }
 
 footer h6 {

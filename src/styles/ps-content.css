@@ -24,6 +24,16 @@
   /*  */
 }
 
+.venue:hover,
+.partyspaces .box:hover,
+.user:hover,
+.people:hover {
+  transform: scale(1.05);
+  cursor: pointer;
+  background: var(--primary-ltr);
+  box-shadow: 0 1px 4px -2px hsla(0, 0%, 0%, 0.3);
+}
+
 .partyspaces h5,
 .users h5,
 .venues h5,
@@ -39,7 +49,7 @@
 .peoples h6 {
   color: var(--primary-dk);
   font-weight: 600;
-  font-size: 0.7rem;
+  font-size: 70%;
 }
 
 .partyspaces p,
@@ -49,6 +59,8 @@
   color: var(--black);
   margin: 0 0 0;
   line-height: 1.5;
+  text-align: left;
+  font-size: 60%;
 }
 
 .animal,
@@ -56,12 +68,4 @@
 .venue,
 .people {
   /*  */
-}
-
-.partyspaces .box:hover,
-.user:hover,
-.people:hover {
-  transform: scale(1.05);
-  cursor: pointer;
-  box-shadow: 0 1px 4px -2px hsla(0, 0%, 0%, 0.3);
 }

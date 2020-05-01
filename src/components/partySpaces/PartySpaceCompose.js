@@ -43,28 +43,28 @@ export default () => {
         <section className='ps-people'>
           <div className='flexRowWrap just-space-between marBH'>
             <h5>People</h5>
-            <button className='ps-button btn btn-secondary'>Invite</button>
+            <button className='ps-button btn btn-secondary'>＋ Invite</button>
           </div>
           <p className='ps-invited'>
-            John Smith <span className='xOut'>×</span>
+            John Smith <span className='exOut'>×</span>
           </p>
           <p className='ps-invited'>
-            Samantha Longnamesum <span className='xOut'>×</span>
+            Samantha Longnamesum <span className='exOut'>×</span>
           </p>
           <p className='ps-invited'>
-            Wilfred Gonzales <span className='xOut'>×</span>
+            Wilfred Gonzales <span className='exOut'>×</span>
           </p>
           <p className='ps-invited'>
-            Ron Delan <span className='xOut'>×</span>
+            Ron Delan <span className='exOut'>×</span>
           </p>
           <p className='ps-invited'>
-            Ekene Obasey <span className='xOut'>×</span>
+            Ekene Obasey <span className='exOut'>×</span>
           </p>
           <p className='ps-invited'>
-            Usha Oliver <span className='xOut'>×</span>
+            Usha Oliver <span className='exOut'>×</span>
           </p>
           <p className='ps-invited'>
-            Shirai Subaru <span className='xOut'>×</span>
+            Shirai Subaru <span className='exOut'>×</span>
           </p>
         </section>
         <section className='btn ps-venues'>
