@@ -1,3 +1,11 @@
+.clicky {
+  cursor: pointer;
+}
+
+.clicky:hover {
+  background: rgb(255, 251, 217);
+}
+
 .ps-button {
   background: var(--green500);
   border: none;

@@ -3,7 +3,7 @@ import { PartySpaceContext } from './PartySpaceProvider'
 import { UserContext } from '../users/UserProvider'
 import { Button, Modal, ModalBody, ModalHeader } from 'reactstrap'
 import PartySpaceForm from './PartySpaceForm'
-import { PartySpace } from './PartySpace'
+import { PartySpaceComposeItem } from './PartySpaceComposeItem'
 import { VenueList } from '../venues/VenueList'
 
 export default () => {
@@ -16,23 +16,23 @@ export default () => {
 
   // const [filteredPartySpaces, setFiltered] = useState([])
 
-  const matchingPartySpaces = partyspaces.filter(
-    (partyspace) => userId === partyspace.userId
+  const singlePartySpace = partyspaces.filter(
+    (partyspace) => userId === partyspace.Id
   )
 
   return (
     <>
-      <h1>PartySpace Compose!!!!!!!!</h1>
-      <div className='flexRowWrap just-space-between marBQ'>
-        <h4 className='marRH'>${userId} PartySpaces</h4>
-      </div>
-
       <div className='partyspaces'>
-        {matchingPartySpaces.map((partyspace) => {
-          return <PartySpace key={partyspace.id} partyspace={partyspace} />
+        {singlePartySpace.map((partyspace) => {
+          return (
+            <PartySpaceComposeItem
+              key={partyspace.id}
+              partyspace={partyspace}
+            />
+          )
         })}
         <Modal isOpen={modal} toggle={toggle}>
-          <ModalHeader toggle={toggle}>Add PartySpace</ModalHeader>
+          <ModalHeader toggle={toggle}>PartySpace</ModalHeader>
           <ModalBody>
             <PartySpaceForm toggler={toggle} />
           </ModalBody>
@@ -40,12 +40,12 @@ export default () => {
       </div>
 
       <div className='ps-compose-grid'>
-        <section class='ps-people'>
-          <h3>People</h3>
+        <section className='ps-people'>
+          <h6>People</h6>
           <p>Peoplesss</p>
         </section>
-        <section class='ps-venues'>
-          {/* <div class='ps-time'>${time}</div> */}
+        <section className='ps-venues'>
+          {/* <div className='ps-time'>${time}</div> */}
           {/* map through venues within partyspace x */}
           <VenueList />
         </section>

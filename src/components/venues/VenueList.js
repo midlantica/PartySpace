@@ -7,7 +7,7 @@ export const VenueList = () => {
 
   return (
     <>
-      <h4>Venues</h4>
+      <h5>Venues</h5>
       <div className='gridSection venues'>
         {venues.map((loc) => (
           <Venue key={loc.id} venue={loc} />
