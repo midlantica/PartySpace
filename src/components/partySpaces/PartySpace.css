@@ -1,22 +1,17 @@
-/* .animals {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-} */
+.ps-compose-grid {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  grid-gap: 0.5rem;
+}
 
-/* .animal {
-  flex-basis: 28%;
-  margin: 1em;
-  padding: 1em;
-  border: 1px solid goldenrod;
-} */
-/*
-.modal-dialog
-  .modal-content
-  .modal-body
-  form.animalForm
-  fieldset
-  .form-group
-  label {
-  margin-bottom: 0 !important;
-} */
+.ps-people {
+  /*  */
+}
+
+.ps-invited {
+  border: 1px solid hsla(0, 0%, 50%, 0.432);
+  border-radius: 0.5rem;
+  font-size: 80%;
+  line-height: 1;
+  padding: 0.25rem 0.5rem;
+}

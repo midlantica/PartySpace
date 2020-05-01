@@ -20,6 +20,10 @@
   padding: 0;
 }
 
+.partyspaces .box {
+  /*  */
+}
+
 .partyspaces h5,
 .users h5,
 .venues h5,
@@ -54,9 +58,8 @@
   /*  */
 }
 
-.animal:hover,
+.partyspaces .box:hover,
 .user:hover,
-.venue:hover,
 .people:hover {
   transform: scale(1.05);
   cursor: pointer;

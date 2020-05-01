@@ -1,15 +1,15 @@
-import React, { useContext, useState, useEffect } from 'react'
-import { PartySpaceContext } from './PartySpaceProvider'
-import { UserContext } from '../users/UserProvider'
+import React, { useContext, useState } from 'react'
 import { Button, Modal, ModalBody, ModalHeader } from 'reactstrap'
+import { PartySpaceContext } from './PartySpaceProvider'
+// import { UserContext } from '../users/UserProvider'
 import PartySpaceForm from './PartySpaceForm'
 import { PartySpaceComposeItem } from './PartySpaceComposeItem'
 import { VenueList } from '../venues/VenueList'
-
+import './PartySpace.css'
 export default () => {
   const userId = parseInt(localStorage.getItem('partySpace_user'))
   const { partyspaces } = useContext(PartySpaceContext)
-  const { users } = useContext(UserContext)
+  // const { users } = useContext(UserContext)
 
   const [modal, setModal] = useState(false)
   const toggle = () => setModal(!modal)
@@ -41,10 +41,33 @@ export default () => {
 
       <div className='ps-compose-grid'>
         <section className='ps-people'>
-          <h6>People</h6>
-          <p>Peoplesss</p>
+          <div className='flexRowWrap just-space-between marBH'>
+            <h5>People</h5>
+            <button className='ps-button btn btn-secondary'>Invite</button>
+          </div>
+          <p className='ps-invited'>
+            John Smith <span className='xOut'>×</span>
+          </p>
+          <p className='ps-invited'>
+            Samantha Longnamesum <span className='xOut'>×</span>
+          </p>
+          <p className='ps-invited'>
+            Wilfred Gonzales <span className='xOut'>×</span>
+          </p>
+          <p className='ps-invited'>
+            Ron Delan <span className='xOut'>×</span>
+          </p>
+          <p className='ps-invited'>
+            Ekene Obasey <span className='xOut'>×</span>
+          </p>
+          <p className='ps-invited'>
+            Usha Oliver <span className='xOut'>×</span>
+          </p>
+          <p className='ps-invited'>
+            Shirai Subaru <span className='xOut'>×</span>
+          </p>
         </section>
-        <section className='ps-venues'>
+        <section className='btn ps-venues'>
           {/* <div className='ps-time'>${time}</div> */}
           {/* map through venues within partyspace x */}
           <VenueList />

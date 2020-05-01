@@ -1,16 +1,19 @@
-import React, { useContext, useState, useEffect } from 'react'
+import React, { useContext, useState } from 'react'
 import { PartySpaceContext } from './PartySpaceProvider'
-import { UserContext } from '../users/UserProvider'
+// import { UserContext } from '../users/UserProvider'
+import { VenueContext } from '../venues/VenueProvider'
+// import { Venue } from '../venues/Venue'
 import { Button, Modal, ModalBody, ModalHeader } from 'reactstrap'
 import PartySpaceForm from './PartySpaceForm'
 import { PartySpace } from './PartySpace'
-import PartySpaceCompose from './PartySpaceCompose'
-import Dashboard from '../Dashboard'
+// import PartySpaceCompose from './PartySpaceCompose'
+// import Dashboard from '../Dashboard'
 
 export default ({ setActiveList }) => {
   const userId = parseInt(localStorage.getItem('partySpace_user'))
   const { partyspaces } = useContext(PartySpaceContext)
-  const { users } = useContext(UserContext)
+  const { venue } = useContext(VenueContext)
+  // const { users } = useContext(UserContext)
 
   const [modal, setModal] = useState(false)
   const toggle = () => setModal(!modal)
@@ -45,6 +48,7 @@ export default ({ setActiveList }) => {
             <PartySpace
               key={partyspace.id}
               partyspace={partyspace}
+              venue={venue}
               setActiveList={setActiveList}
             />
           )

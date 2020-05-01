@@ -31,7 +31,7 @@ export default (props) => {
   }
 
   return (
-    <form className='partySpaceCompleteForm'>
+    <div className='partySpaceCompleteForm'>
       <h1>PartySpace completed!</h1>
       <p>John's Birthday Bash</p>
       <p>invites are on their way</p>
@@ -48,6 +48,6 @@ export default (props) => {
       >
         Woohoo!
       </Button>
-    </form>
+    </div>
   )
 }
