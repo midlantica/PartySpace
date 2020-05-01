@@ -4,6 +4,7 @@ import { UserContext } from '../users/UserProvider'
 import { Button, Modal, ModalBody, ModalHeader } from 'reactstrap'
 import PartySpaceForm from './PartySpaceForm'
 import { PartySpace } from './PartySpace'
+import { VenueList } from '../venues/VenueList'
 
 export default () => {
   const userId = parseInt(localStorage.getItem('partySpace_user'))
@@ -21,6 +22,7 @@ export default () => {
 
   return (
     <>
+      <h1>PartySpace Compose!!!!!!!!</h1>
       <div className='flexRowWrap just-space-between marBQ'>
         <h4 className='marRH'>${userId} PartySpaces</h4>
       </div>
@@ -43,9 +45,9 @@ export default () => {
           <p>Peoplesss</p>
         </section>
         <section class='ps-venues'>
-          <div class='ps-time'>${time}</div>
+          {/* <div class='ps-time'>${time}</div> */}
           {/* map through venues within partyspace x */}
-          <Venue />
+          <VenueList />
         </section>
       </div>
     </>

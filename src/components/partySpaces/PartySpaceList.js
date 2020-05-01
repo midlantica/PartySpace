@@ -4,6 +4,12 @@ import { UserContext } from '../users/UserProvider'
 import { Button, Modal, ModalBody, ModalHeader } from 'reactstrap'
 import PartySpaceForm from './PartySpaceForm'
 import { PartySpace } from './PartySpace'
+import PartySpaceCompose from './PartySpaceCompose'
+import Dashboard from '../Dashboard'
+import { PartySpaceProvider } from './PartySpaceProvider'
+import { PeopleProvider } from '../people/PeopleProvider'
+import { VenueProvider } from '../venues/VenueProvider'
+import { UserProvider } from '../users/UserProvider'
 
 export default () => {
   const userId = parseInt(localStorage.getItem('partySpace_user'))
@@ -19,9 +25,62 @@ export default () => {
     (partyspace) => userId === partyspace.userId
   )
 
+  // ######################
+
+  const [activeList, setActiveList] = useState('PartySpaceCompose')
+  const [components, setComponents] = useState()
+
+  // HIGHER ORDER FUNCTION. IT RETURNS OTHER FUNCTION (i.e. COMPONENTS)
+  const showPartySpaceCompose = () => (
+    <PartySpaceProvider>
+      <UserProvider>
+        <PeopleProvider>
+          <VenueProvider>
+            <PartySpaceCompose />
+          </VenueProvider>
+        </PeopleProvider>
+      </UserProvider>
+    </PartySpaceProvider>
+  )
+
+  const showDashboard = () => (
+    <PartySpaceProvider>
+      <UserProvider>
+        <PeopleProvider>
+          <VenueProvider>
+            <Dashboard />
+          </VenueProvider>
+        </PeopleProvider>
+      </UserProvider>
+    </PartySpaceProvider>
+  )
+
+  /*
+    This effect hook determines which list is shown
+    based on the state of the `activeList` variable.
+  */
+  useEffect(() => {
+    if (activeList === 'Dashboard') {
+      setComponents(showDashboard)
+    } else if (activeList === 'PartySpaceCompose') {
+      setComponents(showPartySpaceCompose)
+    }
+  }, [activeList])
+
+  // ######################
+
   return (
     <>
       <div className='flexRowWrap just-space-between marBQ'>
+        {/* ///////////////// */}
+        <div
+          className='fakeLink href'
+          onClick={() => setActiveList('PartySpaceCompose')}
+        >
+          PartySpace Compose
+        </div>
+        {/* ///////////////// */}
+
         <h4 className='marRH'>PartySpaces</h4>
         <Button
           onClick={() => {
@@ -49,6 +108,8 @@ export default () => {
           <PartySpaceForm toggler={toggle} />
         </ModalBody>
       </Modal>
+
+      <div>{components}</div>
     </>
   )
 }
