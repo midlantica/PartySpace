@@ -1,15 +1,48 @@
 .ps-compose-grid {
   display: grid;
-  grid-template-columns: 2fr 5fr;
-  grid-gap: 0.5rem;
+  grid-template-areas:
+    'partyspace partyspace partyspace partyspace'
+    'people venues venues venues';
+  grid-gap: 0rem;
+  /* grid-template-rows: auto; */
+}
+
+.partyspaces {
+  grid-area: partyspace;
+}
+
+.ps-compose-grid .partyspaces .box.partyspace {
+  /* border: 1px solid var(--primary-dk); */
+  border: none;
+  border-radius: 0.2rem;
+  box-shadow: 0 8px 8px -4px hsla(0, 0%, 0%, 0.2);
+}
+
+.ps-invites {
+  grid-area: people;
+  /* padding: 1rem; */
+  /*  */
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.ps-venues {
+  grid-area: venues;
+  z-index: 0;
 }
 
 .ps-people {
-  /*  */
+  /* background: red; */
+  width: 90%;
+  padding-top: 1rem;
 }
 
 .ps-invited {
-  border: 1px solid hsla(0, 0%, 50%, 0.25);
+  /* border: 1px solid hsla(0, 44%, 40%, 0.25); */
+  border: none;
   border-radius: 1rem;
   font-size: 70%;
   line-height: 1;
@@ -17,6 +50,7 @@
   letter-spacing: 0;
   margin-bottom: 0.25rem;
   cursor: pointer;
+  background: var(--white);
   /*  */
   display: flex;
   flex-direction: row;
@@ -26,8 +60,12 @@
 }
 
 .ps-invited:hover {
-  background: var(--gray200);
+  background: var(--primary-ltr);
   box-shadow: 0px 1px 2px hsla(0, 0%, 0%, 0.25);
+}
+
+.ps-invited:hover .exOut {
+  color: white;
 }
 
 .ps-invited .exOut {
@@ -43,6 +81,48 @@
 }
 
 .ps-invited .exOut:hover {
-  background: hsl(0, 100%, 70%);
+  background: hsla(0, 100%, 50%, 0.62);
   color: var(--white);
+}
+
+.ps-venues {
+  padding: 1rem 2rem 1rem 1rem;
+  border-left: 1px solid var(--primary-dk);
+  position: relative;
+  left: 1rem;
+}
+
+.venue {
+  margin-bottom: 0.25rem;
+  position: relative;
+}
+
+.venue::after {
+  content: '⎯⎯⎯⎯⎯⎯⎯⎯';
+  position: absolute;
+  top: 0.721rem;
+  left: -1.05rem;
+  z-index: -1;
+  font-size: 0.5rem;
+  /* transform: rotate(45deg); */
+  letter-spacing: -0.05ch;
+  color: var(--primary-dk);
+}
+
+.venue::before {
+  content: '●';
+  position: absolute;
+  top: 0.329rem;
+  left: -1.37rem;
+  z-index: -1;
+  font-size: 1rem;
+  /* transform: rotate(45deg); */
+  letter-spacing: 0;
+  color: var(--primary-dk);
+}
+
+.venue:hover {
+  background: var(--gray50);
+  cursor: pointer;
+  box-shadow: 0 1px 3px hsla(0, 0%, 0%, 0.2);
 }

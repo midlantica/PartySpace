@@ -1,9 +1,9 @@
 import React from 'react'
-
+import './PartySpace.css'
 export const PartySpaceComposeItem = ({ partyspace, venue, setActiveList }) => {
   return (
     <>
-      <section className='box partyspace flexColumn clicky'>
+      <section className='box partyspace flexColumn'>
         <div className='topFlexBox'>
           <h6>{partyspace.title}</h6>
           <p className='fs-small'>Date: {partyspace.dateStart}</p>

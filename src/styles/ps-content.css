@@ -21,11 +21,17 @@
 }
 
 .partyspaces .box {
-  /*  */
+  cursor: pointer;
 }
 
-.venue:hover,
-.partyspaces .box:hover,
+.partyspaces .box:hover {
+  transform: scale(1.05);
+}
+
+.ps-compose-grid .partyspaces .box:hover {
+  transform: none;
+}
+
 .user:hover,
 .people:hover {
   transform: scale(1.05);

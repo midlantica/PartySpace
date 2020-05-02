@@ -7,8 +7,8 @@ export const VenueList = () => {
 
   return (
     <>
-      <h5>Venues</h5>
-      <div className='gridSection venues'>
+      <h5 className='inline-block marLH'>Venues</h5>
+      <div className='venues'>
         {venues.map((loc) => (
           <Venue key={loc.id} venue={loc} />
         ))}

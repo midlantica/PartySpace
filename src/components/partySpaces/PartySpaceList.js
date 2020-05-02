@@ -42,7 +42,7 @@ export default ({ setActiveList }) => {
         </Button>
       </div>
 
-      <div className='gridSection partyspaces'>
+      <div className='gridSection partyspaces marB1'>
         {matchingPartySpaces.map((partyspace) => {
           return (
             <PartySpace

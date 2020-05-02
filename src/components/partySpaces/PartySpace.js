@@ -1,11 +1,14 @@
-import React from 'react'
+import React, { useContext, useState } from 'react'
+import { PartySpaceContext } from './PartySpaceProvider'
 
 export const PartySpace = ({ partyspace, venue, setActiveList }) => {
+  const { partyspaces } = useContext(PartySpaceContext)
+
   return (
     <>
       <section
         className='box partyspace flexColumn'
-        onClick={(partyspace) => setActiveList('PartySpaceCompose')}
+        onClick={(partyspaces) => setActiveList('PartySpaceCompose')}
       >
         <div className='topFlexBox'>
           <h6>{partyspace.title}</h6>
