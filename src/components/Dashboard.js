@@ -1,49 +1,63 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 // ANIMALS
-import AnimalList from './animal/AnimalList'
-import { AnimalProvider } from './animal/AnimalProvider'
+import PartySpaceList from './partySpaces/PartySpaceList'
+import { PartySpaceProvider } from './partySpaces/PartySpaceProvider'
+import PartySpaceCompose from './partySpaces/PartySpaceCompose'
 // CUSTOMERS
-import CustomerList from './customer/CustomerList'
-import { CustomerProvider } from './customer/CustomerProvider'
+// import UserList from './users/UserList'
+import { UserProvider } from './users/UserProvider'
 // EMPLOYEES
-import EmployeeList from './employee/EmployeeList'
-import { EmployeeProvider } from './employee/EmployeeProvider'
+// import PeopleList from './people/PeopleList'
+import { PeopleProvider } from './people/PeopleProvider'
 // LOCATIONS
-import LocationList from './location/LocationList'
-import { LocationProvider } from './location/LocationProvider'
-// SEARCH
-import { SearchBar } from './search/SearchBar'
-import { SearchResults } from './search/SearchResults'
+// import VenueList from './venues/VenueList'
+import { VenueProvider } from './venues/VenueProvider'
 
 export default () => {
-  const [searchTerms, setTerms] = useState()
+  const [activeList, setActiveList] = useState('PartySpaceList')
+  console.log('do it!')
+  const [components, setComponents] = useState()
+
+  useEffect(() => {
+    if (activeList === 'PartySpaceList') {
+      setComponents(showPartySpaceList)
+    } else if (activeList === 'PartySpaceCompose') {
+      setComponents(showPartySpaceCompose)
+    }
+  }, [activeList])
+
+  // HIGHER ORDER FUNCTION. IT RETURNS OTHER FUNCTION (i.e. COMPONENTS)
+  const showPartySpaceList = () => (
+    <PartySpaceProvider>
+      <UserProvider>
+        <PeopleProvider>
+          <VenueProvider>
+            <div className='dataContainer'>
+              <PartySpaceList setActiveList={setActiveList} />
+            </div>
+          </VenueProvider>
+        </PeopleProvider>
+      </UserProvider>
+    </PartySpaceProvider>
+  )
+
+  const showPartySpaceCompose = () => (
+    <PartySpaceProvider>
+      <UserProvider>
+        <PeopleProvider>
+          <VenueProvider>
+            <div className='dataContainer'>
+              <PartySpaceCompose setActiveList={setActiveList} />
+            </div>
+          </VenueProvider>
+        </PeopleProvider>
+      </UserProvider>
+    </PartySpaceProvider>
+  )
 
   return (
     <>
-      <address>
-        <p className='marB0'>Visit Us at the Nashville North Location</p>
-        <p>500 Puppy Way</p>
-      </address>
-      <hr />
-
-      <AnimalProvider>
-        <CustomerProvider>
-          <EmployeeProvider>
-            <LocationProvider>
-              <div className='searchContainer'>
-                <SearchBar setTerms={setTerms} />
-                <SearchResults searchTerms={searchTerms} />
-              </div>
-              <div className='dataContainer'>
-                <AnimalList />
-                <EmployeeList />
-                <CustomerList />
-                <LocationList />
-              </div>
-            </LocationProvider>
-          </EmployeeProvider>
-        </CustomerProvider>
-      </AnimalProvider>
+      <div>{components}</div>
     </>
   )
 }

@@ -1,11 +1,11 @@
 import React from 'react'
 
-export default () => (
-  <header>
-    <img className='logo' src='cat-dog-logo.svg' alt='logo' />
-    <div className='masthead'>
-      <h2>Nashville Kennels</h2>
-      <p className='fs-small'>Loving care when you're not there.</p>
-    </div>
+export default ({ partyspace, venue, setActiveList }) => (
+  <header className='masthead'>
+    <img className='logo' src='partyspace-logo-white.svg' alt='logo' />
+    <a href='/'>
+      <h2>PartySpace</h2>
+      <p>A space for party people</p>
+    </a>
   </header>
 )

@@ -2,15 +2,13 @@ import React, { useRef } from 'react'
 import './Login.css'
 
 const Register = (props) => {
-  const firstName = useRef()
-  const lastName = useRef()
-  const address = useRef()
+  const name = useRef()
   const email = useRef()
   const password = useRef()
   const verifyPassword = useRef()
 
   const existingUserCheck = () => {
-    return fetch(`http://localhost:8088/customers?email=${email.current.value}`)
+    return fetch(`http://localhost:8088/users?email=${email.current.value}`)
       .then((_) => _.json())
       .then((user) => {
         if (user.length) {
@@ -25,22 +23,21 @@ const Register = (props) => {
 
     if (password.current.value === verifyPassword.current.value) {
       existingUserCheck().then(() => {
-        fetch('http://localhost:8088/customers', {
+        fetch('http://localhost:8088/users', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
           },
           body: JSON.stringify({
+            name: name.current.value,
             email: email.current.value,
             password: password.current.value,
-            name: `${firstName.current.value} ${lastName.current.value}`,
-            address: address.current.value,
           }),
         })
           .then((_) => _.json())
           .then((createdUser) => {
             if (createdUser.hasOwnProperty('id')) {
-              localStorage.setItem('kennel_customer', createdUser.id)
+              localStorage.setItem('partySpace_user', createdUser.id)
             }
           })
       })
@@ -53,27 +50,16 @@ const Register = (props) => {
     <main className='container--login'>
       <form className='form--register' onSubmit={handleRegister}>
         <h4 className='darkgray'>
-          If you are not a customer yet, please register a new account
+          If you are not a user yet, please register a new account
         </h4>
         <fieldset>
-          <label htmlFor='firstName'> First Name </label>
+          <label htmlFor='name'>Name</label>
           <input
-            ref={firstName}
+            ref={name}
             type='text'
-            name='firstName'
+            name='name'
             className='form-control'
-            placeholder='First name'
-            required
-          />
-        </fieldset>
-        <fieldset>
-          <label htmlFor='lastName'>Last Name</label>
-          <input
-            ref={lastName}
-            type='text'
-            name='lastName'
-            className='form-control'
-            placeholder='Last name'
+            placeholder='Name'
             required
           />
         </fieldset>
@@ -85,17 +71,6 @@ const Register = (props) => {
             name='email'
             className='form-control'
             placeholder='Email address'
-            required
-          />
-        </fieldset>
-        <fieldset>
-          <label htmlFor='inputAddress'>Street Address</label>
-          <input
-            ref={address}
-            type='text'
-            name='address'
-            className='form-control'
-            placeholder='Street address'
             required
           />
         </fieldset>

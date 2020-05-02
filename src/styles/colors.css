@@ -1,17 +1,11 @@
-/* :root {
-  --white: white;
-  --black: hsl(0, 100%, 6%);
-  --primary: hsl(0, 100%, 88%) !important;
-  --primary-dk: hsl(0, 71%, 48%);
-  --primary-dkr: hsl(0, 78%, 30%);
-  --primary-lt: hsl(0, 100%, 97%);
-} */
+/* --cyan900: #006064; */
 
 :root {
   --white: white;
   --black: hsl(0, 100%, 6%);
-  --primary: var(--deep-orange200) !important;
-  --primary-dk: var(--deep-orange500);
-  --primary-dkr: var(--deep-orange800);
-  --primary-lt: var(--deep-orange50);
+  --primary: hsl(220, 100%, 50%) !important;
+  --primary-dk: hsl(220, 100%, 35%);
+  --primary-dkr: hsl(220, 100%, 20%);
+  --primary-lt: hsl(220, 100%, 85%);
+  --primary-ltr: hsl(221, 100%, 95%);
 }
