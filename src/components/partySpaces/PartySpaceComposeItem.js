@@ -3,6 +3,7 @@ import { Button, Modal, ModalBody, ModalHeader } from 'reactstrap'
 import { PartySpaceContext } from './PartySpaceProvider'
 import { PartySpaceVenuesContext } from './PartySpaceVenuesProvider'
 import PartySpaceForm from './PartySpaceForm'
+import PartySpaceCompleted from './PartySpaceCompleted'
 import { PartySpace } from './PartySpace'
 import './PartySpace.css'
 export const PartySpaceComposeItem = ({
@@ -16,6 +17,9 @@ export const PartySpaceComposeItem = ({
 
   const [modal, setModal] = useState(false)
   const toggle = () => setModal(!modal)
+
+  const [modalWoo, setModalWoo] = useState(false)
+  const woohoo = () => setModalWoo(!modalWoo)
 
   // const matchingPartySpaces = partySpaces.filter(
   //   (partySpace) => partySpace.userId === localUserId
@@ -54,7 +58,7 @@ export const PartySpaceComposeItem = ({
                   // check if the user is authenticated
                   if (localUserId) {
                     // If the user is authenticated, show the PartySpace form
-                    toggle()
+                    woohoo()
                   }
                 }}
               >
@@ -69,6 +73,12 @@ export const PartySpaceComposeItem = ({
         <ModalHeader toggle={toggle}>Edit PartySpace</ModalHeader>
         <ModalBody>
           <PartySpaceForm toggler={toggle} />
+        </ModalBody>
+      </Modal>
+
+      <Modal isOpen={modalWoo} woohoo={woohoo}>
+        <ModalBody>
+          <PartySpaceCompleted toggler={woohoo} />
         </ModalBody>
       </Modal>
     </>

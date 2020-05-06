@@ -22,12 +22,6 @@ export default ({ setActiveList, PartySpaceClicked }) => {
     (partySpace) => partySpace.id === PartySpaceClicked
   )
 
-  // const singlePartySpace = partySpace.filter(
-  //   (partySpace) => partySpaces.id === partySpaceVenues.partySpaceId
-  // )
-
-  console.log('THIS IS MY SINGLE PARTY SPACE', singlePartySpace)
-
   return (
     <>
       <div className='ps-compose-grid'>
