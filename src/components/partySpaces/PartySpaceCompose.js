@@ -5,13 +5,14 @@ import { UserContext } from '../users/UserProvider'
 // import { UserContext } from '../users/UserProvider'
 import PartySpaceForm from './PartySpaceForm'
 import { PartySpaceComposeItem } from './PartySpaceComposeItem'
+import { VenueContext } from '../venues/VenueProvider'
 import { VenueList } from '../venues/VenueList'
 import './PartySpace.css'
 export default () => {
   const userId = parseInt(localStorage.getItem('partySpace_user'))
   const { partyspaces } = useContext(PartySpaceContext)
   const { users } = useContext(UserContext)
-  // const { users } = useContext(UserContext)
+  // const { venues } = useContext(VenueContext)
 
   const [modal, setModal] = useState(false)
   const toggle = () => setModal(!modal)
@@ -19,8 +20,14 @@ export default () => {
   // const [filteredPartySpaces, setFiltered] = useState([])
 
   const singlePartySpace = partyspaces.filter(
-    (partyspace) => userId === partyspace.userId
+    (partyspace) => userId === users.id
   )
+
+  console.log('THIS IS MY SINGLE PARTY SPACE', singlePartySpace)
+
+  // const theVenues = partyspaces.map(
+  //   (partyspace) => partyspace.venueId === partyspace.id
+  // )
 
   return (
     <>

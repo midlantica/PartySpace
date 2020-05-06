@@ -15,7 +15,7 @@ import { VenueProvider } from './venues/VenueProvider'
 
 export default () => {
   const [activeList, setActiveList] = useState('PartySpaceList')
-  console.log('do it!')
+  // console.log('do it!')
   const [components, setComponents] = useState()
 
   useEffect(() => {
