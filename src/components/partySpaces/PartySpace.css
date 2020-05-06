@@ -135,6 +135,7 @@
   text-align: center;
   border-radius: 0.25rem;
   margin-bottom: auto;
+  margin-top: 0.25rem;
   /*  */
   display: flex;
   flex-direction: column;

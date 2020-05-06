@@ -79,7 +79,10 @@ export default ({ setActiveList, PartySpaceClicked }) => {
         <section className='ps-venues'>
           {/* <div className='ps-time'>${time}</div> */}
           {/* map through venues within partySpace x */}
-          <button className='btn ps-button ps-blue mar0 marBH'>6:00pm</button>
+          <div className='flexRowWrap align-i-flex-center marBH'>
+            <button className='btn ps-button ps-blue mar0'>6:00pm</button>
+            <h5 className='inline-block marLH'>Venues</h5>
+          </div>
           <VenueList
             key={partySpaceVenues.id}
             partySpace={partySpaceVenues}

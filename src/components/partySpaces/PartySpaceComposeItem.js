@@ -25,28 +25,28 @@ export const PartySpaceComposeItem = ({
     <>
       <section className='box partyspace'>
         <div className='flexRowWrap'>
-          <div className='flexRowWrap align-i-flex-center'>
-            <button
-              className='btn ps-button ps-green btnSmall marRH marBH'
-              onClick={() => {
-                // check if the user is authenticated
-                if (localUserId) {
-                  // If the user is authenticated, show the PartySpace form
-                  toggle()
-                }
-              }}
-            >
-              Edit
-            </button>
-            <h6 className='inline-block'>{partySpace.title}</h6>
-          </div>
           <div className='flexRow'>
-            <div className='marLRQ'>
+            <div className='flexRowWrap align-i-flex-center'>
+              <button
+                className='btn ps-button ps-green btnSmall marBH'
+                onClick={() => {
+                  // check if the user is authenticated
+                  if (localUserId) {
+                    // If the user is authenticated, show the PartySpace form
+                    toggle()
+                  }
+                }}
+              >
+                Edit
+              </button>
+            </div>
+            <div className='marLRH marBQ'>
+              <h5 className='inline-block'>{partySpace.title}</h5>
               <p className='fs-small'>Date: {partySpace.dateStart}</p>
               <p className='fs-small'>Time: {partySpace.timeStart}</p>
-              <p className='fs-small'>Desc: {partySpace.description}</p>
+              <p className='fs-small marTQ'>{partySpace.description}</p>
             </div>
-            <div className='ps-doneBox marLRQ'>
+            <div className='ps-doneBox'>
               <p>When you're done click this button</p>
               <button
                 className='btn ps-button ps-blue'

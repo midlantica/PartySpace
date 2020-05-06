@@ -45,7 +45,7 @@
 .users h5,
 .venues h5,
 .peoples h5 {
-  color: var(--primary-dkr);
+  color: var(--primary-dk);
   font-weight: 600;
   font-size: 0.75rem;
 }
