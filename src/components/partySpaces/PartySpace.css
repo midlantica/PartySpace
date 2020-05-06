@@ -126,3 +126,33 @@
   cursor: pointer;
   box-shadow: 0 1px 3px hsla(0, 0%, 0%, 0.2);
 }
+
+.ps-doneBox {
+  width: 6rem;
+  background: var(--primary-ltr);
+  padding: 1rem;
+  font-size: 0.85rem;
+  text-align: center;
+  border-radius: 0.25rem;
+  margin-bottom: auto;
+  /*  */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.ps-doneBox button {
+  border-radius: 0.25rem;
+  font-size: small;
+  margin-top: 0.5rem !important;
+}
+
+.ps-doneBox button:hover {
+  border-radius: 0.25rem;
+  font-size: small;
+  margin-top: 0.5rem !important;
+}
+
+.ps-doneBox p {
+  text-align: center !important;
+}

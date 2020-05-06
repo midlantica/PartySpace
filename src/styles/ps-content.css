@@ -29,6 +29,7 @@
 }
 
 .ps-compose-grid .partyspaces .box:hover {
+  cursor: initial;
   transform: none;
 }
 

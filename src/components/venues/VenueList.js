@@ -9,8 +9,8 @@ export const VenueList = () => {
     <>
       <h5 className='inline-block marLH'>Venues</h5>
       <div className='venues'>
-        {venues.map((loc) => (
-          <Venue key={loc.id} venue={loc} />
+        {venues.map((ven) => (
+          <Venue key={ven.id} venue={ven} />
         ))}
       </div>
     </>

@@ -10,16 +10,16 @@ export const PartySpaceContext = React.createContext()
  This component establishes what data can be used.
  */
 export const PartySpaceProvider = (props) => {
-  const [partyspaces, setPartySpaces] = useState([])
+  const [partySpaces, setPartySpaces] = useState([])
 
   const getPartySpaces = () => {
-    return fetch('http://localhost:8088/partyspaces')
+    return fetch('http://localhost:8088/partySpaces')
       .then((res) => res.json())
       .then(setPartySpaces)
   }
 
   const addPartySpace = (PartySpace) => {
-    return fetch('http://localhost:8088/partyspaces', {
+    return fetch('http://localhost:8088/partySpaces', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -29,7 +29,7 @@ export const PartySpaceProvider = (props) => {
   }
 
   const updatePartySpace = (PartySpace) => {
-    return fetch(`http://localhost:8088/partyspaces/${partyspaces.id}`, {
+    return fetch(`http://localhost:8088/partySpaces/${partySpaces.id}`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',
@@ -48,12 +48,12 @@ export const PartySpaceProvider = (props) => {
 
   useEffect(() => {
     console.log('****  ANIMAL APPLICATION STATE CHANGED  ****')
-  }, [partyspaces])
+  }, [partySpaces])
 
   return (
     <PartySpaceContext.Provider
       value={{
-        partyspaces,
+        partySpaces,
         addPartySpace,
         updatePartySpace,
       }}

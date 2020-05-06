@@ -38,6 +38,15 @@
   );
 }
 
+.ps-button.ps-blue:hover {
+  background: linear-gradient(
+    180deg,
+    var(--primary-dk) 0%,
+    var(--primary-dkr) 30%,
+    var(--primary-dkr) 100%
+  );
+}
+
 .plusBtn {
   color: white;
   background: hsl(0, 0%, 70%) !important;

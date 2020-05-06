@@ -20,7 +20,6 @@ export default (props) => {
       timeStart: timeStart.current.value,
       description: description.current.value,
       userId: userId,
-      venueIds,
     }
     console.log(newPartySpaceObj)
     // and save it to the API.
