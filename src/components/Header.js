@@ -5,7 +5,7 @@ export default ({ partyspace, venue, setActiveList }) => (
     <img className='logo' src='partyspace-logo-white.svg' alt='logo' />
     <a href='/'>
       <h2>PartySpace</h2>
-      <p>A space for party people</p>
+      <p className='fs-small'>A space for party people</p>
     </a>
   </header>
 )

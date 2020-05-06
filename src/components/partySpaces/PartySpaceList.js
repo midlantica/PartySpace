@@ -1,27 +1,25 @@
 import React, { useContext, useState } from 'react'
+import { Button, Modal, ModalBody, ModalHeader } from 'reactstrap'
 import { PartySpaceContext } from './PartySpaceProvider'
 // import { UserContext } from '../users/UserProvider'
 import { VenueContext } from '../venues/VenueProvider'
 // import { Venue } from '../venues/Venue'
-import { Button, Modal, ModalBody, ModalHeader } from 'reactstrap'
 import PartySpaceForm from './PartySpaceForm'
 import { PartySpace } from './PartySpace'
 // import PartySpaceCompose from './PartySpaceCompose'
 // import Dashboard from '../Dashboard'
 
-export default ({ setActiveList }) => {
-  const userId = parseInt(localStorage.getItem('partySpace_user'))
-  const { partyspaces } = useContext(PartySpaceContext)
-  const { venue } = useContext(VenueContext)
+export default ({ setActiveList, setPartySpaceClicked }) => {
+  const localUserId = parseInt(localStorage.getItem('partySpace_user'))
+  const { partySpaces } = useContext(PartySpaceContext)
+  const { venues } = useContext(VenueContext)
   // const { users } = useContext(UserContext)
 
   const [modal, setModal] = useState(false)
   const toggle = () => setModal(!modal)
 
-  // const [filteredPartySpaces, setFiltered] = useState([])
-
-  const matchingPartySpaces = partyspaces.filter(
-    (partyspace) => userId === partyspace.userId
+  const matchingPartySpaces = partySpaces.filter(
+    (partySpace) => partySpace.userId === localUserId
   )
 
   return (
@@ -31,7 +29,7 @@ export default ({ setActiveList }) => {
         <Button
           onClick={() => {
             // check if the user is authenticated
-            if (userId) {
+            if (localUserId) {
               // If the user is authenticated, show the PartySpace form
               toggle()
             }
@@ -43,13 +41,14 @@ export default ({ setActiveList }) => {
       </div>
 
       <div className='gridSection partyspaces marB1'>
-        {matchingPartySpaces.map((partyspace) => {
+        {matchingPartySpaces.map((partySpace) => {
           return (
             <PartySpace
-              key={partyspace.id}
-              partyspace={partyspace}
-              venue={venue}
+              key={partySpace.id}
+              partySpace={partySpace}
+              venues={venues}
               setActiveList={setActiveList}
+              setPartySpaceClicked={setPartySpaceClicked}
             />
           )
         })}

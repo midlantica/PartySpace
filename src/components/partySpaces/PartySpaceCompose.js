@@ -1,39 +1,39 @@
 import React, { useContext, useState } from 'react'
-import { Button, Modal, ModalBody, ModalHeader } from 'reactstrap'
+import { Modal, ModalBody, ModalHeader } from 'reactstrap'
 import { PartySpaceContext } from './PartySpaceProvider'
-import { UserContext } from '../users/UserProvider'
+import { PartySpaceVenuesContext } from './PartySpaceVenuesProvider'
 // import { UserContext } from '../users/UserProvider'
 import PartySpaceForm from './PartySpaceForm'
 import { PartySpaceComposeItem } from './PartySpaceComposeItem'
+import { VenueContext } from '../venues/VenueProvider'
 import { VenueList } from '../venues/VenueList'
 import './PartySpace.css'
-export default () => {
-  const userId = parseInt(localStorage.getItem('partySpace_user'))
-  const { partyspaces } = useContext(PartySpaceContext)
-  const { users } = useContext(UserContext)
+export default ({ setActiveList, PartySpaceClicked }) => {
+  const localUserId = parseInt(localStorage.getItem('partySpace_user'))
+  const { partySpaces } = useContext(PartySpaceContext)
+  const { partySpaceVenues } = useContext(PartySpaceVenuesContext)
+  const { venues } = useContext(VenueContext)
   // const { users } = useContext(UserContext)
 
   const [modal, setModal] = useState(false)
   const toggle = () => setModal(!modal)
 
-  // const [filteredPartySpaces, setFiltered] = useState([])
-
-  const singlePartySpace = partyspaces.filter(
-    (partyspace) => userId === partyspace.userId
+  const singlePartySpace = partySpaces.find(
+    (partySpace) => partySpace.id === PartySpaceClicked
   )
 
   return (
     <>
       <div className='ps-compose-grid'>
         <div className='partyspaces'>
-          {singlePartySpace.map((partyspace) => {
-            return (
-              <PartySpaceComposeItem
-                key={partyspace.userId}
-                partyspace={partyspace}
-              />
-            )
-          })}
+          <PartySpaceComposeItem
+            key={singlePartySpace.id}
+            partySpace={singlePartySpace}
+            venues={venues}
+            setActiveList={setActiveList}
+            PartySpaceClicked={PartySpaceClicked}
+          />
+
           <Modal isOpen={modal} toggle={toggle}>
             <ModalHeader toggle={toggle}>PartySpace</ModalHeader>
             <ModalBody>
@@ -72,9 +72,18 @@ export default () => {
         </div>
         <section className='ps-venues'>
           {/* <div className='ps-time'>${time}</div> */}
-          {/* map through venues within partyspace x */}
-          <button className='btn ps-button ps-blue mar0 marBH'>6:00pm</button>
-          <VenueList />
+          {/* map through venues within partySpace x */}
+          <div className='flexRowWrap align-i-flex-center marBH'>
+            <button className='btn ps-button ps-blue mar0'>6:00pm</button>
+            <h5 className='inline-block marLH'>Venues</h5>
+          </div>
+          <VenueList
+            key={partySpaceVenues.id}
+            partySpace={partySpaceVenues}
+            venues={venues}
+            setActiveList={setActiveList}
+            PartySpaceClicked={PartySpaceClicked}
+          />
         </section>
       </div>
     </>

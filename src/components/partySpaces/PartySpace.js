@@ -1,20 +1,25 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext } from 'react'
 import { PartySpaceContext } from './PartySpaceProvider'
 
-export const PartySpace = ({ partyspace, venue, setActiveList }) => {
-  const { partyspaces } = useContext(PartySpaceContext)
-
+export const PartySpace = ({
+  partySpace,
+  setActiveList,
+  setPartySpaceClicked,
+}) => {
   return (
     <>
       <section
         className='box partyspace flexColumn'
-        onClick={(partyspaces) => setActiveList('PartySpaceCompose')}
+        onClick={() => {
+          setPartySpaceClicked(partySpace.id)
+          setActiveList('PartySpaceCompose')
+        }}
       >
         <div className='topFlexBox'>
-          <h6>{partyspace.title}</h6>
-          <p className='fs-small'>Date: {partyspace.dateStart}</p>
-          <p className='fs-small'>Time: {partyspace.timeStart}</p>
-          <p className='fs-small'>{partyspace.description}</p>
+          <h6>{partySpace.title}</h6>
+          <p className='fs-small'>Date: {partySpace.dateStart}</p>
+          <p className='fs-small'>Time: {partySpace.timeStart}</p>
+          <p className='fs-small'>{partySpace.description}</p>
           {/* <p className='fs-small'>Map: {venue.geourl}</p> */}
         </div>
       </section>
