@@ -47,7 +47,7 @@ export default ({ setActiveList, setPartySpaceClicked }) => {
             <PartySpace
               key={partySpace.id}
               partySpace={partySpace}
-              venues={venues}
+              // venues={venues}
               setActiveList={setActiveList}
               setPartySpaceClicked={setPartySpaceClicked}
             />

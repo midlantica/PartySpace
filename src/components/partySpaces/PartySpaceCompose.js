@@ -23,10 +23,12 @@ export default ({ setActiveList, PartySpaceClicked }) => {
     (partySpace) => PartySpaceClicked === partySpace.id
   )
 
+  // Find Venues associated with 'PartySpaceClicked'
   const findPartySpaceVenues = partySpaceVenues.map(
     (venues) => PartySpaceClicked === partySpaceVenues.id
   )
 
+  // Find People added to 'PartySpaceClicked
   // const findPartySpacePeople = peoples.map(
   //   (peoples) => partySpaceId === partySpace.id
   // )
@@ -41,13 +43,6 @@ export default ({ setActiveList, PartySpaceClicked }) => {
             setActiveList={setActiveList}
             PartySpaceClicked={PartySpaceClicked}
           />
-
-          <Modal isOpen={modal} toggle={toggle}>
-            <ModalHeader toggle={toggle}>PartySpace</ModalHeader>
-            <ModalBody>
-              <PartySpaceForm toggler={toggle} />
-            </ModalBody>
-          </Modal>
         </div>
         <div className='ps-invites'>
           <section className='ps-people'>
@@ -84,13 +79,20 @@ export default ({ setActiveList, PartySpaceClicked }) => {
             <h5 className='inline-block marLH'>Venues</h5>
           </div>
           <VenueList
-            key={findPartySpaceVenues.id}
-            venues={singlePartySpace}
+            key={singlePartySpace.id}
+            partySpace={singlePartySpace}
+            venues={findPartySpaceVenues}
             setActiveList={setActiveList}
             PartySpaceClicked={PartySpaceClicked}
           />
         </section>
       </div>
+      <Modal isOpen={modal} toggle={toggle}>
+        <ModalHeader toggle={toggle}>PartySpace</ModalHeader>
+        <ModalBody>
+          <PartySpaceForm toggler={toggle} />
+        </ModalBody>
+      </Modal>
     </>
   )
 }

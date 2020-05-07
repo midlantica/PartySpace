@@ -29,7 +29,7 @@ section .venue .boxTop {
   border-top-right-radius: 4px;
 }
 
-section .venue i {
+section .venue button {
   /* color: var(--white); */
   /* background: linear-gradient(
     180deg,
@@ -49,10 +49,12 @@ section .venue i {
   background-size: 65%;
   border-radius: 2rem;
   margin-right: 0.5rem;
+  border: none;
+  outline: none;
   cursor: pointer;
 }
 
-section .venue i:hover {
+section .venue button:hover {
   /* background: linear-gradient(
     180deg,
     var(--primary) 0%,
@@ -64,6 +66,12 @@ section .venue i:hover {
   /* box-shadow: inset -1px -11px 3px hsla(0, 0%, 0%, 0.2); */
   background-repeat: no-repeat;
   background-position: 5px 4px;
+  background-size: 65%;
+  border-radius: 2rem;
+  margin-right: 0.5rem;
+  border: none;
+  outline: none;
+  cursor: pointer;
 }
 
 section .venue .box {

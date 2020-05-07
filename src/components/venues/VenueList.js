@@ -19,7 +19,10 @@ export const VenueList = ({ setActiveList, PartySpaceClicked }) => {
     <>
       <div className='venues'>
         {venues.map((ven) => (
-          <Venue key={ven.id} venue={ven} />
+          <Venue
+            key={ven.id} //
+            venues={ven}
+          />
         ))}
       </div>
     </>
