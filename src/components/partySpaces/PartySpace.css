@@ -100,7 +100,7 @@
 .venue::after {
   content: '⎯⎯⎯⎯⎯⎯⎯⎯';
   position: absolute;
-  top: 0.721rem;
+  top: 0.4rem;
   left: -1.05rem;
   z-index: -1;
   font-size: 0.5rem;
@@ -112,7 +112,7 @@
 .venue::before {
   content: '●';
   position: absolute;
-  top: 0.329rem;
+  top: 0.017rem;
   left: -1.37rem;
   z-index: -1;
   font-size: 1rem;
