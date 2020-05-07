@@ -1,12 +1,114 @@
-/* .locations {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-} */
+section .venue {
+  /* background: green; */
+  cursor: initial;
+  border-radius: 4px;
+}
 
-/* .location {
-  flex-basis: 28%;
-  margin: 1em;
-  padding: 1em;
-  border: 1px solid goldenrod;
-} */
+section .venue:hover {
+  /* background: initial; */
+  cursor: initial;
+  border-radius: 4px;
+}
+
+section .venue .boxTop {
+  background-color: var(--primary-ltr);
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  /* flex: 1 1 auto; */
+  justify-content: space-between;
+  /* justify-content: center; */
+  align-items: center;
+  height: 1.5rem;
+  padding: 0 0.25rem;
+  border-top: 1px solid hsl(221, 100%, 92%);
+  border-left: 1px solid hsl(221, 100%, 92%);
+  border-right: 1px solid hsl(221, 100%, 92%);
+  border-radius: 0;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+}
+
+section .venue i {
+  /* color: var(--white); */
+  /* background: linear-gradient(
+    180deg,
+    var(--green400) 0%,
+    var(--green600) 30%,
+    var(--green900) 100%
+  ); */
+  background: var(--white);
+  /* background: var(--green700); */
+  background-image: url('../../assets/pencil-grey.svg');
+  /* box-shadow: inset 1px 1px 3px hsla(0, 0%, 0%, 0.2); */
+  width: 1.2rem;
+  height: 1.2rem;
+  display: block;
+  background-repeat: no-repeat;
+  background-position: 5px 4px;
+  background-size: 65%;
+  border-radius: 2rem;
+  margin-right: 0.5rem;
+  cursor: pointer;
+}
+
+section .venue i:hover {
+  /* background: linear-gradient(
+    180deg,
+    var(--primary) 0%,
+    var(--primary) 30%,
+    var(--primary-dk) 100%
+  ); */
+  background: var(--primary-dk);
+  background-image: url('../../assets/pencil-white.svg');
+  /* box-shadow: inset -1px -11px 3px hsla(0, 0%, 0%, 0.2); */
+  background-repeat: no-repeat;
+  background-position: 5px 4px;
+}
+
+section .venue .box {
+  background: var(--white);
+  border-radius: 0;
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
+}
+
+section .venue .box:hover {
+  /* background: initial; */
+  border-radius: 0;
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
+}
+
+section .venue .time {
+  font-size: 0.65rem;
+  display: block;
+}
+
+section .venue .exxy {
+  background-color: white;
+  display: block;
+  background-repeat: no-repeat;
+  background-position: 5px 4px;
+  border-radius: 2rem;
+  /*  */
+  width: 1rem;
+  height: 1rem;
+  color: rgba(0, 0, 0, 0.2);
+  background: var(--white);
+  cursor: pointer;
+  text-align: center;
+  font-size: 0.8rem;
+  line-height: 1;
+  font-family: helvetica;
+  border: none;
+  /* box-shadow: inset 1px 1px 3px rgba(0, 0, 0, 0.25); */
+  padding: 0 0 0.25rem;
+  margin-left: auto;
+}
+
+section .venue .exxy:hover {
+  color: var(--white);
+  background: hsla(0, 100%, 50%, 0.75);
+  /* text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5); */
+}

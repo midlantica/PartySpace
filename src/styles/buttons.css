@@ -86,8 +86,8 @@
 }
 
 .xOut {
-  width: 1.2em;
-  height: 1.2em;
+  width: 1.2rem;
+  height: 1.2rem;
   border-radius: 20px;
   color: var(--white);
   background: rgba(0, 0, 0, 0.2);
@@ -95,7 +95,7 @@
   float: right;
   text-align: center;
   position: relative;
-  font-size: 0.8em;
+  font-size: 0.8rem;
   line-height: 1;
   font-family: helvetica;
   border: none;

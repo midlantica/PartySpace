@@ -1,11 +1,12 @@
 import React, { useContext, useState } from 'react'
 import { Button, Modal, ModalBody, ModalHeader } from 'reactstrap'
+
 import { PartySpaceContext } from './PartySpaceProvider'
-// import { UserContext } from '../users/UserProvider'
 import { VenueContext } from '../venues/VenueProvider'
-// import { Venue } from '../venues/Venue'
 import PartySpaceForm from './PartySpaceForm'
 import { PartySpace } from './PartySpace'
+// import { UserContext } from '../users/UserProvider'
+// import { Venue } from '../venues/Venue'
 // import PartySpaceCompose from './PartySpaceCompose'
 // import Dashboard from '../Dashboard'
 
