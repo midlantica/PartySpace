@@ -9,6 +9,8 @@ export const Venue = ({
   partySpace, //
   setActiveList,
   PartySpaceClicked,
+  partyRelationship,
+  venue,
 }) => {
   const localUserId = parseInt(localStorage.getItem('partySpace_user'))
   const { venues } = useContext(VenueContext)
@@ -25,6 +27,7 @@ export const Venue = ({
     <section className='venue'>
       <div className='boxTop'>
         <button
+          className='btn-Edit'
           onClick={() => {
             // check if the user is authenticated
             if (localUserId) {
@@ -33,15 +36,15 @@ export const Venue = ({
             }
           }}
         />
-        <span className='time'>Time: 6:00pm</span>
+        <span className='time'>Time: {partySpace.timeStart}</span>
         <span className='exxy fs-x-small'>×</span>
       </div>
       <div className='box'>
-        <h6 className='marBQ'>Name: {findPartySpaceVenues.name}</h6>
+        <h6 className='marBQ'>{venue.name}</h6>
         <p className='fs-x-small marBQ'>
-          Duration: {findPartySpaceVenues.duration}hrs
+          Duration: {partyRelationship.duration}hrs
         </p>
-        <p className='fs-x-small'>Geo Url: {findPartySpaceVenues.geourl}</p>
+        <p className='fs-x-small'>Geo Url: {venue.geourl}</p>
       </div>
       <Modal isOpen={modalVenueEdit} venueEdit={venueEdit}>
         <ModalHeader toggle={venueEdit}>Edit Venue</ModalHeader>

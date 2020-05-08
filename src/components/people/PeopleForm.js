@@ -42,21 +42,16 @@ export default (props) => {
       </fieldset>
       <fieldset>
         <div className='form-group'>
-          <label htmlFor='venue'>Assign to venue:</label>
-          <select
-            defaultValue=''
-            name='venue'
-            ref={venue}
-            id='peopleVenue'
+          <label htmlFor='venue'>Enter Email:</label>
+          <input
+            type='text'
+            id='peopleEmail'
+            ref={name}
+            required
+            autoFocus
             className='form-control'
-          >
-            <option value='0'>Select a venue</option>
-            {venues.map((e) => (
-              <option key={e.id} value={e.id}>
-                {e.name}
-              </option>
-            ))}
-          </select>
+            placeholder='People Email'
+          />
         </div>
       </fieldset>
       <button

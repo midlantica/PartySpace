@@ -4,9 +4,12 @@ import { Modal, ModalBody, ModalHeader } from 'reactstrap'
 import { PartySpaceContext } from './PartySpaceProvider'
 import { PartySpaceVenuesContext } from './PartySpaceVenuesProvider'
 import PartySpaceForm from './PartySpaceForm'
+import PeopleForm from '../people/PeopleForm'
 import { PartySpaceComposeItem } from './PartySpaceComposeItem'
 import { VenueContext } from '../venues/VenueProvider'
 import { VenueList } from '../venues/VenueList'
+import { VenueEdit } from '../venues/VenueEdit'
+
 import './PartySpace.css'
 // >>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
@@ -19,19 +22,20 @@ export default ({ setActiveList, PartySpaceClicked }) => {
   const [modal, setModal] = useState(false)
   const toggle = () => setModal(!modal)
 
+  const [modalVenueEdit, setModalVenueEdit] = useState(false)
+  const venueEdit = () => setModalVenueEdit(!modalVenueEdit)
+
+  const [modalPeopleInvite, setPeopleInvite] = useState(false)
+  const peopleInvite = () => setPeopleInvite(!modalPeopleInvite)
+
   const singlePartySpace = partySpaces.find(
     (partySpace) => PartySpaceClicked === partySpace.id
   )
-
+  // debugger
   // Find Venues associated with 'PartySpaceClicked'
   const findPartySpaceVenues = partySpaceVenues.map(
     (venues) => PartySpaceClicked === partySpaceVenues.id
   )
-
-  // Find People added to 'PartySpaceClicked
-  // const findPartySpacePeople = peoples.map(
-  //   (peoples) => partySpaceId === partySpace.id
-  // )
 
   return (
     <>
@@ -48,7 +52,18 @@ export default ({ setActiveList, PartySpaceClicked }) => {
           <section className='ps-people'>
             <div className='flexRowWrap just-space-between align-i-flex-center marBH'>
               <h5>People</h5>
-              <button className='ps-button btn btn-secondary'>＋ Invite</button>
+              <button
+                className='ps-button btn btn-secondary'
+                onClick={() => {
+                  // check if the user is authenticated
+                  if (localUserId) {
+                    // If the user is authenticated, show the PartySpace form
+                    peopleInvite()
+                  }
+                }}
+              >
+                ＋ Invite
+              </button>
             </div>
             <p className='ps-invited'>
               John Smith <span className='exOut'>×</span>
@@ -74,9 +89,32 @@ export default ({ setActiveList, PartySpaceClicked }) => {
           </section>
         </div>
         <section className='ps-venues'>
-          <div className='flexRowWrap align-i-flex-center marBH'>
-            <button className='btn ps-button ps-blue mar0'>6:00pm</button>
+          <div className='flexRowWrap just-space-between align-i-flex-center marBH'>
+            <button
+              className='btn ps-button ps-blue mar0'
+              onClick={() => {
+                // check if the user is authenticated
+                if (localUserId) {
+                  // If the user is authenticated, show the PartySpace form
+                  toggle()
+                }
+              }}
+            >
+              6:00pm
+            </button>
             <h5 className='inline-block marLH'>Venues</h5>
+            <button
+              className='btn ps-button ps-green marT0 marLAuto'
+              onClick={() => {
+                // check if the user is authenticated
+                if (localUserId) {
+                  // If the user is authenticated, show the PartySpace form
+                  venueEdit()
+                }
+              }}
+            >
+              ＋ Venue
+            </button>
           </div>
           <VenueList
             key={singlePartySpace.id}
@@ -87,10 +125,25 @@ export default ({ setActiveList, PartySpaceClicked }) => {
           />
         </section>
       </div>
+
       <Modal isOpen={modal} toggle={toggle}>
         <ModalHeader toggle={toggle}>PartySpace</ModalHeader>
         <ModalBody>
           <PartySpaceForm toggler={toggle} />
+        </ModalBody>
+      </Modal>
+
+      <Modal isOpen={modalVenueEdit} venueEdit={venueEdit}>
+        <ModalHeader toggle={venueEdit}>Edit Venue</ModalHeader>
+        <ModalBody>
+          <VenueEdit toggler={venueEdit} />
+        </ModalBody>
+      </Modal>
+
+      <Modal isOpen={modalPeopleInvite} peopleInvite={peopleInvite}>
+        <ModalHeader toggle={peopleInvite}>Invite People</ModalHeader>
+        <ModalBody>
+          <PeopleForm toggler={peopleInvite} />
         </ModalBody>
       </Modal>
     </>

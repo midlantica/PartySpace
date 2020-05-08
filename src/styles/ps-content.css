@@ -76,3 +76,32 @@
 .people {
   /*  */
 }
+
+button.btn-Edit {
+  background: var(--white);
+  background-image: url('../assets/pencil-grey.svg');
+  width: 1.2rem;
+  height: 1.2rem;
+  display: block;
+  background-repeat: no-repeat;
+  background-position: 5px 4px;
+  background-size: 65%;
+  border-radius: 2rem;
+  margin-right: 0.5rem;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+button.btn-Edit:hover {
+  background: var(--gray700);
+  background-image: url('../assets/pencil-white.svg');
+  background-repeat: no-repeat;
+  background-position: 5px 4px;
+  background-size: 65%;
+  border-radius: 2rem;
+  margin-right: 0.5rem;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}

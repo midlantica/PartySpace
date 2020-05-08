@@ -93,7 +93,7 @@
 }
 
 .venue {
-  margin-bottom: 0.25rem;
+  margin-bottom: 0.35rem;
   position: relative;
 }
 
@@ -130,7 +130,7 @@
 .ps-doneBox {
   width: 6rem;
   background: var(--primary-ltr);
-  padding: 1rem;
+  padding: 0.5rem;
   font-size: 0.85rem;
   text-align: center;
   border-radius: 0.25rem;
@@ -144,16 +144,56 @@
 
 .ps-doneBox button {
   border-radius: 0.25rem;
-  font-size: small;
+  font-size: 70%;
+  line-height: 1.25;
   margin-top: 0.5rem !important;
 }
 
 .ps-doneBox button:hover {
   border-radius: 0.25rem;
-  font-size: small;
   margin-top: 0.5rem !important;
 }
 
 .ps-doneBox p {
   text-align: center !important;
+}
+
+.partyspace .contentWrap h5 {
+  font-size: 80%;
+}
+
+.partyspace .contentWrap p {
+  font-size: 60%;
+  color: var(--gray800);
+}
+
+.partyspace .contentWrap .description {
+  font-size: 60%;
+  color: var(--gray700);
+}
+
+.partyspace .btn-Edit {
+  background: var(--gray500);
+  background-image: url('../../assets/pencil-white.svg');
+  background-repeat: no-repeat;
+  background-position: 7px 5px;
+  background-size: 60%;
+}
+
+.partyspace .btn-Edit:hover {
+  background: var(--gray800);
+  background-image: url('../../assets/pencil-white.svg');
+  background-repeat: no-repeat;
+  background-position: 7px 5px;
+  background-size: 60%;
+}
+
+q {
+  quotes: '“' '”' '‘' '’';
+}
+q::before {
+  content: open-quote;
+}
+q::after {
+  content: close-quote;
 }
