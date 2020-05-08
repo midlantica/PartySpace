@@ -19,6 +19,14 @@
 .marRAuto {
   margin-right: auto !important;
 }
+
+.marTAuto {
+  margin-top: auto !important;
+}
+.marBAuto {
+  margin-bottom: auto !important;
+}
+
 .marLRAuto {
   margin-left: auto !important;
   margin-right: auto !important;

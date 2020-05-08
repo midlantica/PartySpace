@@ -32,7 +32,7 @@ export const PartySpaceComposeItem = ({
           <div className='flexRow'>
             <div className='flexRowWrap align-i-flex-center'>
               <button
-                className='btn ps-button ps-green btnSmall marBH'
+                className='btn-Edit marLRAuto marBAuto'
                 onClick={() => {
                   // check if the user is authenticated
                   if (localUserId) {
@@ -40,15 +40,15 @@ export const PartySpaceComposeItem = ({
                     toggle()
                   }
                 }}
-              >
-                Edit
-              </button>
+              />
             </div>
-            <div className='marLRH marBQ'>
-              <h5 className='inline-block'>{partySpace.title}</h5>
+            <div className='contentWrap marLRH marBQ'>
+              <h5>{partySpace.title}</h5>
               <p className='fs-small'>Date: {partySpace.dateStart}</p>
               <p className='fs-small'>Time: {partySpace.timeStart}</p>
-              <p className='fs-small marTQ'>{partySpace.description}</p>
+              <p className='description fs-small marTQ q'>
+                {partySpace.description}
+              </p>
             </div>
             <div className='ps-doneBox'>
               <p>When you're done click this button</p>

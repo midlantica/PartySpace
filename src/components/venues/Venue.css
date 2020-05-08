@@ -29,49 +29,12 @@ section .venue .boxTop {
   border-top-right-radius: 4px;
 }
 
-section .venue button {
-  /* color: var(--white); */
-  /* background: linear-gradient(
-    180deg,
-    var(--green400) 0%,
-    var(--green600) 30%,
-    var(--green900) 100%
-  ); */
-  background: var(--white);
-  /* background: var(--green700); */
-  background-image: url('../../assets/pencil-grey.svg');
-  /* box-shadow: inset 1px 1px 3px hsla(0, 0%, 0%, 0.2); */
-  width: 1.2rem;
-  height: 1.2rem;
-  display: block;
-  background-repeat: no-repeat;
-  background-position: 5px 4px;
-  background-size: 65%;
-  border-radius: 2rem;
-  margin-right: 0.5rem;
-  border: none;
-  outline: none;
-  cursor: pointer;
+section .venue button.btn-Edit {
+  /*  */
 }
 
-section .venue button:hover {
-  /* background: linear-gradient(
-    180deg,
-    var(--primary) 0%,
-    var(--primary) 30%,
-    var(--primary-dk) 100%
-  ); */
-  background: var(--primary-dk);
-  background-image: url('../../assets/pencil-white.svg');
-  /* box-shadow: inset -1px -11px 3px hsla(0, 0%, 0%, 0.2); */
-  background-repeat: no-repeat;
-  background-position: 5px 4px;
-  background-size: 65%;
-  border-radius: 2rem;
-  margin-right: 0.5rem;
-  border: none;
-  outline: none;
-  cursor: pointer;
+section .venue button.btn-Edit:hover {
+  /*  */
 }
 
 section .venue .box {

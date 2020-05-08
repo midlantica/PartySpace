@@ -1,44 +1,39 @@
 import React, { useContext, useState } from 'react'
 import { PeopleContext } from './PeopleProvider'
-import People from './People'
-import { VenueContext } from '../venues/VenueProvider'
-import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap'
-import PeopleForm from './PeopleForm'
-
-export default () => {
+import { PartySpaceContext } from '../partySpaces/PartySpaceProvider'
+export default ({ partySpace, setActiveList, PartySpaceClicked }) => {
+  const localUserId = parseInt(localStorage.getItem('partySpace_user'))
+  const { partySpaces } = useContext(PartySpaceContext)
   const { peoples } = useContext(PeopleContext)
-  const { venues } = useContext(VenueContext)
 
   const [modal, setModal] = useState(false)
   const toggle = () => setModal(!modal)
 
+  // const singlePartySpace = partySpaces.find(
+  //   (partySpace) => PartySpaceClicked === partySpace.id
+  // )
+
+  // const findPartySpaceVenues = partySpaceVenues.map(
+  //   (venues) => singlePartySpace === partySpaceVenues.id
+  // )
+
   return (
     <>
-      <div className='flexRow'>
-        <h4 className='marRH'>Peoples</h4>
-        <div className='plusBtn' onClick={toggle}>
-          &#65291;
-        </div>
-      </div>
-
-      {/* <div className='gridSection people'>
-        {peoples.map((people) => {
-          const partyspace = partyspace.find(
-            (partyspace) => partyspace.id === peoples.partySpaceId
-          )
-
-          return (
-            <People key={peoples.id} partyspace={partyspace} people={people} />
-          )
-        })}
-      </div> */}
-
-      <Modal isOpen={modal} toggle={toggle}>
-        <ModalHeader toggle={toggle}>New People</ModalHeader>
-        <ModalBody>
-          <PeopleForm toggler={toggle} />
-        </ModalBody>
-      </Modal>
+      <p className='ps-invited'>
+        Drew Kirkland
+        <span
+          className='exOut'
+          onClick={() => {
+            // check if the user is authenticated
+            if (localUserId) {
+              // If the user is authenticated, show the PartySpace form
+              toggle()
+            }
+          }}
+        >
+          ×
+        </span>
+      </p>
     </>
   )
 }
