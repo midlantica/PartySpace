@@ -13,9 +13,6 @@ import { PartySpace } from './PartySpace'
 export default ({ setActiveList, setPartySpaceClicked }) => {
   const localUserId = parseInt(localStorage.getItem('partySpace_user'))
   const { partySpaces } = useContext(PartySpaceContext)
-  const { venues } = useContext(VenueContext)
-  // const { users } = useContext(UserContext)
-
   const [modal, setModal] = useState(false)
   const toggle = () => setModal(!modal)
 
@@ -47,7 +44,6 @@ export default ({ setActiveList, setPartySpaceClicked }) => {
             <PartySpace
               key={partySpace.id}
               partySpace={partySpace}
-              // venues={venues}
               setActiveList={setActiveList}
               setPartySpaceClicked={setPartySpaceClicked}
             />

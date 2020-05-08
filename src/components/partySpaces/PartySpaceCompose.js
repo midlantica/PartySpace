@@ -9,6 +9,7 @@ import { PartySpaceComposeItem } from './PartySpaceComposeItem'
 import { VenueContext } from '../venues/VenueProvider'
 import { VenueList } from '../venues/VenueList'
 import { VenueEdit } from '../venues/VenueEdit'
+import PeopleList from '../people/PeopleList'
 
 import './PartySpace.css'
 // >>>>>>>>>>>>>>>>>>>>>>>>>>>>
@@ -17,7 +18,6 @@ export default ({ setActiveList, PartySpaceClicked }) => {
   const localUserId = parseInt(localStorage.getItem('partySpace_user'))
   const { partySpaces } = useContext(PartySpaceContext)
   const { partySpaceVenues } = useContext(PartySpaceVenuesContext)
-  const { venues } = useContext(VenueContext)
 
   const [modal, setModal] = useState(false)
   const toggle = () => setModal(!modal)
@@ -31,8 +31,7 @@ export default ({ setActiveList, PartySpaceClicked }) => {
   const singlePartySpace = partySpaces.find(
     (partySpace) => PartySpaceClicked === partySpace.id
   )
-  // debugger
-  // Find Venues associated with 'PartySpaceClicked'
+
   const findPartySpaceVenues = partySpaceVenues.map(
     (venues) => PartySpaceClicked === partySpaceVenues.id
   )
@@ -65,26 +64,14 @@ export default ({ setActiveList, PartySpaceClicked }) => {
                 ＋ Invite
               </button>
             </div>
+            <PeopleList
+              key={singlePartySpace.id}
+              partySpace={singlePartySpace}
+              setActiveList={setActiveList}
+              PartySpaceClicked={PartySpaceClicked}
+            />
             <p className='ps-invited'>
-              John Smith <span className='exOut'>×</span>
-            </p>
-            <p className='ps-invited'>
-              Samantha Longnamesum <span className='exOut'>×</span>
-            </p>
-            <p className='ps-invited'>
-              Wilfred Gonzales <span className='exOut'>×</span>
-            </p>
-            <p className='ps-invited'>
-              Ron Delan <span className='exOut'>×</span>
-            </p>
-            <p className='ps-invited'>
-              Ekene Obasey <span className='exOut'>×</span>
-            </p>
-            <p className='ps-invited'>
-              Usha Oliver <span className='exOut'>×</span>
-            </p>
-            <p className='ps-invited'>
-              Shirai Subaru <span className='exOut'>×</span>
+              XXXXXJohn Smith <span className='exOut'>×</span>
             </p>
           </section>
         </div>
