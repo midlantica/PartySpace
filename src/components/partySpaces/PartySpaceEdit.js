@@ -1,18 +1,22 @@
-import React, { useContext, useState } from 'react'
+// EDIT EXISTING PARTYSPACE -- NOT CREATE NEW! (not yet)
+//
+import React, { useContext, useRef, useState } from 'react'
 import { PartySpaceContext } from './PartySpaceProvider'
-import { LocationContext } from '../venues/VenueProvider'
+import { VenueContext } from '../venues/VenueProvider'
 
-export const EditPartySpaceForm = ({ partyspace, customer, toggleEdit }) => {
-  const { locations } = useContext(LocationContext)
+export const EditPartySpaceForm = ({ partySpace, customer, toggleEdit }) => {
+  const { venues } = useContext(VenueContext)
   const { updatePartySpace } = useContext(PartySpaceContext)
+  const venueId = parseInt(updatedPartySpace.venueId)
+
+  const title = useRef()
+  const dateStart = useRef()
+  const timeStart = useRef()
+  const description = useRef()
 
   // Separate state variable to track the partyspace as it is edited
-  const [updatedPartySpace, setPartySpace] = useState(partyspace)
+  const [updatedPartySpace, setPartySpace] = useState(partySpace)
 
-  /*
-        When changing a state object or array, always create a new one
-        and change state instead of modifying current one
-    */
   const handleControlledInputChange = (event) => {
     // Create a new copy of the partyspace being edited
     const newPartySpace = Object.assign({}, updatedPartySpace)
@@ -25,16 +29,18 @@ export const EditPartySpaceForm = ({ partyspace, customer, toggleEdit }) => {
   }
 
   const editPartySpace = () => {
-    const locationId = parseInt(updatedPartySpace.locationId)
+    const venueId = parseInt(updatedPartySpace.venueId)
 
-    if (locationId === 0) {
-      window.alert('Please select a location')
+    if (venueId === 0) {
+      window.alert('Please select a venue')
     } else {
       updatePartySpace({
         id: updatedPartySpace.id,
-        name: updatedPartySpace.name,
-        breed: updatedPartySpace.breed,
-        locationId: locationId,
+        title: updatedPartySpace.title,
+        startDate: updatedPartySpace.startDate,
+        startTime: updatedPartySpace.startTime,
+        description: updatedPartySpace.description,
+        venueId: venueId,
         customerId: parseInt(localStorage.getItem('partySpace_user')),
       }).then(toggleEdit)
     }
@@ -52,7 +58,7 @@ export const EditPartySpaceForm = ({ partyspace, customer, toggleEdit }) => {
             autoFocus
             className='form-control'
             placeholder='PartySpace title'
-            defaultValue={partyspace.title}
+            defaultValue={partySpace.title}
             onChange={handleControlledInputChange}
           />
         </div>
@@ -66,7 +72,7 @@ export const EditPartySpaceForm = ({ partyspace, customer, toggleEdit }) => {
             required
             className='form-control'
             placeholder='PartySpace description'
-            defaultValue={partyspace.description}
+            defaultValue={partySpace.description}
             onChange={handleControlledInputChange}
           />
         </div>
@@ -80,7 +86,7 @@ export const EditPartySpaceForm = ({ partyspace, customer, toggleEdit }) => {
             required
             className='form-control'
             placeholder='PartySpace datestart'
-            defaultValue={partyspace.datestart}
+            defaultValue={partySpace.datestart}
             onChange={handleControlledInputChange}
           />
         </div>
@@ -94,7 +100,7 @@ export const EditPartySpaceForm = ({ partyspace, customer, toggleEdit }) => {
             required
             className='form-control'
             placeholder='PartySpace timestart'
-            defaultValue={partyspace.timestart}
+            defaultValue={partySpace.timestart}
             onChange={handleControlledInputChange}
           />
         </div>
@@ -105,7 +111,7 @@ export const EditPartySpaceForm = ({ partyspace, customer, toggleEdit }) => {
         className='btn btn-primary btn-danger'
         onClick={(evt) => {
           evt.preventDefault()
-          deletePartySpace()
+          // deletePartySpace()
         }}
       >
         Delete PartySpace
