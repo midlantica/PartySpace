@@ -10,6 +10,7 @@ import { VenueContext } from '../venues/VenueProvider'
 import { VenueList } from '../venues/VenueList'
 import { VenueEdit } from '../venues/VenueEdit'
 import PeopleList from '../people/PeopleList'
+import { PeopleProvider } from '../people/PeopleProvider'
 
 import './PartySpace.css'
 // >>>>>>>>>>>>>>>>>>>>>>>>>>>>
@@ -70,9 +71,6 @@ export default ({ setActiveList, PartySpaceClicked }) => {
               setActiveList={setActiveList}
               PartySpaceClicked={PartySpaceClicked}
             />
-            <p className='ps-invited'>
-              XXXXXJohn Smith <span className='exOut'>×</span>
-            </p>
           </section>
         </div>
         <section className='ps-venues'>
