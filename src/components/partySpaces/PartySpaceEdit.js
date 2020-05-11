@@ -1,13 +1,14 @@
 // EDIT EXISTING PARTYSPACE -- NOT CREATE NEW! (not yet)
 //
 import React, { useContext, useRef, useState } from 'react'
+// import { Button, Modal, ModalBody, ModalHeader } from 'reactstrap'
 import { PartySpaceContext } from './PartySpaceProvider'
 import { VenueContext } from '../venues/VenueProvider'
 
-export const EditPartySpaceForm = ({ partySpace, customer, toggleEdit }) => {
+export const PartySpaceEdit = ({ partySpace, toggleEdit }) => {
   const { venues } = useContext(VenueContext)
   const { updatePartySpace } = useContext(PartySpaceContext)
-  const venueId = parseInt(updatedPartySpace.venueId)
+  // const venueId = parseInt(updatedPartySpace.venueId)
 
   const title = useRef()
   const dateStart = useRef()
@@ -58,25 +59,13 @@ export const EditPartySpaceForm = ({ partySpace, customer, toggleEdit }) => {
             autoFocus
             className='form-control'
             placeholder='PartySpace title'
+            ref={title}
             defaultValue={partySpace.title}
             onChange={handleControlledInputChange}
           />
         </div>
       </fieldset>
-      <fieldset>
-        <div className='form-group'>
-          <label htmlFor='description'>Description:</label>
-          <textarea
-            type='textarea'
-            name='description'
-            required
-            className='form-control'
-            placeholder='PartySpace description'
-            defaultValue={partySpace.description}
-            onChange={handleControlledInputChange}
-          />
-        </div>
-      </fieldset>
+
       <fieldset>
         <div className='form-group'>
           <label htmlFor='datestart'>Start Date:</label>
@@ -86,6 +75,7 @@ export const EditPartySpaceForm = ({ partySpace, customer, toggleEdit }) => {
             required
             className='form-control'
             placeholder='PartySpace datestart'
+            ref={dateStart}
             defaultValue={partySpace.datestart}
             onChange={handleControlledInputChange}
           />
@@ -101,32 +91,50 @@ export const EditPartySpaceForm = ({ partySpace, customer, toggleEdit }) => {
             className='form-control'
             placeholder='PartySpace timestart'
             defaultValue={partySpace.timestart}
+            ref={timeStart}
+            onChange={handleControlledInputChange}
+          />
+        </div>
+      </fieldset>
+      <fieldset>
+        <div className='form-group'>
+          <label htmlFor='description'>Description:</label>
+          <textarea
+            type='textarea'
+            name='description'
+            required
+            className='form-control'
+            placeholder='PartySpace description'
+            defaultValue={partySpace.description}
+            ref={description}
             onChange={handleControlledInputChange}
           />
         </div>
       </fieldset>
 
-      <button
-        type='Delete'
-        className='btn btn-primary btn-danger'
-        onClick={(evt) => {
-          evt.preventDefault()
-          // deletePartySpace()
-        }}
-      >
-        Delete PartySpace
-      </button>
+      <div className='flexRow just-space-between'>
+        <button
+          type='Delete'
+          className='btn ps-button float-right mar0 ps-gray'
+          onClick={(evt) => {
+            evt.preventDefault()
+            // deletePartySpace()
+          }}
+        >
+          Delete PartySpace
+        </button>
 
-      <button
-        type='submit'
-        className='btn btn-primary'
-        onClick={(evt) => {
-          evt.preventDefault()
-          editPartySpace()
-        }}
-      >
-        Save PartySpace
-      </button>
+        <button
+          type='submit'
+          className='btn ps-button float-right mar0'
+          onClick={(evt) => {
+            evt.preventDefault()
+            editPartySpace()
+          }}
+        >
+          Save PartySpace
+        </button>
+      </div>
     </form>
   )
 }

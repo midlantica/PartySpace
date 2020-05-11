@@ -3,7 +3,7 @@ import { Button, Modal, ModalBody, ModalHeader } from 'reactstrap'
 
 import { PartySpaceContext } from './PartySpaceProvider'
 import { VenueContext } from '../venues/VenueProvider'
-import PartySpaceForm from './PartySpaceForm'
+import { PartySpaceCreate } from './PartySpaceCreate'
 import { PartySpace } from './PartySpace'
 // import { UserContext } from '../users/UserProvider'
 // import { Venue } from '../venues/Venue'
@@ -54,7 +54,7 @@ export default ({ setActiveList, setPartySpaceClicked }) => {
       <Modal isOpen={modal} toggle={toggle}>
         <ModalHeader toggle={toggle}>Add PartySpace</ModalHeader>
         <ModalBody>
-          <PartySpaceForm toggler={toggle} />
+          <PartySpaceCreate toggler={toggle} />
         </ModalBody>
       </Modal>
     </>

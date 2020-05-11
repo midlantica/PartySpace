@@ -1,28 +1,31 @@
 // ADD NEW PARTYSPACE -- NOT EDIT! (not yet)
 import React, { useContext, useRef, useState } from 'react'
-import { PartySpaceContext } from './PartySpaceProvider'
 import { Button, Modal, ModalBody, ModalHeader } from 'reactstrap'
+import { PartySpaceContext } from './PartySpaceProvider'
 import { VenueContext } from '../venues/VenueProvider'
 
-export default ({ partySpace, customer }) => {
+export const PartySpaceCreate = (partySpace) => {
   const { addPartySpace } = useContext(PartySpaceContext)
   const { venues } = useContext(VenueContext)
-  const venueId = parseInt(updatedPartySpace.venueId)
+  // const venueId = parseInt(updatedPartySpace.venueId)
 
   const title = useRef()
   const dateStart = useRef()
   const timeStart = useRef()
   const description = useRef()
 
-  // Separate state variable to track the partyspace as it is edited
+  // Separate state variable to track the partySpace as it is edited
   const [updatedPartySpace, setPartySpace] = useState(partySpace)
 
   const handleControlledInputChange = (event) => {
-    // Create a new copy of the partyspace being edited
+    // Create a new copy of the partySpace being edited
     const newPartySpace = Object.assign({}, updatedPartySpace)
 
     // Change the property value on the copy
-    newPartySpace[event.target.name] = event.target.value
+    newPartySpace[event.target.title] = event.target.value
+    newPartySpace[event.target.dateStart] = event.target.value
+    newPartySpace[event.target.timeStart] = event.target.value
+    newPartySpace[event.target.description] = event.target.value
 
     // Set the copy as the new state
     setPartySpace(newPartySpace)
@@ -70,7 +73,7 @@ export default ({ partySpace, customer }) => {
             type='date'
             id='dateStart'
             ref={dateStart}
-            defaultValue={partySpace.datestart}
+            defaultValue={partySpace.dateStart}
             required
             autoFocus
             className='form-control'
@@ -86,7 +89,7 @@ export default ({ partySpace, customer }) => {
             type='time'
             id='timeStart'
             ref={timeStart}
-            defaultValue={partySpace.timestart}
+            defaultValue={partySpace.timeStart}
             required
             autoFocus
             className='form-control'

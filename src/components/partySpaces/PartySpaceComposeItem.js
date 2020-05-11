@@ -2,7 +2,7 @@ import React, { useContext, useState } from 'react'
 import { Button, Modal, ModalBody, ModalHeader } from 'reactstrap'
 import { PartySpaceContext } from './PartySpaceProvider'
 import { PartySpaceVenuesContext } from './PartySpaceVenuesProvider'
-import { EditPartySpaceForm } from './PartySpaceEdit'
+import { PartySpaceEdit } from './PartySpaceEdit'
 // import { PartySpaceEdit } from './PartySpaceEdit'
 import PartySpaceCompleted from './PartySpaceCompleted'
 import { PartySpace } from './PartySpace'
@@ -73,7 +73,7 @@ export const PartySpaceComposeItem = ({
       <Modal isOpen={modal} toggle={toggle}>
         <ModalHeader toggle={toggle}>Edit PartySpace</ModalHeader>
         <ModalBody>
-          <EditPartySpaceForm toggler={toggle} partySpace={partySpace} />
+          <PartySpaceEdit toggler={toggle} partySpace={partySpace} />
         </ModalBody>
       </Modal>
 
