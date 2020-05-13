@@ -47,6 +47,22 @@
   );
 }
 
+.ps-button.ps-gray {
+  background: var(--gray600);
+}
+
+.ps-button.ps-gray:hover {
+  background: var(--gray800);
+}
+
+.ps-button.ps-danger {
+  background: var(--red500);
+}
+
+.ps-button.ps-danger:hover {
+  background: var(--red900);
+}
+
 .plusBtn {
   color: white;
   background: hsl(0, 0%, 70%) !important;

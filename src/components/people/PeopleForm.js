@@ -1,24 +1,24 @@
 import React, { useContext, useRef } from 'react'
 import { PeopleContext } from './PeopleProvider'
-import { VenueContext } from '../venues/VenueProvider'
 import './People.css'
 
 export default (props) => {
   const { addPeople } = useContext(PeopleContext)
-  const { venues } = useContext(VenueContext)
+  const { peoples } = useContext(PeopleContext)
 
   const name = useRef()
-  const venue = useRef()
+  const email = useRef()
+  // const person = useRef()
 
   const constructNewPeople = () => {
-    const venueId = parseInt(venue.current.value)
+    const peoples = peoples.current.value
 
-    if (venueId === 0) {
-      window.alert('Please select a venue')
+    if (peoples === 0) {
+      window.alert('Please select a person')
     } else {
       addPeople({
         name: name.current.value,
-        venueId: venueId,
+        peoples: peoples,
       }).then(props.toggler)
     }
   }
@@ -28,10 +28,10 @@ export default (props) => {
       {/* <h2 className='peopleForm__title'>New People</h2> */}
       <fieldset>
         <div className='form-group'>
-          <label htmlFor='peopleName'>People name:</label>
+          <label htmlFor='peopleName'>Person name:</label>
           <input
             type='text'
-            id='peopleName'
+            id='name'
             ref={name}
             required
             autoFocus
@@ -42,11 +42,11 @@ export default (props) => {
       </fieldset>
       <fieldset>
         <div className='form-group'>
-          <label htmlFor='venue'>Enter Email:</label>
+          <label htmlFor='email'>Enter Email:</label>
           <input
             type='text'
-            id='peopleEmail'
-            ref={name}
+            id='email'
+            ref={email}
             required
             autoFocus
             className='form-control'
@@ -60,7 +60,7 @@ export default (props) => {
           evt.preventDefault() // Prevent browser from submitting the form
           constructNewPeople()
         }}
-        className='btn btn-primary btn-save'
+        className='btn ps-button float-right mar0'
       >
         Save
       </button>

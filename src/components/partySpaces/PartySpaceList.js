@@ -2,22 +2,17 @@ import React, { useContext, useState } from 'react'
 import { Button, Modal, ModalBody, ModalHeader } from 'reactstrap'
 
 import { PartySpaceContext } from './PartySpaceProvider'
-import { VenueContext } from '../venues/VenueProvider'
-import PartySpaceForm from './PartySpaceForm'
+import { PartySpaceCreate } from './PartySpaceCreate'
 import { PartySpace } from './PartySpace'
-// import { UserContext } from '../users/UserProvider'
-// import { Venue } from '../venues/Venue'
-// import PartySpaceCompose from './PartySpaceCompose'
-// import Dashboard from '../Dashboard'
 
 export default ({ setActiveList, setPartySpaceClicked }) => {
   const localUserId = parseInt(localStorage.getItem('partySpace_user'))
   const { partySpaces } = useContext(PartySpaceContext)
   const [modal, setModal] = useState(false)
-  const toggle = () => setModal(!modal)
+  const addPartySpace = () => setModal(!modal)
 
   const matchingPartySpaces = partySpaces.filter(
-    (partySpace) => partySpace.userId === localUserId
+    (MaPartySpace) => MaPartySpace.userId === localUserId
   )
 
   return (
@@ -29,7 +24,7 @@ export default ({ setActiveList, setPartySpaceClicked }) => {
             // check if the user is authenticated
             if (localUserId) {
               // If the user is authenticated, show the PartySpace form
-              toggle()
+              addPartySpace()
             }
           }}
           className='ps-button'
@@ -51,10 +46,10 @@ export default ({ setActiveList, setPartySpaceClicked }) => {
         })}
       </div>
 
-      <Modal isOpen={modal} toggle={toggle}>
-        <ModalHeader toggle={toggle}>Add PartySpace</ModalHeader>
+      <Modal isOpen={modal} addPartySpace={addPartySpace}>
+        <ModalHeader addPartySpace={addPartySpace}>Add PartySpace</ModalHeader>
         <ModalBody>
-          <PartySpaceForm toggler={toggle} />
+          <PartySpaceCreate toggler={addPartySpace} />
         </ModalBody>
       </Modal>
     </>

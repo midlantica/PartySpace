@@ -26,47 +26,37 @@ export default () => {
 
   // HIGHER ORDER FUNCTION. IT RETURNS OTHER FUNCTION (i.e. COMPONENTS)
   const showPartySpaceList = () => (
-    <PartySpaceProvider>
-      <PartySpaceVenuesProvider>
-        <UserProvider>
-          <PeopleProvider>
-            <VenueProvider>
-              <div className='dataContainer'>
-                <PartySpaceList
-                  setActiveList={setActiveList}
-                  setPartySpaceClicked={setPartySpaceClicked}
-                  PartySpaceClicked={PartySpaceClicked}
-                />
-              </div>
-            </VenueProvider>
-          </PeopleProvider>
-        </UserProvider>
-      </PartySpaceVenuesProvider>
-    </PartySpaceProvider>
+    <div className='dataContainer'>
+      <PartySpaceList
+        setActiveList={setActiveList}
+        setPartySpaceClicked={setPartySpaceClicked}
+        PartySpaceClicked={PartySpaceClicked}
+      />
+    </div>
   )
 
   const showPartySpaceCompose = () => (
-    <PartySpaceProvider>
-      <PartySpaceVenuesProvider>
-        <UserProvider>
-          <PeopleProvider>
-            <VenueProvider>
-              <div className='dataContainer'>
-                <PartySpaceCompose
-                  setActiveList={setActiveList}
-                  PartySpaceClicked={PartySpaceClicked}
-                />
-              </div>
-            </VenueProvider>
-          </PeopleProvider>
-        </UserProvider>
-      </PartySpaceVenuesProvider>
-    </PartySpaceProvider>
+    <div className='dataContainer'>
+      <PartySpaceCompose
+        setActiveList={setActiveList}
+        PartySpaceClicked={PartySpaceClicked}
+      />
+    </div>
   )
 
   return (
     <>
-      <div>{components}</div>
+      <PartySpaceProvider>
+        <PartySpaceVenuesProvider>
+          <UserProvider>
+            <PeopleProvider>
+              <VenueProvider>
+                <div>{components}</div>
+              </VenueProvider>
+            </PeopleProvider>
+          </UserProvider>
+        </PartySpaceVenuesProvider>
+      </PartySpaceProvider>
     </>
   )
 }

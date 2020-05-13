@@ -20,7 +20,6 @@ export const PartySpace = ({
           <p className='fs-small'>Date: {partySpace.dateStart}</p>
           <p className='fs-small'>Time: {partySpace.timeStart}</p>
           <p className='fs-small'>{partySpace.description}</p>
-          {/* <p className='fs-small'>Map: {venue.geourl}</p> */}
         </div>
       </section>
     </>

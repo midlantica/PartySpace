@@ -10,7 +10,7 @@ export const PeopleContext = React.createContext()
  This component establishes what data can be used.
  */
 export const PeopleProvider = (props) => {
-  const [people, setPeoples] = useState([])
+  const [peoples, setPeoples] = useState([])
 
   const getPeople = () => {
     return fetch('http://localhost:8088/peoples')
@@ -18,13 +18,13 @@ export const PeopleProvider = (props) => {
       .then(setPeoples)
   }
 
-  const addPeople = (employee) => {
+  const addPeople = (peoples) => {
     return fetch('http://localhost:8088/peoples', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify(employee),
+      body: JSON.stringify(peoples),
     }).then(getPeople)
   }
 
@@ -44,12 +44,12 @@ export const PeopleProvider = (props) => {
 
   useEffect(() => {
     console.log('****  People APPLICATION STATE CHANGED  ****')
-  }, [people])
+  }, [peoples])
 
   return (
     <PeopleContext.Provider
       value={{
-        people,
+        peoples,
         addPeople,
         removePeople,
       }}
