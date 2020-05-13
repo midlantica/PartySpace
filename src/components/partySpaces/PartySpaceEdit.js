@@ -8,18 +8,17 @@ import { VenueContext } from '../venues/VenueProvider'
 export const PartySpaceEdit = ({ partySpace, toggleEdit }) => {
   const { venues } = useContext(VenueContext)
   const { updatePartySpace } = useContext(PartySpaceContext)
-  // const venueId = parseInt(updatedPartySpace.venueId)
 
   const title = useRef()
   const dateStart = useRef()
   const timeStart = useRef()
   const description = useRef()
 
-  // Separate state variable to track the partyspace as it is edited
+  // Separate state variable to track the partySpace as it is edited
   const [updatedPartySpace, setPartySpace] = useState(partySpace)
 
   const handleControlledInputChange = (event) => {
-    // Create a new copy of the partyspace being edited
+    // Create a new copy of the partySpace being edited
     const newPartySpace = Object.assign({}, updatedPartySpace)
 
     // Change the property value on the copy
@@ -49,68 +48,79 @@ export const PartySpaceEdit = ({ partySpace, toggleEdit }) => {
 
   return (
     <form className='partyspaceForm'>
-      <fieldset>
-        <div className='form-group'>
-          <label htmlFor='title'>Title of Event:</label>
-          <input
-            type='text'
-            name='title'
-            required
-            autoFocus
-            className='form-control'
-            placeholder='PartySpace title'
-            ref={title}
-            defaultValue={partySpace.title}
-            onChange={handleControlledInputChange}
-          />
-        </div>
-      </fieldset>
+      {/* FLEX IT */}
+      <div className='flexRow just-space-between marBH'>
+        {/* COLUMN 1 */}
+        <div className='w45'>
+          <fieldset>
+            <div className='form-group'>
+              <label htmlFor='title'>Title of Event:</label>
+              <input
+                type='text'
+                name='title'
+                required
+                autoFocus
+                className='form-control'
+                placeholder='PartySpace title'
+                ref={title}
+                defaultValue={partySpace.title}
+                onChange={handleControlledInputChange}
+              />
+            </div>
+          </fieldset>
 
-      <fieldset>
-        <div className='form-group'>
-          <label htmlFor='datestart'>Start Date:</label>
-          <input
-            type='time'
-            name='datestart'
-            required
-            className='form-control'
-            placeholder='PartySpace datestart'
-            ref={dateStart}
-            defaultValue={partySpace.datestart}
-            onChange={handleControlledInputChange}
-          />
+          <fieldset>
+            <div className='form-group'>
+              <label htmlFor='dateStart'>Start Date:</label>
+              <input
+                type='time'
+                name='dateStart'
+                required
+                className='form-control'
+                placeholder='PartySpace dateStart'
+                ref={dateStart}
+                defaultValue={partySpace.dateStart}
+                onChange={handleControlledInputChange}
+              />
+            </div>
+          </fieldset>
+          <fieldset>
+            <div className='form-group'>
+              <label htmlFor='timeStart'>Start Time:</label>
+              <input
+                type='time'
+                name='timeStart'
+                required
+                className='form-control'
+                placeholder='PartySpace timeStart'
+                defaultValue={partySpace.timeStart}
+                ref={timeStart}
+                onChange={handleControlledInputChange}
+              />
+            </div>
+          </fieldset>
         </div>
-      </fieldset>
-      <fieldset>
-        <div className='form-group'>
-          <label htmlFor='timestart'>Start Time:</label>
-          <input
-            type='time'
-            name='timestart'
-            required
-            className='form-control'
-            placeholder='PartySpace timestart'
-            defaultValue={partySpace.timestart}
-            ref={timeStart}
-            onChange={handleControlledInputChange}
-          />
+
+        {/* COLUMN 2 */}
+        <div className='w45'>
+          <fieldset>
+            <div className='form-group'>
+              <label htmlFor='description'>Description:</label>
+              <textarea
+                type='textarea'
+                rows='9'
+                name='description'
+                required
+                className='form-control'
+                placeholder='PartySpace description'
+                defaultValue={partySpace.description}
+                ref={description}
+                onChange={handleControlledInputChange}
+              />
+            </div>
+          </fieldset>
         </div>
-      </fieldset>
-      <fieldset>
-        <div className='form-group'>
-          <label htmlFor='description'>Description:</label>
-          <textarea
-            type='textarea'
-            name='description'
-            required
-            className='form-control'
-            placeholder='PartySpace description'
-            defaultValue={partySpace.description}
-            ref={description}
-            onChange={handleControlledInputChange}
-          />
-        </div>
-      </fieldset>
+      </div>
 
       <div className='flexRow just-space-between'>
         <button

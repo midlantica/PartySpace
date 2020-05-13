@@ -52,15 +52,24 @@ section.flexColumn {
   flex-wrap: wrap;
 }
 
-/*
-align-items: >>
-  stretch
-  flex-start
-  flex-end
-  center
-  baseline
-*/
+/*  */
+.flex-grow-1 {
+  flex-grow: 1;
+}
 
+.flex-grow-0 {
+  flex-grow: 0;
+}
+
+.flex-shrink-1 {
+  flex-shrink: 1;
+}
+
+.flex-shrink-0 {
+  flex-shrink: 0;
+}
+
+/*  */
 .align-i-flex-start {
   align-items: flex-start;
 }
@@ -72,16 +81,6 @@ align-items: >>
 .align-i-flex-center {
   align-items: center;
 }
-
-/*
-justify-content: >>
-  flex-start
-  flex-end
-  center
-  space-between
-  space-around
-  space-evenly
-*/
 
 .just-flex-start {
   justify-content: flex-start;

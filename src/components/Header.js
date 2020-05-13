@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default ({ partyspace, venue, setActiveList }) => (
+export default ({ partySpace, venue, setActiveList }) => (
   <header className='masthead'>
     <img className='logo' src='partyspace-logo-white.svg' alt='logo' />
     <a href='/'>

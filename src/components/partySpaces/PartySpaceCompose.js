@@ -48,6 +48,9 @@ export default ({ setActiveList, PartySpaceClicked }) => {
             PartySpaceClicked={PartySpaceClicked}
           />
         </div>
+
+        {/* INVITEES */}
+        {/* INVITEES */}
         <div className='ps-invites'>
           <section className='ps-people'>
             <div className='flexRowWrap just-space-between align-i-flex-center marBH'>
@@ -73,6 +76,9 @@ export default ({ setActiveList, PartySpaceClicked }) => {
             />
           </section>
         </div>
+
+        {/* VENUES */}
+        {/* VENUES */}
         <section className='ps-venues'>
           <div className='flexRowWrap just-space-between align-i-flex-center marBH'>
             <button
@@ -111,6 +117,8 @@ export default ({ setActiveList, PartySpaceClicked }) => {
         </section>
       </div>
 
+      {/* MODALS */}
+      {/* MODALS */}
       <Modal isOpen={modal} toggle={toggle}>
         <ModalHeader toggle={toggle}>PartySpace</ModalHeader>
         <ModalBody>

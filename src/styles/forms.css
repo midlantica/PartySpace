@@ -2,12 +2,20 @@
   float: right;
 }
 
+.form-group {
+  margin-bottom: 0.5rem;
+}
+
 .form-control {
   border: 0.03rem solid hsla(0, 0%, 50%, 0.5);
 }
 
 .form-control input {
   background: var(--yellow50);
+}
+
+.modal-header .close {
+  margin: -1.5rem -1rem -1rem;
 }
 
 button.form-control,
@@ -20,6 +28,7 @@ textarea.form-control {
 
 label {
   font-size: 80% !important;
+  margin-bottom: 0.25rem;
 }
 
 .btn-primary {

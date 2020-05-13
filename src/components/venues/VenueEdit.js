@@ -1,41 +1,46 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useRef, useState } from 'react'
 import { PartySpaceContext } from '../partySpaces/PartySpaceProvider'
 import { VenueContext } from './VenueProvider'
+import { PartySpaceVenuesContext } from '../partySpaces/PartySpaceVenuesProvider'
 
-export const VenueEdit = ({ partyspace, customer, toggleEdit }) => {
-  const localUserId = parseInt(localStorage.getItem('partySpace_user'))
+export const VenueEdit = ({ partySpace, toggleEdit }) => {
+  const userId = parseInt(localStorage.getItem('partySpace_user'))
   const { venues } = useContext(VenueContext)
   const { updatePartySpace } = useContext(PartySpaceContext)
+  const { updatePartySpaceVenues } = useContext(PartySpaceVenuesContext)
 
-  // Separate state variable to track the partyspace as it is edited
-  const [updatedPartySpace, setPartySpace] = useState(partyspace)
+  const name = useRef()
+  const duration = useRef()
+
+  // Separate state variable to track the partySpace as it is edited
+  const [updatedPartySpaceVenues, setPartySpaceVenues] = useState(partySpace)
 
   /*
         When changing a state object or array, always create a new one
         and change state instead of modifying current one
     */
   const handleControlledInputChange = (event) => {
-    // Create a new copy of the partyspace being edited
-    const newPartySpace = Object.assign({}, updatedPartySpace)
+    // Create a new copy of the partySpace being edited
+    const newPartySpaceVenue = Object.assign({}, updatedPartySpaceVenues)
 
     // Change the property value on the copy
-    newPartySpace[event.target.name] = event.target.value
+    newPartySpaceVenue[event.target.name] = event.target.value
 
     // Set the copy as the new state
-    setPartySpace(newPartySpace)
+    setPartySpaceVenues(newPartySpaceVenue)
   }
 
-  const editPartySpace = () => {
-    const locationId = parseInt(updatedPartySpace.locationId)
+  const VenueEdit = () => {
+    const venueId = parseInt(updatedPartySpaceVenues.venueId)
 
-    if (locationId === 0) {
+    if (venueId === 0) {
       window.alert('Please select a location')
     } else {
-      updatePartySpace({
-        id: updatedPartySpace.id,
-        name: updatedPartySpace.name,
-        breed: updatedPartySpace.breed,
-        locationId: locationId,
+      updatePartySpaceVenues({
+        id: updatedPartySpaceVenues.id,
+        name: updatedPartySpaceVenues.name,
+        geourl: updatedPartySpaceVenues.geourl,
+        venueId: venueId,
         customerId: parseInt(localStorage.getItem('partySpace_user')),
       }).then(toggleEdit)
     }
@@ -45,10 +50,10 @@ export const VenueEdit = ({ partyspace, customer, toggleEdit }) => {
     <form className='VenueEditForm'>
       <fieldset>
         <div className='form-group'>
-          <label htmlFor='title'>Venue Name:</label>
+          <label htmlFor='name'>Venue Name:</label>
           <input
             type='text'
-            name='title'
+            name='name'
             required
             autoFocus
             className='form-control'
@@ -60,10 +65,10 @@ export const VenueEdit = ({ partyspace, customer, toggleEdit }) => {
       </fieldset>
       <fieldset>
         <div className='form-group'>
-          <label htmlFor='mapUrl'>Map Url:</label>
+          <label htmlFor='geourl'>Map Url:</label>
           <input
             type='text'
-            name='mapUrl'
+            name='geourl'
             required
             className='form-control'
             placeholder='Venue Map Url'
