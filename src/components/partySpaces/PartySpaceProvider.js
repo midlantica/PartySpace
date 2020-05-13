@@ -18,23 +18,23 @@ export const PartySpaceProvider = (props) => {
       .then(setPartySpaces)
   }
 
-  const addPartySpace = (PartySpace) => {
+  const addPartySpace = (partySpace) => {
     return fetch('http://localhost:8088/partySpaces', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify(PartySpace),
+      body: JSON.stringify(partySpace),
     }).then(getPartySpaces)
   }
 
-  const updatePartySpace = (PartySpace) => {
-    return fetch(`http://localhost:8088/partySpaces/${partySpaces.id}`, {
+  const updatePartySpace = (partySpace) => {
+    return fetch(`http://localhost:8088/partySpaces/${partySpace.id}`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify(PartySpace),
+      body: JSON.stringify(partySpace),
     }).then(getPartySpaces)
   }
 

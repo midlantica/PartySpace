@@ -16,8 +16,9 @@ export const PartySpaceComposeItem = ({
   const { partySpaces } = useContext(PartySpaceContext)
   // const { venues } = useContext(VenueContext)
 
-  const [modal, setModal] = useState(false)
-  const editPartySpace = () => setModal(!modal)
+  const [modalEditPartySpace, setModalEditPartySpace] = useState(false)
+  const editPartySpaceToggle = () =>
+    setModalEditPartySpace(!modalEditPartySpace)
 
   const [modalWoo, setModalWoo] = useState(false)
   const woohoo = () => setModalWoo(!modalWoo)
@@ -33,7 +34,7 @@ export const PartySpaceComposeItem = ({
                 // check if the user is authenticated
                 if (localUserId) {
                   // If the user is authenticated, show the PartySpace form
-                  editPartySpace()
+                  editPartySpaceToggle()
                 }
               }}
             />
@@ -64,12 +65,13 @@ export const PartySpaceComposeItem = ({
         </div>
       </section>
 
-      <Modal isOpen={modal} editPartySpace={editPartySpace}>
-        <ModalHeader editPartySpace={editPartySpace}>
-          Edit PartySpace
-        </ModalHeader>
+      <Modal isOpen={modalEditPartySpace}>
+        <ModalHeader>Edit PartySpace</ModalHeader>
         <ModalBody>
-          <PartySpaceEdit toggler={editPartySpace} partySpace={partySpace} />
+          <PartySpaceEdit
+            toggler={editPartySpaceToggle}
+            partySpace={partySpace}
+          />
         </ModalBody>
       </Modal>
 

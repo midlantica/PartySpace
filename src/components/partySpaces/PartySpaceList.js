@@ -12,7 +12,7 @@ export default ({ setActiveList, setPartySpaceClicked }) => {
   const addPartySpace = () => setModal(!modal)
 
   const matchingPartySpaces = partySpaces.filter(
-    (partySpace) => partySpace.userId === localUserId
+    (MaPartySpace) => MaPartySpace.userId === localUserId
   )
 
   return (

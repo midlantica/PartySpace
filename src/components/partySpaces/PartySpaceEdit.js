@@ -5,7 +5,8 @@ import React, { useContext, useRef, useState } from 'react'
 import { PartySpaceContext } from './PartySpaceProvider'
 import { VenueContext } from '../venues/VenueProvider'
 
-export const PartySpaceEdit = ({ partySpace, toggleEdit }) => {
+export const PartySpaceEdit = ({ partySpace, toggler }) => {
+  const localUserId = parseInt(localStorage.getItem('partySpace_user'))
   const { venues } = useContext(VenueContext)
   const { updatePartySpace } = useContext(PartySpaceContext)
 
@@ -29,20 +30,20 @@ export const PartySpaceEdit = ({ partySpace, toggleEdit }) => {
   }
 
   const editPartySpace = () => {
-    const venueId = parseInt(updatedPartySpace.venueId)
-
-    if (venueId === 0) {
+    const partySpaceId = parseInt(updatedPartySpace.partySpaceId)
+    // debugger
+    if (partySpaceId === 0) {
       window.alert('Please select a venue')
     } else {
       updatePartySpace({
         id: updatedPartySpace.id,
         title: updatedPartySpace.title,
-        startDate: updatedPartySpace.startDate,
-        startTime: updatedPartySpace.startTime,
+        dateStart: updatedPartySpace.dateStart,
+        timeStart: updatedPartySpace.timeStart,
         description: updatedPartySpace.description,
-        venueId: venueId,
-        customerId: parseInt(localStorage.getItem('partySpace_user')),
-      }).then(toggleEdit)
+        isComplete: updatedPartySpace.isComplete,
+        userId: updatedPartySpace.userId,
+      }).then(toggler)
     }
   }
 
@@ -73,7 +74,7 @@ export const PartySpaceEdit = ({ partySpace, toggleEdit }) => {
             <div className='form-group'>
               <label htmlFor='dateStart'>Start Date:</label>
               <input
-                type='time'
+                type='date'
                 name='dateStart'
                 required
                 className='form-control'

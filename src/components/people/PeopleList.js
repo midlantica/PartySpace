@@ -15,7 +15,7 @@ export default ({ partySpace, setActiveList, PartySpaceClicked }) => {
 
   // const partySpacePerson = peoples.filter((peoples) => peoples.id === partySpaceId)
 
-  console.log(peoples)
+  // console.log(peoples)
 
   const partySpacePeople = peoples.filter(
     (x) => PartySpaceClicked === x.partySpaceId
