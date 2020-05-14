@@ -1,26 +1,40 @@
-import React, { useContext, useRef } from 'react'
+import React, { useContext, useRef, useState } from 'react'
 import { PeopleContext } from './PeopleProvider'
 import './People.css'
 
-export default ({ PartySpaceClicked, toggler }) => {
-  const { peoples, addPeople } = useContext(PeopleContext)
+export default ({ PartySpaceClicked, toggler, selectedPerson }) => {
+  const { peoples, editPeople } = useContext(PeopleContext)
   const userId = parseInt(localStorage.getItem('partySpace_user'))
+
+  const [updatedPerson, setPerson] = useState(selectedPerson)
 
   const name = useRef()
   const email = useRef()
   // const person = useRef()
 
-  const constructNewPeople = () => {
+  const updatePeople = () => {
     if (peoples === 0) {
       window.alert('Please select a person')
     } else {
-      addPeople({
-        name: name.current.value,
-        email: email.current.value,
+      editPeople({
+        id: updatedPerson.id,
+        name: updatedPerson.name,
+        email: updatedPerson.email,
         partySpaceId: PartySpaceClicked,
         userId: userId,
       }).then(toggler)
     }
+  }
+
+  const handleControlledInputChange = (event) => {
+    // Create a new copy of the person being edited
+    const newPerson = Object.assign({}, updatedPerson)
+
+    // Change the property value on the copy
+    newPerson[event.target.name] = event.target.value
+
+    // Set the copy as the new state
+    setPerson(newPerson)
   }
 
   return (
@@ -32,11 +46,14 @@ export default ({ PartySpaceClicked, toggler }) => {
           <input
             type='text'
             id='name'
+            name='name'
+            defaultValue={selectedPerson.name}
             ref={name}
             required
             autoFocus
             className='form-control'
             placeholder='People name'
+            onChange={handleControlledInputChange}
           />
         </div>
       </fieldset>
@@ -46,11 +63,14 @@ export default ({ PartySpaceClicked, toggler }) => {
           <input
             type='email'
             id='email'
+            name='email'
+            defaultValue={selectedPerson.email}
             ref={email}
             required
             autoFocus
             className='form-control'
             placeholder='People Email'
+            onChange={handleControlledInputChange}
           />
         </div>
       </fieldset>
@@ -58,7 +78,7 @@ export default ({ PartySpaceClicked, toggler }) => {
         type='submit'
         onClick={(evt) => {
           evt.preventDefault() // Prevent browser from submitting the form
-          constructNewPeople()
+          updatePeople()
         }}
         className='btn ps-button float-right mar0'
       >

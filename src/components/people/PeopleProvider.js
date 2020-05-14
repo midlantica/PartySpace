@@ -34,6 +34,16 @@ export const PeopleProvider = (props) => {
     }).then(getPeople)
   }
 
+  const editPeople = (person) => {
+    return fetch(`http://localhost:8088/peoples/${person.id}`, {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(person),
+    }).then(getPeople)
+  }
+
   /*
         Load all animals when the component is mounted. Ensure that
         an empty array is the second argument to avoid infinite loop.
@@ -52,6 +62,7 @@ export const PeopleProvider = (props) => {
         peoples,
         addPeople,
         removePeople,
+        editPeople,
       }}
     >
       {props.children}

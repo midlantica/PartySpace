@@ -66,7 +66,7 @@ export const PartySpaceComposeItem = ({
       </section>
 
       <Modal isOpen={modalEditPartySpace}>
-        <ModalHeader>Edit PartySpace</ModalHeader>
+        <ModalHeader toggle={editPartySpaceToggle}>Edit PartySpace</ModalHeader>
         <ModalBody>
           <PartySpaceEdit
             toggler={editPartySpaceToggle}
@@ -76,6 +76,7 @@ export const PartySpaceComposeItem = ({
       </Modal>
 
       <Modal isOpen={modalWoo} woohoo={woohoo}>
+        {/* <ModalHeader toggle={woohoo}>PartySpace Complete</ModalHeader> */}
         <ModalBody>
           <PartySpaceCompleted toggler={woohoo} />
         </ModalBody>

@@ -28,7 +28,7 @@ fieldset {
 
 input[type='email'],
 input[type='password'] {
-  width: 25em;
+  /* width: 25em; */
 }
 
 .label--login {

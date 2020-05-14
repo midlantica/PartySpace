@@ -1,19 +1,21 @@
 import React, { useContext, useState } from 'react'
+import { Modal, ModalBody, ModalHeader } from 'reactstrap'
+
 import { PeopleContext } from './PeopleProvider'
 import { PartySpaceContext } from '../partySpaces/PartySpaceProvider'
 import { PartySpaceVenuesContext } from '../partySpaces/PartySpaceVenuesProvider'
+import PeopleEditForm from './PeopleEditForm'
 
 export default ({ partySpace, setActiveList, PartySpaceClicked }) => {
-  const localUserId = parseInt(localStorage.getItem('partySpace_user'))
+  // const localUserId = parseInt(localStorage.getItem('partySpace_user'))
   const { partySpaces } = useContext(PartySpaceContext)
-  const { peoples } = useContext(PeopleContext)
-  const { removePeople } = useContext(PeopleContext)
+  const { peoples, removePeople, editPeople } = useContext(PeopleContext)
   const { partySpaceVenues } = useContext(PartySpaceVenuesContext)
-  // debugger
-  // const [modal, setModal] = useState(false)
-  // const toggle = () => setModal(!modal)
 
-  // const partySpacePerson = peoples.filter((peoples) => peoples.id === partySpaceId)
+  const [modalPeopleUpdate, setModalPeopleUpdate] = useState(false)
+  const toggle = () => setModalPeopleUpdate(!modalPeopleUpdate)
+
+  const [selectedPerson, setSelectedPerson] = useState({ person: { id: 0 } })
 
   // console.log(peoples)
 
@@ -25,24 +27,37 @@ export default ({ partySpace, setActiveList, PartySpaceClicked }) => {
   //   (venues) => singlePartySpace === partySpaceVenues.id
   // )
 
-  return partySpacePeople.map((p) => {
+  return partySpacePeople.map((person) => {
     return (
       <>
-        <p className='ps-invited'>
-          {p.name}
+        <p
+          className='ps-invited'
+          onClick={() => {
+            setSelectedPerson(person)
+            toggle()
+          }}
+        >
+          {person.name}
           <span
             className='exOut'
             onClick={() => {
-              // check if the user is authenticated
-              if (localUserId) {
-                // If the user is authenticated, show the PartySpace form
-                // removePeople(peoples.id)
-              }
+              removePeople(person.id)
             }}
           >
             ×
           </span>
         </p>
+
+        <Modal isOpen={modalPeopleUpdate} toggle={toggle}>
+          <ModalHeader toggle={toggle}>Update People</ModalHeader>
+          <ModalBody>
+            <PeopleEditForm
+              toggler={toggle}
+              selectedPerson={selectedPerson}
+              PartySpaceClicked={PartySpaceClicked}
+            />
+          </ModalBody>
+        </Modal>
       </>
     )
   })

@@ -136,7 +136,10 @@ export default ({ setActiveList, PartySpaceClicked }) => {
       <Modal isOpen={modalPeopleInvite} peopleInvite={peopleInvite}>
         <ModalHeader toggle={peopleInvite}>Invite People</ModalHeader>
         <ModalBody>
-          <PeopleForm toggler={peopleInvite} />
+          <PeopleForm
+            toggler={peopleInvite}
+            PartySpaceClicked={PartySpaceClicked}
+          />
         </ModalBody>
       </Modal>
     </>
