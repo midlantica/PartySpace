@@ -5,6 +5,20 @@
     'people venues venues venues';
   grid-gap: 0rem;
   /* grid-template-rows: auto; */
+  min-height: 300px;
+}
+
+@media (max-width: 800px) {
+  .ps-compose-grid {
+    display: grid;
+    grid-template-areas:
+      'partyspace'
+      'people'
+      'venues';
+    grid-gap: 0rem;
+    /* grid-template-rows: auto; */
+    min-height: 300px;
+  }
 }
 
 .partyspaces {
@@ -27,17 +41,67 @@
   flex-wrap: nowrap;
   justify-content: space-between;
   align-items: flex-end;
+  margin-bottom: 1rem;
+  min-height: inherit;
+}
+
+@media (max-width: 800px) {
+  .ps-invites {
+    border-left: 1px solid var(--primary-dk);
+    min-height: initial;
+    margin-bottom: 0;
+    position: relative;
+    left: 1rem;
+    width: calc(100% - 1rem);
+  }
 }
 
 .ps-venues {
   grid-area: venues;
   z-index: 0;
+  min-height: inherit;
+}
+
+@media (max-width: 1000px) {
+  .ps-venues {
+    padding: 1rem 1rem 1rem 1rem !important;
+  }
 }
 
 .ps-people {
   /* background: red; */
   width: 90%;
   padding-top: 1rem;
+}
+
+@media (max-width: 800px) {
+  .ps-people {
+    width: initial;
+    margin-left: 1rem;
+  }
+
+  .ps-people:before {
+    content: '●';
+    position: absolute;
+    top: 1.017rem;
+    left: -0.37rem;
+    z-index: 1;
+    font-size: 1rem;
+    /* transform: rotate(45deg); */
+    letter-spacing: 0;
+    color: var(--primary-dk);
+  }
+
+  .ps-people:after {
+    /* content: '⎯⎯⎯⎯⎯⎯⎯⎯';
+    position: absolute;
+    top: 0.4rem;
+    left: -1.05rem;
+    z-index: 1;
+    font-size: 0.5rem;
+    letter-spacing: -0.05ch;
+    color: var(--primary-dk); */
+  }
 }
 
 .ps-invited {
@@ -48,15 +112,23 @@
   line-height: 1;
   padding: 0.3rem 0.3rem 0.3rem 0.5rem;
   letter-spacing: 0;
-  margin-bottom: 0.25rem;
   cursor: pointer;
   background: var(--white);
+  margin-right: 0.3rem;
+  margin-bottom: 0.25rem;
+  width: 100%;
   /*  */
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
   justify-content: space-between;
   align-items: center;
+}
+
+@media (max-width: 800px) {
+  .ps-invited {
+    width: initial;
+  }
 }
 
 .ps-invited:hover {
@@ -78,11 +150,13 @@
   font-size: 0.8rem;
   line-height: 0.9;
   font-family: helvetica;
+  margin-left: 0.25rem;
 }
 
 .ps-invited .exOut:hover {
   background: hsla(0, 100%, 50%, 0.62);
   color: var(--white);
+  margin-left: 0.25rem;
 }
 
 .ps-venues {
@@ -158,16 +232,16 @@
   text-align: center !important;
 }
 
-.partyspace .contentWrap h5 {
+.partyspace .ps-contentWrap h5 {
   font-size: 80%;
 }
 
-.partyspace .contentWrap p {
+.partyspace .ps-contentWrap p {
   font-size: 60%;
   color: var(--gray800);
 }
 
-.partyspace .contentWrap .description {
+.partyspace .ps-contentWrap .description {
   font-size: 60%;
   color: var(--gray700);
 }

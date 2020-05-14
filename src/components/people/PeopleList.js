@@ -30,14 +30,16 @@ export default ({ partySpace, setActiveList, PartySpaceClicked }) => {
   return partySpacePeople.map((person) => {
     return (
       <>
-        <p
-          className='ps-invited'
-          onClick={() => {
-            setSelectedPerson(person)
-            toggle()
-          }}
-        >
-          {person.name}
+        <div className='flexRowWrap ps-invited'>
+          <p
+            className='person flex-grow-1'
+            onClick={() => {
+              setSelectedPerson(person)
+              toggle()
+            }}
+          >
+            {person.name}
+          </p>
           <span
             className='exOut'
             onClick={() => {
@@ -46,10 +48,10 @@ export default ({ partySpace, setActiveList, PartySpaceClicked }) => {
           >
             ×
           </span>
-        </p>
+        </div>
 
         <Modal isOpen={modalPeopleUpdate} toggle={toggle}>
-          <ModalHeader toggle={toggle}>Update People</ModalHeader>
+          <ModalHeader toggle={toggle}>Update Person</ModalHeader>
           <ModalBody>
             <PeopleEditForm
               toggler={toggle}

@@ -68,12 +68,14 @@ export default ({ setActiveList, PartySpaceClicked }) => {
                 ＋ Invite
               </button>
             </div>
-            <PeopleList
-              key={singlePartySpace.id}
-              partySpace={singlePartySpace}
-              setActiveList={setActiveList}
-              PartySpaceClicked={PartySpaceClicked}
-            />
+            <div className='flexRowWrap'>
+              <PeopleList
+                key={singlePartySpace.id}
+                partySpace={singlePartySpace}
+                setActiveList={setActiveList}
+                PartySpaceClicked={PartySpaceClicked}
+              />
+            </div>
           </section>
         </div>
 
@@ -127,7 +129,7 @@ export default ({ setActiveList, PartySpaceClicked }) => {
       </Modal>
 
       <Modal isOpen={modalVenueEdit} venueEdit={venueEdit}>
-        <ModalHeader toggle={venueEdit}>Edit Venue</ModalHeader>
+        <ModalHeader toggle={venueEdit}>Save Venue</ModalHeader>
         <ModalBody>
           <VenueEdit toggler={venueEdit} />
         </ModalBody>
