@@ -16,7 +16,7 @@
 :root {
   --fontHead: 'Dosis', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   --fontCopy: 'Dosis', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  max-width: 60rem;
+  max-width: 55rem;
   margin: 0 auto;
 }
 
@@ -44,6 +44,12 @@ body {
   padding: 1rem 1.25rem 0;
   background: whitesmoke;
   background: url(../assets/paper/paper.png);
+}
+
+@media (max-width: 700px) {
+  .dh-container {
+    padding: 0.5rem 0.65rem 0;
+  }
 }
 
 code {

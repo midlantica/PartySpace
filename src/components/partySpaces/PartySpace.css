@@ -26,33 +26,47 @@
 }
 
 .ps-compose-grid .partyspaces .box.partyspace {
-  /* border: 1px solid var(--primary-dk); */
   border: none;
   border-radius: 0.2rem;
   box-shadow: 0 8px 8px -4px hsla(0, 0%, 0%, 0.2);
 }
 
-.ps-invites {
+.ps-people {
   grid-area: people;
-  /* padding: 1rem; */
+  padding: 1rem 1rem 0rem 1rem;
+  border-left: 1px solid var(--primary-lt);
+  position: relative;
+  left: 1rem;
   /*  */
   display: flex;
   flex-direction: column;
   flex-wrap: nowrap;
-  justify-content: space-between;
   align-items: flex-end;
-  margin-bottom: 1rem;
-  min-height: inherit;
+  /* margin-bottom: 1rem; */
+  /* min-height: inherit; */
+  justify-content: flex-start;
+}
+
+.ps-people:before {
+  content: '●';
+  position: absolute;
+  top: 1.017rem;
+  left: -0.32rem;
+  z-index: 1;
+  font-size: 1rem;
+  letter-spacing: 0;
+  color: var(--primary-dk);
+  /* min-height: initial; */
 }
 
 @media (max-width: 800px) {
-  .ps-invites {
-    border-left: 1px solid var(--primary-dk);
-    min-height: initial;
+  .ps-people {
+    padding: 1rem 2rem 0rem 1rem;
+    /* min-height: initial;
     margin-bottom: 0;
     position: relative;
     left: 1rem;
-    width: calc(100% - 1rem);
+    width: calc(100% - 1rem); */
   }
 }
 
@@ -62,59 +76,33 @@
   min-height: inherit;
 }
 
-@media (max-width: 1000px) {
-  .ps-venues {
-    padding: 1rem 1rem 1rem 1rem !important;
-  }
-}
-
-.ps-people {
-  /* background: red; */
-  width: 90%;
-  padding-top: 1rem;
-}
-
-@media (max-width: 800px) {
+/* @media (max-width: 800px) {
   .ps-people {
-    width: initial;
-    margin-left: 1rem;
+    margin-right: 1rem;
   }
 
   .ps-people:before {
     content: '●';
     position: absolute;
     top: 1.017rem;
-    left: -0.37rem;
+    left: -0.32rem;
     z-index: 1;
     font-size: 1rem;
-    /* transform: rotate(45deg); */
     letter-spacing: 0;
     color: var(--primary-dk);
   }
 
-  .ps-people:after {
-    /* content: '⎯⎯⎯⎯⎯⎯⎯⎯';
-    position: absolute;
-    top: 0.4rem;
-    left: -1.05rem;
-    z-index: 1;
-    font-size: 0.5rem;
-    letter-spacing: -0.05ch;
-    color: var(--primary-dk); */
-  }
-}
+} */
 
 .ps-invited {
-  /* border: 1px solid hsla(0, 44%, 40%, 0.25); */
   border: none;
   border-radius: 1rem;
   font-size: 70%;
   line-height: 1;
   padding: 0.3rem 0.3rem 0.3rem 0.5rem;
   letter-spacing: 0;
-  cursor: pointer;
+  /* cursor: pointer; */
   background: var(--white);
-  margin-right: 0.3rem;
   margin-bottom: 0.25rem;
   width: 100%;
   /*  */
@@ -128,6 +116,7 @@
 @media (max-width: 800px) {
   .ps-invited {
     width: initial;
+    margin-right: 0.3rem;
   }
 }
 
@@ -159,9 +148,13 @@
   margin-left: 0.25rem;
 }
 
+.ps-invited .person {
+  cursor: pointer;
+}
+
 .ps-venues {
   padding: 1rem 2rem 1rem 1rem;
-  border-left: 1px solid var(--primary-dk);
+  border-left: 1px solid var(--primary-lt);
   position: relative;
   left: 1rem;
 }
@@ -178,7 +171,6 @@
   left: -1.05rem;
   z-index: -1;
   font-size: 0.5rem;
-  /* transform: rotate(45deg); */
   letter-spacing: -0.05ch;
   color: var(--primary-dk);
 }
@@ -187,10 +179,9 @@
   content: '●';
   position: absolute;
   top: 0.017rem;
-  left: -1.37rem;
+  left: -1.34rem;
   z-index: -1;
   font-size: 1rem;
-  /* transform: rotate(45deg); */
   letter-spacing: 0;
   color: var(--primary-dk);
 }
@@ -232,6 +223,37 @@
   text-align: center !important;
 }
 
+.partyspace {
+  display: grid;
+  grid-template-columns: min-content auto min-content;
+  grid-template-areas: ' a b c ';
+}
+
+@media (max-width: 575px) {
+  .partyspace {
+    display: grid;
+    grid-template-columns: min-content auto;
+    grid-template-areas:
+      'a b'
+      'a c';
+  }
+}
+
+.partyspace .ps-edit {
+  grid-area: a;
+  width: min-content;
+}
+
+.partyspace .ps-contentWrap {
+  grid-area: b;
+  width: 100%;
+}
+
+.partyspace .ps-doneBox {
+  grid-area: c;
+  width: min-content;
+}
+
 .partyspace .ps-contentWrap h5 {
   font-size: 80%;
 }
@@ -247,7 +269,7 @@
 }
 
 .partyspace .btn-Edit {
-  background: var(--gray500);
+  background: var(--primary-dk);
   background-image: url('../../assets/pencil-white.svg');
   background-repeat: no-repeat;
   background-position: 7px 5px;
@@ -255,7 +277,7 @@
 }
 
 .partyspace .btn-Edit:hover {
-  background: var(--gray800);
+  background: var(--primary-dkr);
   background-image: url('../../assets/pencil-white.svg');
   background-repeat: no-repeat;
   background-position: 7px 5px;

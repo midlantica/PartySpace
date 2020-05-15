@@ -6,6 +6,8 @@ import { PartySpaceEdit } from './PartySpaceEdit'
 // import { PartySpaceEdit } from './PartySpaceEdit'
 import PartySpaceCompleted from './PartySpaceCompleted'
 import { PartySpace } from './PartySpace'
+// import '../_time'
+
 import './PartySpace.css'
 export const PartySpaceComposeItem = ({
   partySpace,
@@ -26,9 +28,9 @@ export const PartySpaceComposeItem = ({
   return (
     <>
       <section className='box partyspace'>
-        <div className='ps-edit flexRowWrap align-i-flex-center'>
+        <div className='ps-edit'>
           <button
-            className='btn-Edit marLRAuto marBAuto'
+            className='btn-Edit marBAuto'
             onClick={() => {
               // check if the user is authenticated
               if (localUserId) {
@@ -38,7 +40,7 @@ export const PartySpaceComposeItem = ({
             }}
           />
         </div>
-        <div className='ps-contentWrap flex-grow-1 marLRH marBQ'>
+        <div className='ps-contentWrap marBQ padRH'>
           <h5>{partySpace.title}</h5>
           <p className='fs-small'>Date: {partySpace.dateStart}</p>
           <p className='fs-small'>Time: {partySpace.timeStart}</p>
@@ -46,7 +48,7 @@ export const PartySpaceComposeItem = ({
             {partySpace.description}
           </p>
         </div>
-        <div className='ps-doneBox'>
+        <div className='ps-doneBox marBQ'>
           <p>When you're done click this button</p>
           <button
             className='btn ps-button ps-blue'

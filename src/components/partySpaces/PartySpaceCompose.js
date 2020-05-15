@@ -51,33 +51,31 @@ export default ({ setActiveList, PartySpaceClicked }) => {
 
         {/* INVITEES */}
         {/* INVITEES */}
-        <div className='ps-invites'>
-          <section className='ps-people'>
-            <div className='flexRowWrap just-space-between align-i-flex-center marBH'>
-              <h5>People</h5>
-              <button
-                className='ps-button btn btn-secondary'
-                onClick={() => {
-                  // check if the user is authenticated
-                  if (localUserId) {
-                    // If the user is authenticated, show the PartySpace form
-                    peopleInvite()
-                  }
-                }}
-              >
-                ＋ Invite
-              </button>
-            </div>
-            <div className='flexRowWrap'>
-              <PeopleList
-                key={singlePartySpace.id}
-                partySpace={singlePartySpace}
-                setActiveList={setActiveList}
-                PartySpaceClicked={PartySpaceClicked}
-              />
-            </div>
-          </section>
-        </div>
+        <section className='ps-people'>
+          <div className='w100 flexRowWrap just-space-between align-i-flex-center marBH marLH'>
+            <h5>People</h5>
+            <button
+              className='ps-button btn btn-secondary'
+              onClick={() => {
+                // check if the user is authenticated
+                if (localUserId) {
+                  // If the user is authenticated, show the PartySpace form
+                  peopleInvite()
+                }
+              }}
+            >
+              ＋ Invite
+            </button>
+          </div>
+          <div className='flexRowWrap align-i-flex-center'>
+            <PeopleList
+              key={singlePartySpace.id}
+              partySpace={singlePartySpace}
+              setActiveList={setActiveList}
+              PartySpaceClicked={PartySpaceClicked}
+            />
+          </div>
+        </section>
 
         {/* VENUES */}
         {/* VENUES */}
