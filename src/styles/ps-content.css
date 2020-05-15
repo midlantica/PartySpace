@@ -78,8 +78,8 @@
 }
 
 button.btn-Edit {
-  background: var(--white);
-  background-image: url('../assets/pencil-grey.svg');
+  background: var(--primary-dk);
+  background-image: url('../assets/pencil-white.svg');
   width: 1.2rem;
   height: 1.2rem;
   display: block;
@@ -94,7 +94,7 @@ button.btn-Edit {
 }
 
 button.btn-Edit:hover {
-  background: var(--gray700);
+  background: var(--primary-dkr);
   background-image: url('../assets/pencil-white.svg');
   background-repeat: no-repeat;
   background-position: 5px 4px;

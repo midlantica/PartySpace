@@ -112,7 +112,7 @@ export const VenueEdit = ({ partySpace, toggleEdit }) => {
             VenueEdit()
           }}
         >
-          Edit Venue
+          Save Venue
         </button>
       </div>
     </form>

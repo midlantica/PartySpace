@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 21 21">
-  <g fill="none" fill-rule="evenodd" stroke="#B6B6B6" stroke-linejoin="round" transform="translate(.5 .5)">
+  <g fill="none" fill-rule="evenodd" stroke="#818181" stroke-linejoin="round" transform="translate(.5 .5)">
     <polygon stroke-linecap="round" points="7.102 16.966 .051 19.678 2.763 12.627 14.695 .695 19.034 5.034"/>
     <line x1="16.864" x2="12.525" y1="7.203" y2="2.864"/>
     <line x1="7.102" x2="2.763" y1="16.966" y2="12.627"/>

@@ -6,6 +6,8 @@ import { PartySpaceEdit } from './PartySpaceEdit'
 // import { PartySpaceEdit } from './PartySpaceEdit'
 import PartySpaceCompleted from './PartySpaceCompleted'
 import { PartySpace } from './PartySpace'
+// import '../_time'
+
 import './PartySpace.css'
 export const PartySpaceComposeItem = ({
   partySpace,
@@ -26,47 +28,43 @@ export const PartySpaceComposeItem = ({
   return (
     <>
       <section className='box partyspace'>
-        <div className='flexRow'>
-          <div className='flexRowWrap align-i-flex-center'>
-            <button
-              className='btn-Edit marLRAuto marBAuto'
-              onClick={() => {
-                // check if the user is authenticated
-                if (localUserId) {
-                  // If the user is authenticated, show the PartySpace form
-                  editPartySpaceToggle()
-                }
-              }}
-            />
-          </div>
-          <div className='contentWrap flex-grow-1 marLRH marBQ'>
-            <h5>{partySpace.title}</h5>
-            <p className='fs-small'>Date: {partySpace.dateStart}</p>
-            <p className='fs-small'>Time: {partySpace.timeStart}</p>
-            <p className='description fs-small marTQ q'>
-              {partySpace.description}
-            </p>
-          </div>
-          <div className='ps-doneBox'>
-            <p>When you're done click this button</p>
-            <button
-              className='btn ps-button ps-blue'
-              onClick={() => {
-                // check if the user is authenticated
-                if (localUserId) {
-                  // If the user is authenticated, show the PartySpace form
-                  woohoo()
-                }
-              }}
-            >
-              PartySpace Complete!
-            </button>
-          </div>
+        <div className='ps-edit'>
+          <button
+            className='btn-Edit marBAuto'
+            onClick={() => {
+              // check if the user is authenticated
+              if (localUserId) {
+                // If the user is authenticated, show the PartySpace form
+                editPartySpaceToggle()
+              }
+            }}
+          />
+        </div>
+        <div className='ps-contentWrap marBQ padRH'>
+          <h5>{partySpace.title}</h5>
+          <p>Date: {partySpace.dateStart}</p>
+          <p>Time: {partySpace.timeStart}</p>
+          <p className='description fs-small'>{partySpace.description}</p>
+        </div>
+        <div className='ps-doneBox marBQ'>
+          <p>When you're done click this button</p>
+          <button
+            className='btn ps-button ps-blue'
+            onClick={() => {
+              // check if the user is authenticated
+              if (localUserId) {
+                // If the user is authenticated, show the PartySpace form
+                woohoo()
+              }
+            }}
+          >
+            PartySpace Complete!
+          </button>
         </div>
       </section>
 
       <Modal isOpen={modalEditPartySpace}>
-        <ModalHeader>Edit PartySpace</ModalHeader>
+        <ModalHeader toggle={editPartySpaceToggle}>Edit PartySpace</ModalHeader>
         <ModalBody>
           <PartySpaceEdit
             toggler={editPartySpaceToggle}
@@ -76,6 +74,7 @@ export const PartySpaceComposeItem = ({
       </Modal>
 
       <Modal isOpen={modalWoo} woohoo={woohoo}>
+        {/* <ModalHeader toggle={woohoo}>PartySpace Complete</ModalHeader> */}
         <ModalBody>
           <PartySpaceCompleted toggler={woohoo} />
         </ModalBody>

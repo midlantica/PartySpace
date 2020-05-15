@@ -1,6 +1,5 @@
 import React, { useContext, useState } from 'react'
 import { Modal, ModalBody, ModalHeader } from 'reactstrap'
-
 import { PartySpaceContext } from './PartySpaceProvider'
 import { PartySpaceVenuesContext } from './PartySpaceVenuesProvider'
 import { PartySpaceEdit } from './PartySpaceEdit'
@@ -15,7 +14,7 @@ import { PeopleProvider } from '../people/PeopleProvider'
 import './PartySpace.css'
 // >>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
-export default ({ setActiveList, PartySpaceClicked }) => {
+export default ({ setActiveList, PartySpaceClicked, partySpace }) => {
   const localUserId = parseInt(localStorage.getItem('partySpace_user'))
   const { partySpaces } = useContext(PartySpaceContext)
   const { partySpaceVenues } = useContext(PartySpaceVenuesContext)
@@ -29,8 +28,12 @@ export default ({ setActiveList, PartySpaceClicked }) => {
   const [modalPeopleInvite, setPeopleInvite] = useState(false)
   const peopleInvite = () => setPeopleInvite(!modalPeopleInvite)
 
+  const [modalEditPartySpace, setModalEditPartySpace] = useState(false)
+  const editPartySpaceToggle = () =>
+    setModalEditPartySpace(!modalEditPartySpace)
+
   const singlePartySpace = partySpaces.find(
-    (partySpace) => PartySpaceClicked === partySpace.id
+    (maPartySpace) => PartySpaceClicked === maPartySpace.id
   )
 
   const findPartySpaceVenues = partySpaceVenues.map(
@@ -51,49 +54,49 @@ export default ({ setActiveList, PartySpaceClicked }) => {
 
         {/* INVITEES */}
         {/* INVITEES */}
-        <div className='ps-invites'>
-          <section className='ps-people'>
-            <div className='flexRowWrap just-space-between align-i-flex-center marBH'>
-              <h5>People</h5>
-              <button
-                className='ps-button btn btn-secondary'
-                onClick={() => {
-                  // check if the user is authenticated
-                  if (localUserId) {
-                    // If the user is authenticated, show the PartySpace form
-                    peopleInvite()
-                  }
-                }}
-              >
-                ＋ Invite
-              </button>
-            </div>
+        <section className='ps-people'>
+          <div className='w100 flexRowWrap just-space-between align-i-flex-center marBH marLH'>
+            <h5 className='mar0'>People</h5>
+            <button
+              className='ps-button btn btn-secondary'
+              onClick={() => {
+                // check if the user is authenticated
+                if (localUserId) {
+                  // If the user is authenticated, show the PartySpace form
+                  peopleInvite()
+                }
+              }}
+            >
+              ＋ Invite
+            </button>
+          </div>
+          <div className='w100 flexRowWrap align-i-flex-center'>
             <PeopleList
               key={singlePartySpace.id}
               partySpace={singlePartySpace}
               setActiveList={setActiveList}
               PartySpaceClicked={PartySpaceClicked}
             />
-          </section>
-        </div>
+          </div>
+        </section>
 
         {/* VENUES */}
         {/* VENUES */}
         <section className='ps-venues'>
-          <div className='flexRowWrap just-space-between align-i-flex-center marBH'>
-            <button
-              className='btn ps-button ps-blue mar0'
-              onClick={() => {
-                // check if the user is authenticated
-                if (localUserId) {
-                  // If the user is authenticated, show the PartySpace form
-                  toggle()
-                }
-              }}
-            >
-              6:00pm
-            </button>
-            <h5 className='inline-block marLH'>Venues</h5>
+          <button
+            className='ps-time-btn btn ps-button ps-blue'
+            onClick={() => {
+              // check if the user is authenticated
+              if (localUserId) {
+                // If the user is authenticated, show the PartySpace form
+                editPartySpaceToggle()
+              }
+            }}
+          >
+            6:00pm
+          </button>
+          <div className='ps-venues-mast'>
+            <h5 className='mar0'>Venues</h5>
             <button
               className='btn ps-button ps-green marT0 marLAuto'
               onClick={() => {
@@ -119,15 +122,18 @@ export default ({ setActiveList, PartySpaceClicked }) => {
 
       {/* MODALS */}
       {/* MODALS */}
-      <Modal isOpen={modal} toggle={toggle}>
-        <ModalHeader toggle={toggle}>PartySpace</ModalHeader>
+      <Modal isOpen={modalEditPartySpace}>
+        <ModalHeader toggle={editPartySpaceToggle}>Edit PartySpace</ModalHeader>
         <ModalBody>
-          <PartySpaceEdit toggler={toggle} />
+          <PartySpaceEdit
+            toggler={editPartySpaceToggle}
+            partySpace={singlePartySpace}
+          />
         </ModalBody>
       </Modal>
 
       <Modal isOpen={modalVenueEdit} venueEdit={venueEdit}>
-        <ModalHeader toggle={venueEdit}>Edit Venue</ModalHeader>
+        <ModalHeader toggle={venueEdit}>Save Venue</ModalHeader>
         <ModalBody>
           <VenueEdit toggler={venueEdit} />
         </ModalBody>
@@ -136,7 +142,10 @@ export default ({ setActiveList, PartySpaceClicked }) => {
       <Modal isOpen={modalPeopleInvite} peopleInvite={peopleInvite}>
         <ModalHeader toggle={peopleInvite}>Invite People</ModalHeader>
         <ModalBody>
-          <PeopleForm toggler={peopleInvite} />
+          <PeopleForm
+            toggler={peopleInvite}
+            PartySpaceClicked={PartySpaceClicked}
+          />
         </ModalBody>
       </Modal>
     </>

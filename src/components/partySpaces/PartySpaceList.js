@@ -47,7 +47,7 @@ export default ({ setActiveList, setPartySpaceClicked }) => {
       </div>
 
       <Modal isOpen={modal} addPartySpace={addPartySpace}>
-        <ModalHeader addPartySpace={addPartySpace}>Add PartySpace</ModalHeader>
+        <ModalHeader toggle={addPartySpace}>Add PartySpace</ModalHeader>
         <ModalBody>
           <PartySpaceCreate toggler={addPartySpace} />
         </ModalBody>

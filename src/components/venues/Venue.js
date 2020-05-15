@@ -13,7 +13,7 @@ export const Venue = ({
   venue,
 }) => {
   const localUserId = parseInt(localStorage.getItem('partySpace_user'))
-  const { venues } = useContext(VenueContext)
+  const { venues, removeVenue } = useContext(VenueContext)
   const { partySpaceVenues } = useContext(PartySpaceVenuesContext)
 
   const findPartySpaceVenues = partySpaceVenues.map(
@@ -37,7 +37,15 @@ export const Venue = ({
           }}
         />
         <span className='time'>Time: {partySpace.timeStart}</span>
-        <span className='exxy fs-x-small'>×</span>
+        <span
+          className='exxy fs-x-small'
+          onClick={() => {
+            removeVenue(venue.id)
+            console.log(venue.id)
+          }}
+        >
+          ×
+        </span>
       </div>
       <div className='box flexRow just-space-between'>
         <div className='w-75 marRAuto'>
