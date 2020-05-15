@@ -42,11 +42,9 @@ export const PartySpaceComposeItem = ({
         </div>
         <div className='ps-contentWrap marBQ padRH'>
           <h5>{partySpace.title}</h5>
-          <p className='fs-small'>Date: {partySpace.dateStart}</p>
-          <p className='fs-small'>Time: {partySpace.timeStart}</p>
-          <p className='description fs-small marTQ q'>
-            {partySpace.description}
-          </p>
+          <p>Date: {partySpace.dateStart}</p>
+          <p>Time: {partySpace.timeStart}</p>
+          <p className='description fs-small'>{partySpace.description}</p>
         </div>
         <div className='ps-doneBox marBQ'>
           <p>When you're done click this button</p>

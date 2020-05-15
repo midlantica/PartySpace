@@ -17,6 +17,7 @@ export const PartySpaceEdit = ({ partySpace, toggler }) => {
 
   // Separate state variable to track the partySpace as it is edited
   const [updatedPartySpace, setPartySpace] = useState(partySpace)
+  console.log('partySpace')
 
   const handleControlledInputChange = (event) => {
     // Create a new copy of the partySpace being edited

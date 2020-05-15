@@ -28,6 +28,12 @@ export const VenueProvider = (props) => {
     }).then(getVenues)
   }
 
+  const removeVenue = (venueId) => {
+    return fetch(`http://localhost:8088/venues/${venueId}`, {
+      method: 'DELETE',
+    }).then(getVenues)
+  }
+
   /*
         Load all animals when the component is mounted. Ensure that
         an empty array is the second argument to avoid infinite loop.
@@ -45,6 +51,7 @@ export const VenueProvider = (props) => {
       value={{
         venues,
         addVenue,
+        removeVenue,
       }}
     >
       {props.children}

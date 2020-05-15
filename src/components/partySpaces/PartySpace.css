@@ -29,6 +29,7 @@
   border: none;
   border-radius: 0.2rem;
   box-shadow: 0 8px 8px -4px hsla(0, 0%, 0%, 0.2);
+  padding-bottom: 0.5rem;
 }
 
 .ps-people {
@@ -50,10 +51,10 @@
 .ps-people:before {
   content: '●';
   position: absolute;
-  top: 1.017rem;
-  left: -0.32rem;
+  top: 1.3rem;
+  left: -0.26rem;
   z-index: 1;
-  font-size: 1rem;
+  font-size: 0.75rem;
   letter-spacing: 0;
   color: var(--primary-dk);
   /* min-height: initial; */
@@ -76,23 +77,40 @@
   min-height: inherit;
 }
 
-/* @media (max-width: 800px) {
-  .ps-people {
-    margin-right: 1rem;
-  }
+.ps-venues-mast {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
 
-  .ps-people:before {
-    content: '●';
-    position: absolute;
-    top: 1.017rem;
-    left: -0.32rem;
-    z-index: 1;
-    font-size: 1rem;
-    letter-spacing: 0;
-    color: var(--primary-dk);
-  }
+.ps-time-btn {
+  margin: 0;
+}
 
-} */
+.ps-time-btn:before {
+  content: '●';
+  position: absolute;
+  top: 1.49rem;
+  left: -0.27rem;
+  z-index: 1;
+  font-size: 0.75rem;
+  letter-spacing: 0;
+  color: var(--primary-dk);
+}
+
+.ps-time-btn:after {
+  content: '⎯⎯⎯⎯⎯⎯⎯⎯';
+  position: absolute;
+  top: 1.6rem;
+  left: 0rem;
+  z-index: -1;
+  font-size: 0.5rem;
+  letter-spacing: -0.05ch;
+  color: var(--primary-lt);
+}
 
 .ps-invited {
   border: none;
@@ -172,16 +190,16 @@
   z-index: -1;
   font-size: 0.5rem;
   letter-spacing: -0.05ch;
-  color: var(--primary-dk);
+  color: var(--primary-lt);
 }
 
 .venue::before {
   content: '●';
   position: absolute;
-  top: 0.017rem;
-  left: -1.34rem;
-  z-index: -1;
-  font-size: 1rem;
+  top: 0.217rem;
+  left: -1.27rem;
+  z-index: 1;
+  font-size: 0.75rem;
   letter-spacing: 0;
   color: var(--primary-dk);
 }
@@ -201,6 +219,7 @@
   border-radius: 0.25rem;
   margin-bottom: auto;
   margin-top: 0.25rem;
+  height: min-content;
   /*  */
   display: flex;
   flex-direction: column;
@@ -242,6 +261,7 @@
 .partyspace .ps-edit {
   grid-area: a;
   width: min-content;
+  /* filter: hue-rotate(240%); */
 }
 
 .partyspace .ps-contentWrap {
@@ -256,16 +276,20 @@
 
 .partyspace .ps-contentWrap h5 {
   font-size: 80%;
+  margin-bottom: 0.15rem;
 }
 
 .partyspace .ps-contentWrap p {
-  font-size: 60%;
+  font-size: 65%;
   color: var(--gray800);
+  font-weight: bold;
 }
 
 .partyspace .ps-contentWrap .description {
   font-size: 60%;
   color: var(--gray700);
+  font-weight: normal;
+  margin: 0.25rem 0 0;
 }
 
 .partyspace .btn-Edit {

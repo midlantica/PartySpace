@@ -1,6 +1,5 @@
 import React, { useContext, useState } from 'react'
 import { Modal, ModalBody, ModalHeader } from 'reactstrap'
-
 import { PeopleContext } from './PeopleProvider'
 import { PartySpaceContext } from '../partySpaces/PartySpaceProvider'
 import { PartySpaceVenuesContext } from '../partySpaces/PartySpaceVenuesProvider'
@@ -27,40 +26,42 @@ export default ({ partySpace, setActiveList, PartySpaceClicked }) => {
   //   (venues) => singlePartySpace === partySpaceVenues.id
   // )
 
-  return partySpacePeople.map((person) => {
-    return (
-      <>
-        <div className='flexRowWrap ps-invited'>
-          <p
-            className='person flex-grow-1'
-            onClick={() => {
-              setSelectedPerson(person)
-              toggle()
-            }}
-          >
-            {person.name}
-          </p>
-          <span
-            className='exOut'
-            onClick={() => {
-              removePeople(person.id)
-            }}
-          >
-            ×
-          </span>
-        </div>
-
-        <Modal isOpen={modalPeopleUpdate} toggle={toggle}>
-          <ModalHeader toggle={toggle}>Update Person</ModalHeader>
-          <ModalBody>
-            <PeopleEditForm
-              toggler={toggle}
-              selectedPerson={selectedPerson}
-              PartySpaceClicked={PartySpaceClicked}
-            />
-          </ModalBody>
-        </Modal>
-      </>
-    )
-  })
+  return (
+    <>
+      {partySpacePeople.map((person) => {
+        return (
+          <div className='flexRowWrap ps-invited'>
+            <p
+              className='person flex-grow-1'
+              onClick={(e) => {
+                e.preventDefault()
+                setSelectedPerson(person)
+                toggle()
+              }}
+            >
+              {person.name}
+            </p>
+            <span
+              className='exOut'
+              onClick={() => {
+                removePeople(person.id)
+              }}
+            >
+              ×
+            </span>
+          </div>
+        )
+      })}
+      <Modal isOpen={modalPeopleUpdate} toggle={toggle}>
+        <ModalHeader toggle={toggle}>Update Person</ModalHeader>
+        <ModalBody>
+          <PeopleEditForm
+            toggler={toggle}
+            selectedPerson={selectedPerson}
+            PartySpaceClicked={PartySpaceClicked}
+          />
+        </ModalBody>
+      </Modal>
+    </>
+  )
 }
