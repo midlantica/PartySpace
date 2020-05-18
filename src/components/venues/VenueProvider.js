@@ -28,6 +28,16 @@ export const VenueProvider = (props) => {
     }).then(getVenues)
   }
 
+  const updateVenue = (venue) => {
+    return fetch(`http://localhost:8088/venues/${venue.id}`, {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(venue),
+    }).then(getVenues)
+  }
+
   const removeVenue = (venueId) => {
     return fetch(`http://localhost:8088/venues/${venueId}`, {
       method: 'DELETE',
@@ -51,6 +61,7 @@ export const VenueProvider = (props) => {
       value={{
         venues,
         addVenue,
+        updateVenue,
         removeVenue,
       }}
     >

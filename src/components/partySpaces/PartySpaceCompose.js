@@ -10,6 +10,7 @@ import { VenueList } from '../venues/VenueList'
 import { VenueEdit } from '../venues/VenueEdit'
 import PeopleList from '../people/PeopleList'
 import { PeopleProvider } from '../people/PeopleProvider'
+import { VenueCreate } from '../venues/VenueCreate'
 
 import './PartySpace.css'
 // >>>>>>>>>>>>>>>>>>>>>>>>>>>>
@@ -24,6 +25,9 @@ export default ({ setActiveList, PartySpaceClicked, partySpace }) => {
 
   const [modalVenueEdit, setModalVenueEdit] = useState(false)
   const venueEdit = () => setModalVenueEdit(!modalVenueEdit)
+
+  const [modalVenueCreate, setModalVenueCreate] = useState(false)
+  const venueCreate = () => setModalVenueCreate(!modalVenueCreate)
 
   const [modalPeopleInvite, setPeopleInvite] = useState(false)
   const peopleInvite = () => setPeopleInvite(!modalPeopleInvite)
@@ -103,7 +107,7 @@ export default ({ setActiveList, PartySpaceClicked, partySpace }) => {
                 // check if the user is authenticated
                 if (localUserId) {
                   // If the user is authenticated, show the PartySpace form
-                  venueEdit()
+                  venueCreate()
                 }
               }}
             >
@@ -132,10 +136,20 @@ export default ({ setActiveList, PartySpaceClicked, partySpace }) => {
         </ModalBody>
       </Modal>
 
-      <Modal isOpen={modalVenueEdit} venueEdit={venueEdit}>
+      <Modal isOpen={modalVenueEdit} toggle={venueEdit}>
         <ModalHeader toggle={venueEdit}>Save Venue</ModalHeader>
         <ModalBody>
           <VenueEdit toggler={venueEdit} />
+        </ModalBody>
+      </Modal>
+
+      <Modal isOpen={modalVenueCreate} toggle={venueCreate}>
+        <ModalHeader toggle={venueCreate}>Save Venue</ModalHeader>
+        <ModalBody>
+          <VenueCreate
+            toggler={venueCreate}
+            PartySpaceClicked={PartySpaceClicked}
+          />
         </ModalBody>
       </Modal>
 
