@@ -79,7 +79,7 @@ export const Venue = ({
       <Modal isOpen={modalVenueEdit} venueEdit={venueEdit}>
         <ModalHeader toggle={venueEdit}>Edit Venue</ModalHeader>
         <ModalBody>
-          <VenueEdit toggler={venueEdit} />
+          <VenueEdit toggler={venueEdit} venue={venue} partySpace={partySpace} />
         </ModalBody>
       </Modal>
     </section>

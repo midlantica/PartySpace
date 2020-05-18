@@ -42,7 +42,7 @@ export const PartySpaceCreate = (partySpace) => {
       description: description.current.value,
       userId: userId,
     }
-    console.log(newPartySpaceObj)
+    // console.log(newPartySpaceObj)
     // and save it to the API.
     addPartySpace(newPartySpaceObj).then(partySpace.toggler)
   }

@@ -13,7 +13,6 @@ export const VenueCreate = ({ toggler, PartySpaceClicked }) => {
   const name = useRef()
   const geourl = useRef()
   const duration = useRef()
-  // const addPartySpaceVenue = ""
 
   const createVenue = () => {
     addVenue({
@@ -23,18 +22,17 @@ export const VenueCreate = ({ toggler, PartySpaceClicked }) => {
   }
 
   const createPartySpaceVenue = () => {
-    console.log(venues)
-    console.log('#########################');
+    // console.log(venues)
+
     const foundVenue = venues.filter(
       (myVenue) => myVenue.name === name.current.value,
     )
-    console.log(foundVenue)
 
     addPartySpaceVenue({
       // order: order + 1,
       duration: duration.current.value,
       partySpaceId: PartySpaceClicked,
-      venueId: foundVenue.id,
+      venueId: foundVenue.id
     })
   }
 

@@ -19,7 +19,7 @@ export const VenueList = ({ partySpace, setActiveList, PartySpaceClicked }) => {
 
   const findPartySpaceVenues = partyRelationships.map(
     (MyPartySpaceRelationship) => {
-      return venues.find((v) => v.id === MyPartySpaceRelationship.venueId)
+      return venues.find((v) => v.id === MyPartySpaceRelationship.venueId) || {}
     }
   )
   // debugger
