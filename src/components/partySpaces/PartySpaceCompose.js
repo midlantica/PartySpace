@@ -97,7 +97,8 @@ export default ({ setActiveList, PartySpaceClicked, partySpace }) => {
               }
             }}
           >
-            6:00pm
+            {/* {partySpaces.timeStart} */}
+            5:00pm
           </button>
           <div className='ps-venues-mast'>
             <h5 className='mar0'>Venues</h5>

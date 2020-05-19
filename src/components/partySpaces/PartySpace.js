@@ -17,8 +17,8 @@ export const PartySpace = ({
       >
         <div className='topFlexBox'>
           <h6>{partySpace.title}</h6>
-          <p className='bold'>Date: {partySpace.dateStart}</p>
-          <p className='bold'>Time: {partySpace.timeStart}</p>
+          <p className='bold gray-dk'><b>Date: {partySpace.dateStart}</b></p>
+          <p className='bold gray-dk'><b>Time: {partySpace.timeStart}</b></p>
           <p className='fs-small marTQ'>{partySpace.description}</p>
         </div>
       </section>

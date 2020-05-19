@@ -60,7 +60,7 @@ export default ({ PartySpaceClicked, toggler }) => {
           evt.preventDefault() // Prevent browser from submitting the form
           constructNewPeople()
         }}
-        className='btn ps-button float-right mar0'
+        className='btn ps-button ps-green marTQ float-right'
       >
         Save
       </button>

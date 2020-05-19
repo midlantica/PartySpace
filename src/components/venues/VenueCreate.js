@@ -79,10 +79,10 @@ export const VenueCreate = ({ toggler, PartySpaceClicked }) => {
         </div>
       </fieldset>
 
-      <div className='flexRow just-space-between'>
+      <div className='flexRow just-flex-end'>
         <button
           type='submit'
-          className='btn btn-primary ps-button fs-small mar0'
+          className='btn ps-button ps-green marTQ'
           onClick={(evt) => {
             evt.preventDefault()
             createVenue()

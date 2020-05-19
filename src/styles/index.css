@@ -16,12 +16,12 @@
 :root {
   --fontHead: 'Dosis', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   --fontCopy: 'Dosis', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  max-width: 55rem;
+  max-width: 40rem;
   margin: 0 auto;
 }
 
 html {
-  font-size: 1.5em;
+  font-size: 1.75em;
   box-sizing: border-box;
 }
 

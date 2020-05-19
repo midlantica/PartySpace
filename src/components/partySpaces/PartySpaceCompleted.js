@@ -33,8 +33,8 @@ export default (props) => {
   }
 
   return (
-    <form className='partySpaceForm text-center'>
-      <h3 className='text-center'>PartySpace completed!</h3>
+    <form className='partySpaceForm ps-woohoo-bg text-center'>
+      {/* <h3 className='text-center'>PartySpace completed!</h3> */}
       <p className='marT1 fs-large text-center'>
         Invites are on their way! Have a great party!
       </p>

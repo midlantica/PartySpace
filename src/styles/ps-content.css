@@ -78,7 +78,7 @@
 }
 
 button.btn-Edit {
-  background: var(--primary-dk);
+  background: var(--primary-lt);
   background-image: url('../assets/pencil-white.svg');
   width: 1.2rem;
   height: 1.2rem;
