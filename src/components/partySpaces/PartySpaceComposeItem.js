@@ -74,6 +74,7 @@ export const PartySpaceComposeItem = ({
       </Modal>
 
       <Modal isOpen={modalWoo} woohoo={woohoo}>
+        <ModalHeader toggle={woohoo}>PartySpace completed!</ModalHeader>
         {/* <ModalHeader toggle={woohoo}>PartySpace Complete</ModalHeader> */}
         <ModalBody>
           <PartySpaceCompleted toggler={woohoo} />

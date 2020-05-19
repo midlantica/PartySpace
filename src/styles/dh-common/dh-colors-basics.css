@@ -1,3 +1,25 @@
+
+
+.gray-ltr {
+  color: var(--gray200) !important;
+}
+
+.gray-lt {
+  color: var(--gray400) !important;
+}
+
+.gray {
+  color: var(--gray500) !important;
+}
+
+.gray-dk {
+  color: var(--gray800) !important;
+}
+
+.gray-dkr {
+  color: var(--gray900) !important;
+}
+
 /* basic colors from Bootstrap */
 .muted {
   color: var(--muted) !important;

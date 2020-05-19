@@ -3,17 +3,18 @@ import { PartySpaceContext } from '../partySpaces/PartySpaceProvider'
 import { VenueContext } from './VenueProvider'
 import { PartySpaceVenuesContext } from '../partySpaces/PartySpaceVenuesProvider'
 
-export const VenueEdit = ({ partySpace, toggleEdit }) => {
+export const VenueEdit = ({ partySpace, toggler, venue }) => {
   const userId = parseInt(localStorage.getItem('partySpace_user'))
-  const { venues } = useContext(VenueContext)
+  const { venues, updateVenue } = useContext(VenueContext)
   const { updatePartySpace } = useContext(PartySpaceContext)
-  const { updatePartySpaceVenues } = useContext(PartySpaceVenuesContext)
+  const { updatePartySpaceVenues, partySpaceVenues } = useContext(
+    PartySpaceVenuesContext
+  )
 
-  const name = useRef()
-  const duration = useRef()
+  const venDur = partySpaceVenues.find(psv => psv.venueId === venue.id)
 
   // Separate state variable to track the partySpace as it is edited
-  const [updatedPartySpaceVenues, setPartySpaceVenues] = useState(partySpace)
+  const [updatedPartySpaceVenues, setPartySpaceVenues] = useState(venue)
 
   /*
         When changing a state object or array, always create a new one
@@ -30,20 +31,37 @@ export const VenueEdit = ({ partySpace, toggleEdit }) => {
     setPartySpaceVenues(newPartySpaceVenue)
   }
 
-  const VenueEdit = () => {
-    const venueId = parseInt(updatedPartySpaceVenues.venueId)
+  const VenueEditor = () => {
+    const venueId = parseInt(updatedPartySpaceVenues.id)
+
 
     if (venueId === 0) {
       window.alert('Please select a location')
     } else {
-      updatePartySpaceVenues({
+      updateVenue({
         id: updatedPartySpaceVenues.id,
         name: updatedPartySpaceVenues.name,
         geourl: updatedPartySpaceVenues.geourl,
-        venueId: venueId,
-        customerId: parseInt(localStorage.getItem('partySpace_user')),
-      }).then(toggleEdit)
+        duration: updatedPartySpaceVenues.duration
+      }).then(getPSVensAndIds)
     }
+  }
+
+  const getPSVensAndIds = () => {
+
+    const foundPSvenPSid = partySpaceVenues.find(
+      (myPSVs) => myPSVs.venueId === updatedPartySpaceVenues.id
+    )
+
+    console.log(foundPSvenPSid)
+
+    updatePartySpaceVenues({
+      venueId: venue.id,
+      order: foundPSvenPSid.order,
+      duration: foundPSvenPSid.duration,
+      partySpaceId: partySpace.id
+    })
+
   }
 
   return (
@@ -58,7 +76,7 @@ export const VenueEdit = ({ partySpace, toggleEdit }) => {
             autoFocus
             className='form-control'
             placeholder='Venue name'
-            defaultValue={venues.name}
+            defaultValue={venue.name}
             onChange={handleControlledInputChange}
           />
         </div>
@@ -72,7 +90,7 @@ export const VenueEdit = ({ partySpace, toggleEdit }) => {
             required
             className='form-control'
             placeholder='Venue Map Url'
-            defaultValue={venues.geourl}
+            defaultValue={venue.geourl}
             onChange={handleControlledInputChange}
           />
         </div>
@@ -86,7 +104,7 @@ export const VenueEdit = ({ partySpace, toggleEdit }) => {
             required
             className='form-control'
             placeholder='Venue Duration'
-            defaultValue={venues.duration}
+            defaultValue={venDur.duration}
             onChange={handleControlledInputChange}
           />
         </div>
@@ -109,7 +127,8 @@ export const VenueEdit = ({ partySpace, toggleEdit }) => {
           className='btn btn-primary ps-button fs-small mar0'
           onClick={(evt) => {
             evt.preventDefault()
-            VenueEdit()
+            VenueEditor()
+            toggler()
           }}
         >
           Save Venue

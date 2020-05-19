@@ -3,7 +3,7 @@
   grid-template-areas:
     'partyspace partyspace partyspace partyspace'
     'people venues venues venues';
-  grid-gap: 0rem;
+  gap: 0rem;
   /* grid-template-rows: auto; */
   min-height: 300px;
 }
@@ -15,7 +15,7 @@
       'partyspace'
       'people'
       'venues';
-    grid-gap: 0rem;
+    gap: 0rem;
     /* grid-template-rows: auto; */
     min-height: 300px;
   }
@@ -293,7 +293,7 @@
 }
 
 .partyspace .btn-Edit {
-  background: var(--primary-dk);
+  background: var(--primary-lt);
   background-image: url('../../assets/pencil-white.svg');
   background-repeat: no-repeat;
   background-position: 7px 5px;
@@ -316,4 +316,11 @@ q::before {
 }
 q::after {
   content: close-quote;
+}
+
+.ps-woohoo-bg {
+  background: url('../../assets/woohoo.jpg') no-repeat;
+  background-position: center 3rem;
+  background-size: cover;
+  height: 14rem;
 }
