@@ -1,5 +1,11 @@
 ### Sketch Interactive Wireframe
-With links to database.io and summary:
+PartySpace is a simple party organizer app that allows one to set up a party and invite friends. One can add venues and map geolocation. 
+- Full crud functionality
+- Wireframe and dependency graph using sketchboard
+- ERD built with dbdiagram.io
+- User generated API
+- React & Reactstrap
+- Responsive design & CSS custom framework.
 
 ![partySpace large](partySpace_lg.png)
 ![partySpace small](partySpace_sm.png)
