@@ -1,5 +1,5 @@
-import React, { useContext } from 'react'
-import { PartySpaceContext } from './PartySpaceProvider'
+import React from 'react'
+// import { PartySpaceContext } from './PartySpaceProvider'
 
 export const PartySpace = ({
   partySpace,

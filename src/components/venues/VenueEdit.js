@@ -1,12 +1,12 @@
-import React, { useContext, useRef, useState } from 'react'
-import { PartySpaceContext } from '../partySpaces/PartySpaceProvider'
+import React, { useContext, useState } from 'react'
+// import { PartySpaceContext } from '../partySpaces/PartySpaceProvider'
 import { VenueContext } from './VenueProvider'
 import { PartySpaceVenuesContext } from '../partySpaces/PartySpaceVenuesProvider'
 
 export const VenueEdit = ({ partySpace, toggler, venue }) => {
-  const userId = parseInt(localStorage.getItem('partySpace_user'))
-  const { venues, updateVenue } = useContext(VenueContext)
-  const { updatePartySpace } = useContext(PartySpaceContext)
+  // const userId = parseInt(localStorage.getItem('partySpace_user'))
+  const { updateVenue } = useContext(VenueContext)
+  // const { updatePartySpace } = useContext(PartySpaceContext)
   const { updatePartySpaceVenues, partySpaceVenues } = useContext(
     PartySpaceVenuesContext
   )

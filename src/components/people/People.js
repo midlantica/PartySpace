@@ -1,6 +1,6 @@
 import React, { useState, useContext } from 'react'
 import { PeopleContext } from './PeopleProvider'
-import { Modal, ModalHeader, ModalBody, Button, ModalFooter } from 'reactstrap'
+// import { Modal, ModalHeader, ModalBody, Button, ModalFooter } from 'reactstrap'
 
 export default ({ people, venues }) => {
   const { removePeople } = useContext(PeopleContext)

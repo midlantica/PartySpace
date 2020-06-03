@@ -3,11 +3,11 @@
 import React, { useContext, useRef, useState } from 'react'
 // import { Button, Modal, ModalBody, ModalHeader } from 'reactstrap'
 import { PartySpaceContext } from './PartySpaceProvider'
-import { VenueContext } from '../venues/VenueProvider'
+// import { VenueContext } from '../venues/VenueProvider'
 
 export const PartySpaceEdit = ({ partySpace, toggler }) => {
-  const localUserId = parseInt(localStorage.getItem('partySpace_user'))
-  const { venues } = useContext(VenueContext)
+  // const localUserId = parseInt(localStorage.getItem('partySpace_user'))
+  // const { venues } = useContext(VenueContext)
   const { updatePartySpace } = useContext(PartySpaceContext)
 
   const title = useRef()

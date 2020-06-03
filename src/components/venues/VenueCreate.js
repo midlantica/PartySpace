@@ -1,14 +1,14 @@
-import React, { useContext, useRef, useState } from 'react'
-import { PartySpaceContext } from '../partySpaces/PartySpaceProvider'
+import React, { useContext, useRef } from 'react'
+// import { PartySpaceContext } from '../partySpaces/PartySpaceProvider'
 import { VenueContext } from './VenueProvider'
 import { PartySpaceVenuesContext } from '../partySpaces/PartySpaceVenuesProvider'
 
 export const VenueCreate = ({ toggler, PartySpaceClicked }) => {
-  const userId = parseInt(localStorage.getItem('partySpace_user'))
+  // const userId = parseInt(localStorage.getItem('partySpace_user'))
   const { venues, addVenue } = useContext(VenueContext)
   const { addPartySpaceVenue } = useContext(PartySpaceVenuesContext)
 
-  const order = 1
+  // const order = 1
 
   const name = useRef()
   const geourl = useRef()

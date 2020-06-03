@@ -1,6 +1,9 @@
 ### Sketch Interactive Wireframe
 With links to database.io and summary:
 
+![partySpace large](partSPace_lg.png)
+![partySpace small](partSPace_sm.png)
+
 https://www.sketch.com/s/a3f3839c-56af-489a-857e-45a15d7526ef/a/vGPJn1/play
 
 ### DBdiagram workings:

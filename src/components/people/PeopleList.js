@@ -1,15 +1,15 @@
 import React, { useContext, useState } from 'react'
 import { Modal, ModalBody, ModalHeader } from 'reactstrap'
 import { PeopleContext } from './PeopleProvider'
-import { PartySpaceContext } from '../partySpaces/PartySpaceProvider'
-import { PartySpaceVenuesContext } from '../partySpaces/PartySpaceVenuesProvider'
+// import { PartySpaceContext } from '../partySpaces/PartySpaceProvider'
+// import { PartySpaceVenuesContext } from '../partySpaces/PartySpaceVenuesProvider'
 import PeopleEditForm from './PeopleEditForm'
 
 export default ({ partySpace, setActiveList, PartySpaceClicked }) => {
   // const localUserId = parseInt(localStorage.getItem('partySpace_user'))
-  const { partySpaces } = useContext(PartySpaceContext)
-  const { peoples, removePeople, editPeople } = useContext(PeopleContext)
-  const { partySpaceVenues } = useContext(PartySpaceVenuesContext)
+  // const { partySpaces } = useContext(PartySpaceContext)
+  const { peoples, removePeople } = useContext(PeopleContext)
+  // const { partySpaceVenues } = useContext(PartySpaceVenuesContext)
 
   const [modalPeopleUpdate, setModalPeopleUpdate] = useState(false)
   const toggle = () => setModalPeopleUpdate(!modalPeopleUpdate)
@@ -30,7 +30,7 @@ export default ({ partySpace, setActiveList, PartySpaceClicked }) => {
     <>
       {partySpacePeople.map((person) => {
         return (
-          <div className='flexRowWrap ps-invited'>
+          <div className='ps-invited'>
             <p
               className='person flex-grow-1'
               onClick={(e) => {

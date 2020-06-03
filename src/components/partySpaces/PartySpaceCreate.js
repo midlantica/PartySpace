@@ -1,12 +1,12 @@
 // ADD NEW PARTYSPACE -- NOT EDIT! (not yet)
 import React, { useContext, useRef, useState } from 'react'
-import { Button, Modal, ModalBody, ModalHeader } from 'reactstrap'
+import { Button } from 'reactstrap'
 import { PartySpaceContext } from './PartySpaceProvider'
-import { VenueContext } from '../venues/VenueProvider'
+// import { VenueContext } from '../venues/VenueProvider'
 
 export const PartySpaceCreate = (partySpace) => {
   const { addPartySpace } = useContext(PartySpaceContext)
-  const { venues } = useContext(VenueContext)
+  // const { venues } = useContext(VenueContext)
   // const venueId = parseInt(updatedPartySpace.venueId)
 
   const title = useRef()

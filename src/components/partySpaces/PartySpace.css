@@ -129,6 +129,7 @@
   flex-wrap: nowrap;
   justify-content: space-between;
   align-items: center;
+  /* max-width: 12rem; */
 }
 
 @media (max-width: 800px) {
