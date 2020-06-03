@@ -5,11 +5,11 @@ import { PartySpaceVenuesContext } from './PartySpaceVenuesProvider'
 import { PartySpaceEdit } from './PartySpaceEdit'
 import PeopleForm from '../people/PeopleForm'
 import { PartySpaceComposeItem } from './PartySpaceComposeItem'
-import { VenueContext } from '../venues/VenueProvider'
+// import { VenueContext } from '../venues/VenueProvider'
 import { VenueList } from '../venues/VenueList'
 import { VenueEdit } from '../venues/VenueEdit'
 import PeopleList from '../people/PeopleList'
-import { PeopleProvider } from '../people/PeopleProvider'
+// import { PeopleProvider } from '../people/PeopleProvider'
 import { VenueCreate } from '../venues/VenueCreate'
 
 import './PartySpace.css'
@@ -20,8 +20,8 @@ export default ({ setActiveList, PartySpaceClicked, partySpace }) => {
   const { partySpaces } = useContext(PartySpaceContext)
   const { partySpaceVenues } = useContext(PartySpaceVenuesContext)
 
-  const [modal, setModal] = useState(false)
-  const toggle = () => setModal(!modal)
+  // const [modal, setModal] = useState(false)
+  // const toggle = () => setModal(!modal)
 
   const [modalVenueEdit, setModalVenueEdit] = useState(false)
   const venueEdit = () => setModalVenueEdit(!modalVenueEdit)

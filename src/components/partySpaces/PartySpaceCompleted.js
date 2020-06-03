@@ -1,6 +1,6 @@
 import React, { useContext, useRef } from 'react'
 import { PartySpaceContext } from './PartySpaceProvider'
-import { Button, Modal, ModalBody, ModalHeader } from 'reactstrap'
+import { Button } from 'reactstrap'
 
 export default (props) => {
   const { PartySpaceComplete } = useContext(PartySpaceContext)
@@ -28,9 +28,9 @@ export default (props) => {
     PartySpaceComplete(PartySpaceCompleteObj).then(props.toggler)
   }
 
-  const destroyNewPartySpace = () => {
-    console.log('destroy!!!!!!')
-  }
+  // const destroyNewPartySpace = () => {
+  //   console.log('destroy!!!!!!')
+  // }
 
   return (
     <form className='partySpaceForm ps-woohoo-bg text-center'>

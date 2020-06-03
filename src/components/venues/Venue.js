@@ -1,9 +1,9 @@
 import React, { useContext, useState } from 'react'
-import { Button, Modal, ModalBody, ModalHeader } from 'reactstrap'
-import { PartySpaceContext } from '../partySpaces/PartySpaceProvider'
+import { Modal, ModalBody, ModalHeader } from 'reactstrap'
+// import { PartySpaceContext } from '../partySpaces/PartySpaceProvider'
 import { VenueContext } from './VenueProvider'
 import { VenueEdit } from './VenueEdit'
-import { PartySpaceVenuesContext } from '../partySpaces/PartySpaceVenuesProvider'
+// import { PartySpaceVenuesContext } from '../partySpaces/PartySpaceVenuesProvider'
 
 export const Venue = ({
   partySpace, //
@@ -13,12 +13,12 @@ export const Venue = ({
   venue,
 }) => {
   const localUserId = parseInt(localStorage.getItem('partySpace_user'))
-  const { venues, removeVenue } = useContext(VenueContext)
-  const { partySpaceVenues } = useContext(PartySpaceVenuesContext)
+  const { removeVenue } = useContext(VenueContext)
+  // const { partySpaceVenues } = useContext(PartySpaceVenuesContext)
 
-  const findPartySpaceVenues = partySpaceVenues.map(
-    (venues) => PartySpaceClicked === partySpaceVenues.id
-  )
+  // const findPartySpaceVenues = partySpaceVenues.map(
+  //   (venues) => PartySpaceClicked === partySpaceVenues.id
+  // )
 
   const [modalVenueEdit, setModalVenueEdit] = useState(false)
   const venueEdit = () => setModalVenueEdit(!modalVenueEdit)

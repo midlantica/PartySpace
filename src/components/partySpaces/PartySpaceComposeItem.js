@@ -1,11 +1,11 @@
-import React, { useContext, useState } from 'react'
-import { Button, Modal, ModalBody, ModalHeader } from 'reactstrap'
-import { PartySpaceContext } from './PartySpaceProvider'
-import { PartySpaceVenuesContext } from './PartySpaceVenuesProvider'
+import React, { useState } from 'react'
+import { Modal, ModalBody, ModalHeader } from 'reactstrap'
+// import { PartySpaceContext } from './PartySpaceProvider'
+// import { PartySpaceVenuesContext } from './PartySpaceVenuesProvider'
 import { PartySpaceEdit } from './PartySpaceEdit'
 // import { PartySpaceEdit } from './PartySpaceEdit'
 import PartySpaceCompleted from './PartySpaceCompleted'
-import { PartySpace } from './PartySpace'
+// import { PartySpace } from './PartySpace'
 // import '../_time'
 
 import './PartySpace.css'
@@ -15,7 +15,7 @@ export const PartySpaceComposeItem = ({
   setPartySpaceClicked,
 }) => {
   const localUserId = parseInt(localStorage.getItem('partySpace_user'))
-  const { partySpaces } = useContext(PartySpaceContext)
+  // const { partySpaces } = useContext(PartySpaceContext)
   // const { venues } = useContext(VenueContext)
 
   const [modalEditPartySpace, setModalEditPartySpace] = useState(false)
