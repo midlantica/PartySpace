@@ -1,15 +1,22 @@
 <template>
-  <div class="space-y-3">
-    <div v-if="venuesForPartySpace.length === 0" class="text-sm text-gray-400 text-center py-4">
+  <div>
+    <div v-if="venuesForPartySpace.length === 0" class="text-sm text-gray-400 py-2">
       No venues yet. Add one!
     </div>
-    <VenueCard
+
+    <!-- Each venue gets a timeline dot on the left -->
+    <div
       v-for="item in venuesForPartySpace"
       :key="item.relationship.id"
-      :venue="item.venue"
-      :party-space="partySpace"
-      :party-relationship="item.relationship"
-    />
+      class="relative pl-8 mb-1"
+    >
+      <div class="absolute left-0 top-4 ps-timeline-dot" />
+      <VenueCard
+        :venue="item.venue"
+        :party-space="partySpace"
+        :party-relationship="item.relationship"
+      />
+    </div>
   </div>
 </template>
 
@@ -26,9 +33,11 @@ const venuesForPartySpace = computed(() => {
   const relationships = partySpaceVenues.value.filter(
     (psv) => psv.partySpaceId === props.partySpaceId
   )
-  return relationships.map((rel) => ({
-    relationship: rel,
-    venue: venues.value.find((v) => v.id === rel.venueId) || {}
-  })).filter((item) => item.venue.id)
+  return relationships
+    .map((rel) => ({
+      relationship: rel,
+      venue: venues.value.find((v) => v.id === rel.venueId) || {}
+    }))
+    .filter((item) => item.venue.id)
 })
 </script>

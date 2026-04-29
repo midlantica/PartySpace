@@ -1,26 +1,30 @@
 <template>
-  <div class="space-y-2">
-    <div v-if="partySpacePeople.length === 0" class="text-sm text-gray-400 text-center py-4">
+  <div>
+    <div v-if="partySpacePeople.length === 0" class="text-sm text-gray-400 py-2">
       No guests yet. Invite someone!
     </div>
 
-    <div
-      v-for="person in partySpacePeople"
-      :key="person.id"
-      class="flex items-center justify-between bg-gray-50 rounded-lg px-3 py-2 group"
-    >
-      <span
-        class="text-sm text-gray-700 cursor-pointer hover:text-violet-600 transition flex-1"
-        @click="openEdit(person)"
+    <!-- Pill/chip style on desktop, list on mobile -->
+    <div class="flex flex-wrap gap-2">
+      <div
+        v-for="person in partySpacePeople"
+        :key="person.id"
+        class="ps-person-chip group"
       >
-        {{ person.name }}
-      </span>
-      <button
-        class="text-gray-300 hover:text-red-500 transition text-lg leading-none ml-2 opacity-0 group-hover:opacity-100"
-        @click="removePeople(person.id)"
-      >
-        &times;
-      </button>
+        <span
+          class="cursor-pointer hover:text-[#1a3a8f] transition"
+          @click="openEdit(person)"
+        >
+          {{ person.name }}
+        </span>
+        <button
+          class="text-gray-300 hover:text-red-500 transition leading-none ml-0.5"
+          title="Remove"
+          @click="removePeople(person.id)"
+        >
+          &times;
+        </button>
+      </div>
     </div>
 
     <!-- Edit person modal -->

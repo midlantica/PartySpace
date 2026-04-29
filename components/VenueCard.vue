@@ -1,9 +1,9 @@
 <template>
-  <div class="border border-gray-100 rounded-xl p-3 bg-gray-50">
-    <!-- Top bar -->
-    <div class="flex items-center justify-between mb-2">
+  <div class="rounded-xl border border-gray-200 bg-white shadow-sm mb-3 overflow-hidden">
+    <!-- Blue header bar: pencil | Time: HH:MM | × -->
+    <div class="ps-venue-header">
       <button
-        class="text-gray-400 hover:text-violet-600 transition p-1 rounded"
+        class="w-7 h-7 rounded-full bg-blue-200 flex items-center justify-center text-blue-500 hover:bg-blue-300 hover:text-blue-700 transition flex-shrink-0"
         title="Edit Venue"
         @click="showEdit = true"
       >
@@ -11,9 +11,9 @@
           <path d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z" />
         </svg>
       </button>
-      <span class="text-xs text-blue-600 font-medium">{{ partySpace.timeStart }}</span>
+      <span class="text-sm font-medium text-[#1a3a8f]">Time: {{ partySpace.timeStart }}</span>
       <button
-        class="text-gray-300 hover:text-red-500 transition text-lg leading-none"
+        class="text-gray-400 hover:text-red-500 transition text-xl leading-none"
         title="Remove venue"
         @click="handleRemove"
       >
@@ -21,18 +21,24 @@
       </button>
     </div>
 
-    <!-- Venue info -->
-    <h6 class="font-semibold text-gray-800 text-sm mb-0.5">{{ venue.name }}</h6>
-    <p class="text-xs text-gray-400 mb-2">Duration: {{ partyRelationship.duration }}hrs</p>
-
-    <!-- Map embed -->
-    <div v-if="venue.geourl" class="rounded overflow-hidden h-28">
-      <iframe
-        :src="venue.geourl"
-        class="w-full h-full border-0"
-        allowfullscreen
-        loading="lazy"
-      />
+    <!-- Venue body -->
+    <div class="p-4">
+      <div class="flex gap-3">
+        <!-- Left: name + duration -->
+        <div class="flex-1 min-w-0">
+          <h6 class="font-bold text-[#1a3a8f] text-base mb-1">{{ venue.name }}</h6>
+          <p class="text-sm text-gray-500">Duration: {{ partyRelationship.duration }}hrs</p>
+        </div>
+        <!-- Right: map embed -->
+        <div v-if="venue.geourl" class="w-36 h-24 rounded overflow-hidden flex-shrink-0">
+          <iframe
+            :src="venue.geourl"
+            class="w-full h-full border-0"
+            allowfullscreen
+            loading="lazy"
+          />
+        </div>
+      </div>
     </div>
 
     <!-- Edit modal -->
@@ -56,9 +62,15 @@ const props = defineProps({
 })
 
 const { removeVenue } = useVenues()
+const { partySpaceVenues, fetchPartySpaceVenues } = usePartySpaceVenues()
 const showEdit = ref(false)
 
 const handleRemove = async () => {
-  await removeVenue(props.venue.id)
+  // Remove the partySpaceVenue relationship (not the venue itself)
+  const config = useRuntimeConfig()
+  await $fetch(`${config.public.apiBase}/partySpaceVenues/${props.partyRelationship.id}`, {
+    method: 'DELETE'
+  })
+  await fetchPartySpaceVenues()
 }
 </script>

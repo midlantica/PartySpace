@@ -15,7 +15,7 @@
       "timeStart": "18:00",
       "description": "Come celebrate with food, drinks, and good vibes!",
       "userId": 1,
-      "isComplete": false
+      "isComplete": true
     }
   ],
   "venues": [
@@ -23,6 +23,21 @@
       "id": 1,
       "name": "Jeni's Splendid Ice Creams",
       "geourl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12891.221352621507!2d-86.8006545302246!3d36.122599949999994!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x410684f065c72c72!2sJeni&#39;s%20Splendid%20Ice%20Creams!5e0!3m2!1sen!2sus!4v1589206754848!5m2!1sen!2sus"
+    },
+    {
+      "name": "Somehwere cool!",
+      "geourl": "https://maps.app.goo.gl/D9JbnwECFnZLA5YX9",
+      "id": 2
+    },
+    {
+      "name": "Yeah boyy",
+      "geourl": "https://maps.app.goo.gl/D9JbnwECFnZLA5YX9",
+      "id": 3
+    },
+    {
+      "name": "Yeah boyy",
+      "geourl": "https://maps.app.goo.gl/D9JbnwECFnZLA5YX9",
+      "id": 4
     }
   ],
   "partySpaceVenues": [
@@ -31,6 +46,24 @@
       "partySpaceId": 1,
       "venueId": 1,
       "duration": 2
+    },
+    {
+      "duration": 3,
+      "partySpaceId": 1,
+      "venueId": 2,
+      "id": 2
+    },
+    {
+      "duration": 1,
+      "partySpaceId": 1,
+      "venueId": 3,
+      "id": 3
+    },
+    {
+      "duration": 3,
+      "partySpaceId": 1,
+      "venueId": 3,
+      "id": 4
     }
   ],
   "peoples": [
@@ -40,6 +73,20 @@
       "email": "jane@example.com",
       "partySpaceId": 1,
       "userId": 1
+    },
+    {
+      "name": "Fred Smith",
+      "email": "frsmith@chiii.com",
+      "partySpaceId": 1,
+      "userId": 1,
+      "id": 2
+    },
+    {
+      "name": "Jan Johnson",
+      "email": "jjohnson@gmail.com",
+      "partySpaceId": 1,
+      "userId": 1,
+      "id": 3
     }
   ]
 }

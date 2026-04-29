@@ -8,35 +8,53 @@
       Back to PartySpaces
     </button>
 
-    <div v-if="partySpace" class="grid grid-cols-1 lg:grid-cols-3 gap-5">
-      <!-- Left: PartySpace detail card -->
-      <div class="lg:col-span-1">
-        <PartySpaceComposeItem :party-space="partySpace" />
-      </div>
+    <div v-if="partySpace">
+      <!-- PartySpace detail card (full width) -->
+      <PartySpaceComposeItem :party-space="partySpace" class="mb-6" />
 
-      <!-- Middle: People -->
-      <div class="lg:col-span-1">
-        <div class="ps-card h-full">
-          <div class="flex items-center justify-between mb-4">
-            <h5 class="font-semibold text-gray-800">People</h5>
-            <button class="ps-btn-primary text-xs py-1 px-3" @click="showInvite = true">
-              ＋ Invite
-            </button>
+      <!-- Two-column layout: People (left) | Timeline + Venues (right) -->
+      <div class="flex gap-0">
+        <!-- Left column: People -->
+        <div class="w-64 flex-shrink-0 relative">
+          <!-- Vertical timeline line -->
+          <div class="absolute left-[5px] top-0 bottom-0 w-0.5 bg-gray-300" />
+
+          <!-- People section -->
+          <div class="relative pl-8 mb-8">
+            <div class="absolute left-0 top-2 ps-timeline-dot" />
+            <div class="flex items-center justify-between mb-4">
+              <h5 class="text-xl font-bold text-[#1a3a8f]">People</h5>
+              <button class="ps-btn-green text-sm py-1.5 px-4" @click="showInvite = true">
+                + Invite
+              </button>
+            </div>
+            <PeopleList :party-space-id="partySpaceId" />
           </div>
-          <PeopleList :party-space-id="partySpaceId" />
         </div>
-      </div>
 
-      <!-- Right: Venues -->
-      <div class="lg:col-span-1">
-        <div class="ps-card h-full">
-          <div class="flex items-center justify-between mb-4">
-            <h5 class="font-semibold text-gray-800">Venues</h5>
-            <button class="ps-btn-green text-xs py-1 px-3" @click="showVenueCreate = true">
-              ＋ Venue
-            </button>
+        <!-- Right column: Timeline + Venues -->
+        <div class="flex-1 relative pl-4">
+          <!-- Vertical timeline line -->
+          <div class="absolute left-[5px] top-0 bottom-0 w-0.5 bg-gray-300" />
+
+          <!-- Time pill -->
+          <div class="relative pl-8 mb-4">
+            <div class="absolute left-0 top-2 ps-timeline-dot" />
+            <span class="inline-block bg-[#1a3a8f] text-white text-sm font-semibold px-5 py-2 rounded-full">
+              {{ formatTime(partySpace.timeStart) }}
+            </span>
           </div>
-          <VenueList :party-space-id="partySpaceId" :party-space="partySpace" />
+
+          <!-- Venues section -->
+          <div class="relative pl-8">
+            <div class="flex items-center justify-between mb-4">
+              <h5 class="text-xl font-bold text-[#1a3a8f]">Venues</h5>
+              <button class="ps-btn-green text-sm py-1.5 px-4" @click="showVenueCreate = true">
+                + Venue
+              </button>
+            </div>
+            <VenueList :party-space-id="partySpaceId" :party-space="partySpace" />
+          </div>
         </div>
       </div>
     </div>
@@ -67,4 +85,13 @@ const partySpace = computed(() =>
 
 const showInvite = ref(false)
 const showVenueCreate = ref(false)
+
+// Format "18:00" → "6:00pm"
+const formatTime = (time) => {
+  if (!time) return ''
+  const [h, m] = time.split(':').map(Number)
+  const ampm = h >= 12 ? 'pm' : 'am'
+  const hour = h % 12 || 12
+  return `${hour}:${String(m).padStart(2, '0')}${ampm}`
+}
 </script>

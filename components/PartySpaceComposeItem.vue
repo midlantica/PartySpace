@@ -1,32 +1,41 @@
 <template>
   <div class="ps-card">
-    <!-- Edit pencil button -->
-    <div class="flex justify-end mb-2">
-      <button
-        class="text-gray-400 hover:text-violet-600 transition p-1 rounded"
-        title="Edit PartySpace"
-        @click="showEdit = true"
-      >
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
-          <path d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z" />
-        </svg>
-      </button>
-    </div>
+    <div class="flex gap-4">
+      <!-- Left: pencil edit button in blue circle -->
+      <div class="flex-shrink-0">
+        <button
+          class="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center text-blue-400 hover:bg-blue-200 hover:text-blue-600 transition"
+          title="Edit PartySpace"
+          @click="showEdit = true"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
+            <path d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z" />
+          </svg>
+        </button>
+      </div>
 
-    <h4 class="text-lg font-bold text-gray-800 mb-1">{{ partySpace.title }}</h4>
-    <p class="text-sm text-gray-500 mb-0.5">
-      <span class="font-medium text-gray-600">Date:</span> {{ partySpace.dateStart }}
-    </p>
-    <p class="text-sm text-gray-500 mb-2">
-      <span class="font-medium text-gray-600">Time:</span> {{ partySpace.timeStart }}
-    </p>
-    <p class="text-xs text-gray-400 mb-4">{{ partySpace.description }}</p>
+      <!-- Center: party space details -->
+      <div class="flex-1 min-w-0">
+        <h4 class="text-xl font-bold text-[#1a3a8f] mb-1">
+          🎉 {{ partySpace.title }}
+        </h4>
+        <p class="text-sm font-bold text-gray-800 mb-0.5">Date: {{ partySpace.dateStart }}</p>
+        <p class="text-sm font-bold text-gray-800 mb-3">Time: {{ partySpace.timeStart }}</p>
+        <p class="text-sm text-gray-500 leading-relaxed">{{ partySpace.description }}</p>
+      </div>
 
-    <div class="border-t border-gray-100 pt-3 mt-2">
-      <p class="text-xs text-gray-400 mb-2">When you're done, mark it complete:</p>
-      <button class="ps-btn-blue w-full" @click="showComplete = true">
-        PartySpace Complete! 🎉
-      </button>
+      <!-- Right: complete button box -->
+      <div class="flex-shrink-0 w-36">
+        <div class="border border-gray-200 rounded-xl p-3 text-center bg-gray-50 h-full flex flex-col items-center justify-center gap-2">
+          <p class="text-xs text-gray-500 leading-snug">When you're done click this button</p>
+          <button
+            class="ps-btn-blue w-full text-xs py-2 px-3 rounded-lg"
+            @click="showComplete = true"
+          >
+            PartySpace Complete!
+          </button>
+        </div>
+      </div>
     </div>
 
     <!-- Edit modal -->
