@@ -6,6 +6,9 @@ export const useAuth = () => {
 
   const isLoggedIn = loggedIn
 
+  // computed userId ref for backward compatibility with components that use useAuth()
+  const userId = computed(() => user.value?.id ?? null)
+
   const login = async (email, password) => {
     await $fetch('/api/auth/login', { method: 'POST', body: { email, password } })
     await refreshSession()
@@ -22,5 +25,5 @@ export const useAuth = () => {
     navigateTo('/')
   }
 
-  return { user, isLoggedIn, login, register, logout }
+  return { user, userId, isLoggedIn, login, register, logout }
 }
