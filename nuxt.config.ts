@@ -1,6 +1,9 @@
-// https://nuxt.com/docs/api/configuration/nuxt-config
+// https://nuxt.com/docs/getting-started/upgrade#nuxt-4
 export default defineNuxtConfig({
-  compatibilityDate: '2024-11-01',
+  compatibilityDate: '2025-01-01',
+  future: {
+    compatibilityVersion: 4
+  },
   devtools: { enabled: true },
   modules: ['@nuxtjs/tailwindcss', 'nuxt-auth-utils'],
   css: ['~/assets/css/main.css'],
