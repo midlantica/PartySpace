@@ -1,9 +1,0 @@
-.gridSection {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  grid-gap: 0.5rem;
-}
-
-.gridSection:last-of-type {
-  margin-bottom: 0;
-}

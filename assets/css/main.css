@@ -1,0 +1,55 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+
+  body {
+    @apply bg-gray-50 text-gray-800 min-h-screen;
+  }
+}
+
+@layer components {
+  .ps-btn {
+    @apply inline-flex items-center justify-center px-4 py-2 rounded-lg font-medium text-sm transition-all duration-150 cursor-pointer border-0 outline-none;
+  }
+  .ps-btn-primary {
+    @apply ps-btn bg-violet-600 text-white hover:bg-violet-700 active:bg-violet-800;
+  }
+  .ps-btn-blue {
+    @apply ps-btn bg-blue-600 text-white hover:bg-blue-700 active:bg-blue-800;
+  }
+  .ps-btn-green {
+    @apply ps-btn bg-green-600 text-white hover:bg-green-700 active:bg-green-800;
+  }
+  .ps-btn-gray {
+    @apply ps-btn bg-gray-200 text-gray-700 hover:bg-gray-300 active:bg-gray-400;
+  }
+  .ps-btn-danger {
+    @apply ps-btn bg-red-500 text-white hover:bg-red-600 active:bg-red-700;
+  }
+  .ps-btn-ghost {
+    @apply ps-btn bg-transparent text-violet-600 hover:bg-violet-50 border border-violet-300;
+  }
+
+  .ps-card {
+    @apply bg-white rounded-xl shadow-sm border border-gray-100 p-4;
+  }
+
+  .ps-input {
+    @apply w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-violet-400 focus:border-transparent transition;
+  }
+
+  .ps-label {
+    @apply block text-sm font-medium text-gray-700 mb-1;
+  }
+
+  .ps-fieldset {
+    @apply mb-4;
+  }
+}
