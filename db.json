@@ -1,0 +1,45 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "Drew Harper",
+      "email": "druharper@gmail.com",
+      "password": "1234"
+    }
+  ],
+  "partySpaces": [
+    {
+      "id": 1,
+      "title": "Drew's Birthday Bash",
+      "dateStart": "2026-06-15",
+      "timeStart": "18:00",
+      "description": "Come celebrate with food, drinks, and good vibes!",
+      "userId": 1,
+      "isComplete": false
+    }
+  ],
+  "venues": [
+    {
+      "id": 1,
+      "name": "Jeni's Splendid Ice Creams",
+      "geourl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12891.221352621507!2d-86.8006545302246!3d36.122599949999994!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x410684f065c72c72!2sJeni&#39;s%20Splendid%20Ice%20Creams!5e0!3m2!1sen!2sus!4v1589206754848!5m2!1sen!2sus"
+    }
+  ],
+  "partySpaceVenues": [
+    {
+      "id": 1,
+      "partySpaceId": 1,
+      "venueId": 1,
+      "duration": 2
+    }
+  ],
+  "peoples": [
+    {
+      "id": 1,
+      "name": "Jane Smith",
+      "email": "jane@example.com",
+      "partySpaceId": 1,
+      "userId": 1
+    }
+  ]
+}
