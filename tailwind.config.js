@@ -23,7 +23,7 @@ export default {
         'ps-gray-dark': '#374151',
       },
       fontFamily: {
-        sans: ['Inter', 'system-ui', 'sans-serif'],
+        sans: ['Dosis', 'system-ui', 'sans-serif'],
       },
     },
   },

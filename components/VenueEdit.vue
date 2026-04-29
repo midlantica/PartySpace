@@ -37,16 +37,12 @@
     </div>
     <p v-if="error" class="text-red-500 text-sm mb-3">{{ error }}</p>
     <div class="flex justify-between mt-2">
-      <button
-        type="button"
-        class="ps-btn-danger text-sm"
-        @click="handleDelete"
-      >
+      <PsButton type="button" variant="danger" corners="full" size="md" @click="handleDelete">
         Delete Venue
-      </button>
-      <button type="submit" class="ps-btn-primary" :disabled="loading">
+      </PsButton>
+      <PsButton type="submit" variant="blue" corners="full" size="md" :disabled="loading">
         {{ loading ? 'Saving…' : 'Save Venue' }}
-      </button>
+      </PsButton>
     </div>
   </form>
 </template>

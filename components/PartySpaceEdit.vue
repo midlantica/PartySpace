@@ -54,16 +54,12 @@
     <p v-if="error" class="text-red-500 text-sm mb-3">{{ error }}</p>
 
     <div class="flex justify-between mt-2">
-      <button
-        type="button"
-        class="ps-btn-gray text-red-500 hover:bg-red-50"
-        @click="$emit('close')"
-      >
+      <PsButton type="button" variant="grey" corners="full" size="md" @click="$emit('close')">
         Cancel
-      </button>
-      <button type="submit" class="ps-btn-primary" :disabled="loading">
+      </PsButton>
+      <PsButton type="submit" variant="blue" corners="full" size="md" :disabled="loading">
         {{ loading ? 'Saving…' : 'Save PartySpace' }}
-      </button>
+      </PsButton>
     </div>
   </form>
 </template>

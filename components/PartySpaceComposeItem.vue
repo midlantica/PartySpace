@@ -1,17 +1,13 @@
 <template>
   <div class="ps-card">
     <div class="flex gap-4">
-      <!-- Left: pencil edit button in blue circle -->
+      <!-- Left: pencil edit button -->
       <div class="flex-shrink-0">
-        <button
-          class="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center text-blue-400 hover:bg-blue-200 hover:text-blue-600 transition"
-          title="Edit PartySpace"
-          @click="showEdit = true"
-        >
+        <PsButton variant="grey" corners="square" size="sm" title="Edit PartySpace" @click="showEdit = true">
           <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
             <path d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z" />
           </svg>
-        </button>
+        </PsButton>
       </div>
 
       <!-- Center: party space details -->
@@ -26,14 +22,11 @@
 
       <!-- Right: complete button box -->
       <div class="flex-shrink-0 w-36">
-        <div class="border border-gray-200 rounded-xl p-3 text-center bg-gray-50 h-full flex flex-col items-center justify-center gap-2">
+        <div class="border border-gray-200 rounded-sm p-3 text-center bg-gray-50 h-full flex flex-col items-center justify-center gap-2">
           <p class="text-xs text-gray-500 leading-snug">When you're done click this button</p>
-          <button
-            class="ps-btn-blue w-full text-xs py-2 px-3 rounded-lg"
-            @click="showComplete = true"
-          >
+          <PsButton variant="blue" corners="square" size="sm" class="w-full" @click="showComplete = true">
             PartySpace Complete!
-          </button>
+          </PsButton>
         </div>
       </div>
     </div>

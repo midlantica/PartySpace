@@ -9,7 +9,7 @@
       </h3>
       <span
         v-if="partySpace.isComplete"
-        class="text-xs bg-green-100 text-green-700 px-2 py-0.5 rounded-full font-medium"
+        class="text-xs bg-green-100 text-green-700 px-2 py-0.5 rounded-sm font-medium"
       >
         Complete
       </span>

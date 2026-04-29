@@ -4,21 +4,21 @@
       No guests yet. Invite someone!
     </div>
 
-    <!-- Pill/chip style on desktop, list on mobile -->
-    <div class="flex flex-wrap gap-2">
+    <!-- Vertical list of person chips -->
+    <div class="flex flex-col gap-2">
       <div
         v-for="person in partySpacePeople"
         :key="person.id"
         class="ps-person-chip group"
       >
         <span
-          class="cursor-pointer hover:text-[#1a3a8f] transition"
+          class="cursor-pointer hover:text-[#1a3a8f] transition flex-1"
           @click="openEdit(person)"
         >
           {{ person.name }}
         </span>
         <button
-          class="text-gray-300 hover:text-red-500 transition leading-none ml-0.5"
+          class="ps-close-btn"
           title="Remove"
           @click="removePeople(person.id)"
         >

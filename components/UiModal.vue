@@ -15,7 +15,7 @@
           <div class="flex items-center justify-between px-6 py-4 border-b border-gray-100">
             <h3 class="text-lg font-semibold text-gray-800">{{ title }}</h3>
             <button
-              class="text-gray-400 hover:text-gray-600 transition text-2xl leading-none"
+              class="ps-close-btn"
               @click="$emit('update:modelValue', false)"
             >
               &times;

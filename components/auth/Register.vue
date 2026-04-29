@@ -48,9 +48,9 @@
         />
       </div>
       <p v-if="error" class="text-red-500 text-sm mb-3">{{ error }}</p>
-      <button type="submit" class="ps-btn-primary w-full mt-1" :disabled="loading">
+      <PsButton type="submit" variant="blue" corners="full" size="md" class="w-full mt-1" :disabled="loading">
         {{ loading ? 'Creating account…' : 'Register' }}
-      </button>
+      </PsButton>
     </form>
   </div>
 </template>

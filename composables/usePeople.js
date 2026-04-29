@@ -1,3 +1,5 @@
+import { useState } from 'nuxt/app'
+
 /**
  * People composable — uses Nuxt server API routes
  */

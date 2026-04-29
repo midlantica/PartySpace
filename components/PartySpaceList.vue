@@ -3,9 +3,10 @@
     <!-- Header row -->
     <div class="flex items-center justify-between mb-5">
       <h2 class="text-2xl font-bold text-gray-800">My PartySpaces</h2>
-      <button class="ps-btn-primary gap-2" @click="showCreate = true">
-        <span class="text-lg leading-none">＋</span> Add PartySpace
-      </button>
+      <PsButton variant="blue" corners="full" size="md" @click="showCreate = true">
+        <template #iconLeft><span class="text-lg leading-none">＋</span></template>
+        Add PartySpace
+      </PsButton>
     </div>
 
     <!-- Empty state -->

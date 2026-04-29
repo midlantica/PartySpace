@@ -25,9 +25,9 @@
     </div>
     <p v-if="error" class="text-red-500 text-sm mb-3">{{ error }}</p>
     <div class="flex justify-end">
-      <button type="submit" class="ps-btn-green" :disabled="loading">
+      <PsButton type="submit" variant="green" corners="full" size="md" :disabled="loading">
         {{ loading ? 'Saving…' : 'Invite' }}
-      </button>
+      </PsButton>
     </div>
   </form>
 </template>

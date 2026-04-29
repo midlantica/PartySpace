@@ -1,9 +1,9 @@
 <template>
-  <div class="rounded-xl border border-gray-200 bg-white shadow-sm mb-3 overflow-hidden">
-    <!-- Blue header bar: pencil | Time: HH:MM | × -->
+  <div class="rounded-sm border border-gray-200 bg-white shadow-sm mb-3 overflow-hidden">
+    <!-- Header bar: [edit btn] [time label — flex-1] [× close] -->
     <div class="ps-venue-header">
       <button
-        class="w-7 h-7 rounded-full bg-blue-200 flex items-center justify-center text-blue-500 hover:bg-blue-300 hover:text-blue-700 transition flex-shrink-0"
+        class="w-7 h-7 rounded-sm bg-blue-200 flex items-center justify-center text-blue-500 hover:bg-blue-300 hover:text-blue-700 transition flex-shrink-0"
         title="Edit Venue"
         @click="showEdit = true"
       >
@@ -11,12 +11,8 @@
           <path d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z" />
         </svg>
       </button>
-      <span class="text-sm font-medium text-[#1a3a8f]">Time: {{ partySpace.timeStart }}</span>
-      <button
-        class="text-gray-400 hover:text-red-500 transition text-xl leading-none"
-        title="Remove venue"
-        @click="handleRemove"
-      >
+      <span class="flex-1 text-sm font-semibold text-[#1a3a8f]">{{ formatTime(partySpace.timeStart) }}</span>
+      <button class="ps-close-btn" title="Remove venue" @click="handleRemove">
         &times;
       </button>
     </div>
@@ -30,7 +26,7 @@
           <p class="text-sm text-gray-500">Duration: {{ partyRelationship.duration }}hrs</p>
         </div>
         <!-- Right: map embed -->
-        <div v-if="venue.geourl" class="w-36 h-24 rounded overflow-hidden flex-shrink-0">
+        <div v-if="venue.geourl" class="w-36 h-24 rounded-sm overflow-hidden flex-shrink-0">
           <iframe
             :src="venue.geourl"
             class="w-full h-full border-0"
@@ -61,12 +57,18 @@ const props = defineProps({
   partyRelationship: { type: Object, required: true }
 })
 
-const { removeVenue } = useVenues()
-const { partySpaceVenues, fetchPartySpaceVenues } = usePartySpaceVenues()
+const { fetchPartySpaceVenues } = usePartySpaceVenues()
 const showEdit = ref(false)
 
+const formatTime = (time) => {
+  if (!time) return ''
+  const [h, m] = time.split(':').map(Number)
+  const ampm = h >= 12 ? 'PM' : 'AM'
+  const hour = h % 12 || 12
+  return `${hour}:${String(m).padStart(2, '0')} ${ampm}`
+}
+
 const handleRemove = async () => {
-  // Remove the partySpaceVenue relationship (not the venue itself)
   const config = useRuntimeConfig()
   await $fetch(`${config.public.apiBase}/partySpaceVenues/${props.partyRelationship.id}`, {
     method: 'DELETE'

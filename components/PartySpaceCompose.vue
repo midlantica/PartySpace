@@ -1,12 +1,14 @@
 <template>
   <div>
     <!-- Back button -->
-    <button class="ps-btn-ghost mb-5 gap-2" @click="$emit('back')">
-      <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
-        <path fill-rule="evenodd" d="M9.707 16.707a1 1 0 01-1.414 0l-6-6a1 1 0 010-1.414l6-6a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l4.293 4.293a1 1 0 010 1.414z" clip-rule="evenodd" />
-      </svg>
+    <PsButton variant="null" corners="full" size="md" class="mb-5" @click="$emit('back')">
+      <template #iconLeft>
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
+          <path fill-rule="evenodd" d="M9.707 16.707a1 1 0 01-1.414 0l-6-6a1 1 0 010-1.414l6-6a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l4.293 4.293a1 1 0 010 1.414z" clip-rule="evenodd" />
+        </svg>
+      </template>
       Back to PartySpaces
-    </button>
+    </PsButton>
 
     <div v-if="partySpace">
       <!-- PartySpace detail card (full width) -->
@@ -19,15 +21,19 @@
           <!-- Vertical timeline line -->
           <div class="absolute left-[5px] top-0 bottom-0 w-0.5 bg-gray-300" />
 
-          <!-- People section -->
-          <div class="relative pl-8 mb-8">
+          <!-- People section header: dot + "People" + "+ Invite" all on one line -->
+          <div class="relative pl-8 mb-4">
             <div class="absolute left-0 top-2 ps-timeline-dot" />
-            <div class="flex items-center justify-between mb-4">
+            <div class="flex items-center justify-between">
               <h5 class="text-xl font-bold text-[#1a3a8f]">People</h5>
-              <button class="ps-btn-green text-sm py-1.5 px-4" @click="showInvite = true">
+              <PsButton variant="green" corners="full" size="sm" @click="showInvite = true">
                 + Invite
-              </button>
+              </PsButton>
             </div>
+          </div>
+
+          <!-- People list -->
+          <div class="pl-8 mb-8">
             <PeopleList :party-space-id="partySpaceId" />
           </div>
         </div>
@@ -37,11 +43,11 @@
           <!-- Vertical timeline line -->
           <div class="absolute left-[5px] top-0 bottom-0 w-0.5 bg-gray-300" />
 
-          <!-- Time pill -->
+          <!-- Time pill (aligned with People header row) -->
           <div class="relative pl-8 mb-4">
             <div class="absolute left-0 top-2 ps-timeline-dot" />
-            <span class="inline-block bg-[#1a3a8f] text-white text-sm font-semibold px-5 py-2 rounded-full">
-              {{ formatTime(partySpace.timeStart) }}
+            <span class="inline-block text-white text-sm font-semibold px-5 py-2 rounded-full" style="background: linear-gradient(to bottom, #2a52c9 0%, #1a3a8f 50%, #0f2255 100%); box-shadow: 0 2px 6px rgba(26,58,143,0.35);">
+              {{n formatTime(partySpace.timeStart) }}
             </span>
           </div>
 
@@ -49,9 +55,9 @@
           <div class="relative pl-8">
             <div class="flex items-center justify-between mb-4">
               <h5 class="text-xl font-bold text-[#1a3a8f]">Venues</h5>
-              <button class="ps-btn-green text-sm py-1.5 px-4" @click="showVenueCreate = true">
+              <PsButton variant="green" corners="full" size="sm" @click="showVenueCreate = true">
                 + Venue
-              </button>
+              </PsButton>
             </div>
             <VenueList :party-space-id="partySpaceId" :party-space="partySpace" />
           </div>
