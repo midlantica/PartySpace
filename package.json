@@ -2,17 +2,17 @@
   "name": "partyspace",
   "private": true,
   "type": "module",
+  "packageManager": "pnpm@9.15.0",
   "scripts": {
     "build": "nuxt build",
     "dev": "nuxt dev",
     "api": "json-server --watch db.json --port 8088",
-    "start": "concurrently \"npm run api\" \"npm run dev\"",
+    "start": "concurrently \"pnpm run api\" \"pnpm run dev\"",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare"
   },
   "dependencies": {
-    "@nuxtjs/tailwindcss": "^6.12.0",
     "nuxt": "^3.13.0",
     "vue": "^3.5.0"
   },
