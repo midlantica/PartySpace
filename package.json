@@ -6,19 +6,21 @@
   "scripts": {
     "build": "nuxt build",
     "dev": "nuxt dev",
-    "api": "json-server --watch db.json --port 8088",
-    "start": "concurrently \"pnpm run api\" \"pnpm run dev\"",
+    "start": "nuxt dev",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare"
   },
   "dependencies": {
+    "better-sqlite3": "^12.9.0",
+    "drizzle-orm": "^0.45.2",
     "nuxt": "^3.13.0",
+    "nuxt-auth-utils": "^0.5.29",
     "vue": "^3.5.0"
   },
   "devDependencies": {
     "@nuxtjs/tailwindcss": "^6.12.0",
-    "concurrently": "^9.2.1",
-    "json-server": "^0.17.4"
+    "@types/better-sqlite3": "^7.6.13",
+    "drizzle-kit": "^0.31.10"
   }
 }

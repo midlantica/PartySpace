@@ -2,7 +2,7 @@
 export default defineNuxtConfig({
   compatibilityDate: '2024-11-01',
   devtools: { enabled: true },
-  modules: ['@nuxtjs/tailwindcss'],
+  modules: ['@nuxtjs/tailwindcss', 'nuxt-auth-utils'],
   css: ['~/assets/css/main.css'],
   app: {
     head: {
@@ -18,8 +18,8 @@ export default defineNuxtConfig({
     }
   },
   runtimeConfig: {
-    public: {
-      apiBase: 'http://localhost:8088'
+    session: {
+      password: 'partyspace-secret-key-min-32-chars-long!!'
     }
   }
 })

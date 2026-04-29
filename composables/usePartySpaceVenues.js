@@ -1,25 +1,27 @@
 /**
- * PartySpaceVenues (join table) composable
+ * PartySpaceVenues (join table) composable — uses Nuxt server API routes
  */
 export const usePartySpaceVenues = () => {
-  const config = useRuntimeConfig()
-  const base = config.public.apiBase
-
   const partySpaceVenues = useState('partySpaceVenues', () => [])
 
   const fetchPartySpaceVenues = async () => {
-    partySpaceVenues.value = await $fetch(`${base}/partySpaceVenues`)
+    partySpaceVenues.value = await $fetch('/api/partySpaceVenues')
   }
 
   const addPartySpaceVenue = async (psv) => {
-    await $fetch(`${base}/partySpaceVenues`, { method: 'POST', body: psv })
+    await $fetch('/api/partySpaceVenues', { method: 'POST', body: psv })
     await fetchPartySpaceVenues()
   }
 
   const updatePartySpaceVenue = async (psv) => {
-    await $fetch(`${base}/partySpaceVenues/${psv.id}`, { method: 'PUT', body: psv })
+    await $fetch(`/api/partySpaceVenues/${psv.id}`, { method: 'PUT', body: psv })
     await fetchPartySpaceVenues()
   }
 
-  return { partySpaceVenues, fetchPartySpaceVenues, addPartySpaceVenue, updatePartySpaceVenue }
+  const removePartySpaceVenue = async (id) => {
+    await $fetch(`/api/partySpaceVenues/${id}`, { method: 'DELETE' })
+    await fetchPartySpaceVenues()
+  }
+
+  return { partySpaceVenues, fetchPartySpaceVenues, addPartySpaceVenue, updatePartySpaceVenue, removePartySpaceVenue }
 }
