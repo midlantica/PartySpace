@@ -17,13 +17,7 @@
         >
           {{ person.name }}
         </span>
-        <button
-          class="ps-close-btn"
-          title="Remove"
-          @click="removePeople(person.id)"
-        >
-          &times;
-        </button>
+        <PsCloseBtn title="Remove" @click="removePeople(person.id)" />
       </div>
     </div>
 

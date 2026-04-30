@@ -26,7 +26,7 @@
             <div class="absolute left-0 top-2 ps-timeline-dot" />
             <div class="flex items-center justify-between">
               <h5 class="text-xl font-bold text-[#1a3a8f]">People</h5>
-              <PsButton variant="green" corners="full" size="sm" @click="showInvite = true">
+              <PsButton variant="green" corners="full" size="lg" @click="showInvite = true">
                 + Invite
               </PsButton>
             </div>
@@ -47,7 +47,7 @@
           <div class="relative pl-8 mb-4">
             <div class="absolute left-0 top-2 ps-timeline-dot" />
             <span class="inline-block text-white text-sm font-semibold px-5 py-2 rounded-full" style="background: linear-gradient(to bottom, #2a52c9 0%, #1a3a8f 50%, #0f2255 100%); box-shadow: 0 2px 6px rgba(26,58,143,0.35);">
-              {{n formatTime(partySpace.timeStart) }}
+              {{ formatTime(partySpace.timeStart) }}
             </span>
           </div>
 
@@ -55,7 +55,7 @@
           <div class="relative pl-8">
             <div class="flex items-center justify-between mb-4">
               <h5 class="text-xl font-bold text-[#1a3a8f]">Venues</h5>
-              <PsButton variant="green" corners="full" size="sm" @click="showVenueCreate = true">
+              <PsButton variant="green" corners="full" size="lg" @click="showVenueCreate = true">
                 + Venue
               </PsButton>
             </div>

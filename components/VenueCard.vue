@@ -12,9 +12,7 @@
         </svg>
       </button>
       <span class="flex-1 text-sm font-semibold text-[#1a3a8f]">{{ formatTime(partySpace.timeStart) }}</span>
-      <button class="ps-close-btn" title="Remove venue" @click="handleRemove">
-        &times;
-      </button>
+      <PsCloseBtn title="Remove venue" @click="handleRemove" />
     </div>
 
     <!-- Venue body -->

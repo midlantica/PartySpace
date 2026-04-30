@@ -5,7 +5,7 @@ export default defineNuxtConfig({
     compatibilityVersion: 4
   },
   devtools: { enabled: true },
-  modules: ['@nuxtjs/tailwindcss', 'nuxt-auth-utils'],
+  modules: ['@nuxtjs/tailwindcss', 'nuxt-auth-utils', '@nuxtjs/mcp-toolkit', '@nuxtjs/mcp-toolkit'],
   css: ['~/assets/css/main.css'],
   app: {
     head: {

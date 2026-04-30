@@ -44,17 +44,6 @@
     height: 2.25rem; /* fixed height so X can be 75% */
   }
 
-  /* X close button inside a chip or header bar */
-  .ps-close-btn {
-    @apply flex items-center justify-center rounded-full
-           text-gray-400 hover:text-red-500 hover:bg-red-50
-           transition flex-shrink-0 font-bold leading-none;
-    width:  1.6rem;
-    height: 1.6rem;
-    font-size: 1.15rem;
-    margin-left: 0.25rem;
-  }
-
   /* Venue card header bar */
   .ps-venue-header {
     @apply flex items-center bg-[#dce8f8] rounded-t-sm px-3 py-2;

@@ -69,7 +69,7 @@ defineProps({
 /* ── Size variants ────────────────────────────────────────────── */
 .ps-btn--sm { font-size: 0.75rem;  padding: 0.2rem  0.75rem 0.28rem; }
 .ps-btn--md { font-size: 0.875rem; padding: 0.35rem 1rem    0.45rem; }
-.ps-btn--lg { font-size: 1rem;     padding: 0.5rem  1.5rem  0.6rem;  }
+.ps-btn--lg { font-size: 1rem;     padding: 0.55rem 1.5rem  0.75rem; }
 
 /* ── Disabled ─────────────────────────────────────────────────── */
 .ps-btn--disabled { opacity: 0.5; cursor: not-allowed; }
